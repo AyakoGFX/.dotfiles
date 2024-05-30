@@ -1,6 +1,4 @@
 require("config.lazy")
--- require("config.trans")
--- require("ibl").setup()
 --add if facing error with transparent settings
 require("ibl")
 -- <leader> key
