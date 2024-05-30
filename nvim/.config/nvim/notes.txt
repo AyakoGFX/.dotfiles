@@ -9,6 +9,7 @@ prettier
 
 
 za  Toggle fold
+za  Toggle fold
 zc  Close fold
 zC  Close all folds
 zo  Open fold
