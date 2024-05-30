@@ -2,7 +2,8 @@ auto update on off in lazy.lua
   checker = { enabled = false }, -- automatically check for plugin updates
 
 install all in one cmd 
-MasonInstall eslint-lsp eslint_d tailwindcss-language-server emmet-language-server htmlhint stylua shfmt prettier html-lsp css-lsp css-variables-language-server emmet-ls cssmodules-language-server typescript-language-server lua-language-server js-debug-adapter
+MasonInstall eslint-lsp eslint_d tailwindcss-language-server emmet-language-server htmlhint stylua shfmt html-lsp css-lsp css-variables-language-server emmet-ls cssmodules-language-server typescript-language-server lua-language-server js-debug-adapter
+prettier
 
 
 
