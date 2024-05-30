@@ -1,0 +1,39 @@
+* {:index:}
+* Neorg Keybindings
+  localleader = '\'
+** Task an Object Management
+  -- `<<`: Demote Object (Recursively)
+  -- `<,`: Demote Object (Non-Recursively)
+  -- `>>`: Promote Object (Recursively)
+  -- `>.`: Promote Object (Non-Recursively)
+** Link and Reference Navigation:
+  -- `gd`: Jump to Link
+  -- `gf`: Jump to Link
+  -- `gF`: Jump to Link
+  -- `<CR>`: Jump to Link
+  -- `<M-CR>`: Jump to Link (Vertical Split)
+** (?) Task States
+  -- `\tu`: Mark as Undone
+  -- `\tp`: Mark as Pending
+  -- `\td`: Mark as Done
+  -- `\th`: Mark as On Hold
+  -- `\tc`: Mark as Cancelled
+  -- `\tr`: Mark as Recurring
+  -- `\ti`: Mark as Important
+  -- `\ta`: Mark as Ambiguous
+** Other Features
+  -- `\nn`: Create New Note
+  -- `\lt`: Toggle (Un)ordered List
+  -- `\li`: Invert (Un)ordered List
+  -- `\id`: Insert Date
+  -- `\ml`: Neorg Mode Traverse Link
+  -- `\mh`: Neorg Mode Traverse Heading
+  -- `\mn`: Neorg Mode Norg
+** Table of Contents
+   -- `gO`: Neorg Table of Contents (split view)
+** General Navigation
+*** Previous/Next Reference
+   -- `[[`: Previous Reference
+   -- `]]`: Next Reference
+** Task Cycling
+   -- `<C-Space>`: Cycle Task

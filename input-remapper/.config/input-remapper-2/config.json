@@ -1,0 +1,7 @@
+{
+    "version": "2.0.1",
+    "autoload": {
+        "CASUE USB KB": "VIM",
+        "AT Translated Set 2 keyboard": "new preset"
+    }
+}

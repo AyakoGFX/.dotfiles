@@ -1,0 +1,102 @@
+To open the terminal in LazyVim, you can use the following keybindings:
+
+<leader>ft: Open Terminal (Root Dir) (Normal mode)
+<leader>fT: Open Terminal (cwd) (Normal mode) current working dir
+<c-/>: Open Terminal (Root Dir) (Normal mode) menimixe
+
+Here's a cheatsheet for LazyVim commands:
+
+General:
+
+<C-h>: Go to Left Window (Normal and Terminal modes)
+<C-j>: Go to Lower Window (Normal and Terminal modes)
+<C-k>: Go to Upper Window (Normal and Terminal modes)
+<C-l>: Go to Right Window (Normal and Terminal modes)
+<C-Up>: Increase Window Height (Normal mode)
+<C-Down>: Decrease Window Height (Normal mode)
+<C-Left>: Decrease Window Width (Normal mode)
+<C-Right>: Increase Window Width (Normal mode)
+<A-j>: Move Down (Normal, Insert, and Visual modes)
+<A-k>: Move Up (Normal, Insert, and Visual modes)
+<S-h>: Prev Buffer (Normal mode)
+<S-l>: Next Buffer (Normal mode)
+[b: Prev Buffer (Normal mode)
+]b: Next Buffer (Normal mode)
+<leader>bb: Switch to Other Buffer (Normal mode)
+`<leader>``: Switch to Other Buffer (Normal mode)
+<esc>: Escape and Clear hlsearch (Insert and Normal modes)
+<leader>ur: Redraw / Clear hlsearch / Diff Update (Normal mode)
+n: Next Search Result (Normal, Visual, and Operator-pending modes)
+N: Prev Search Result (Normal, Visual, and Operator-pending modes)
+<C-s>: Save File (Insert, Visual, Normal, and Select modes)
+<leader>K: Keywordprg (Normal mode)
+<leader>l: Lazy (Normal mode)
+<leader>fn: New File (Normal mode)
+<leader>xl: Location List (Normal mode)
+<leader>xq: Quickfix List (Normal mode)
+Mini Plugins:
+
+<leader>up: Toggle Auto Pairs (Normal mode)
+LSP:
+
+<leader>cl: Lsp Info (Normal mode)
+gd: Goto Definition (Normal mode)
+gr: References (Normal mode)
+gD: Goto Declaration (Normal mode)
+gI: Goto Implementation (Normal mode)
+gy: Goto Type Definition (Normal mode)
+K: Hover (Normal mode)
+gK: Signature Help (Normal mode)
+<c-k>: Signature Help (Insert mode)
+<leader>ca: Code Action (Normal and Visual modes)
+<leader>cc: Run Codelens (Normal and Visual modes)
+<leader>cC: Refresh & Display Codelens (Normal mode)
+<leader>cA: Source Action (Normal mode)
+<leader>cr: Rename (Normal mode)
+
+Mini.pairs:
+
+<leader>up: Toggle Auto Pairs (Normal mode)
+
+Mini.surround:
+
+gsa: Add Surrounding (Normal and Visual modes)
+gsd: Delete Surrounding (Normal mode)
+gsf: Find Right Surrounding (Normal mode)
+gsF: Find Left Surrounding (Normal mode)
+gsh: Highlight Surrounding (Normal mode)
+gsn: Update MiniSurround.config.n_lines (Normal mode)
+gsr: Replace Surrounding (Normal mode)
+Bufferline.nvim:
+
+<leader>bl: Delete Buffers to the Left (Normal mode)
+<leader>bo: Delete Other Buffers (Normal mode)
+<leader>bp: Toggle Pin (Normal mode)
+<leader>bP: Delete Non-Pinned Buffers (Normal mode)
+<leader>br: Delete Buffers to the Right (Normal mode)
+Conform.nvim:
+
+<leader>cF: Format Injected Langs (Normal and Visual modes)
+Flash.nvim:
+
+<c-s>: Toggle Flash Search (Command-line mode)
+r: Remote Flash (Operator-pending mode)
+R: Treesitter Search (Operator-pending and Visual modes)
+s: Flash (Normal, Operator-pending, and Visual modes)
+S: Flash Treesitter (Normal, Operator-pending, and Visual modes)
+Mason.nvim:
+
+<leader>cm: Mason (Normal mode)
+Mini.bufremove:
+
+<leader>bd: Delete Buffer (Normal mode)
+<leader>bD: Delete Buffer (Force) (Normal mode)
+Neo-tree.nvim:
+
+<leader>be: Buffer Explorer (Normal mode)
+<leader>e: Explorer NeoTree (Root Dir) (Normal mode)
+<leader>E: Explorer NeoTree (cwd) (Normal mode)
+<leader>fe: Explorer NeoTree (Root Dir) (Normal mode)
+<leader>fE: Explorer NeoTree (cwd) (Normal mode)
+<leader>ge: Git Explorer (Normal mode)
+

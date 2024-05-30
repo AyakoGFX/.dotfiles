@@ -1,0 +1,66 @@
+auto update on off in lazy.lua
+  checker = { enabled = false }, -- automatically check for plugin updates
+
+install all in one cmd 
+MasonInstall eslint-lsp eslint_d tailwindcss-language-server emmet-language-server htmlhint stylua shfmt prettier html-lsp css-lsp css-variables-language-server emmet-ls cssmodules-language-server typescript-language-server lua-language-server js-debug-adapter
+
+
+
+
+za  Toggle fold
+zc  Close fold
+zC  Close all folds
+zo  Open fold
+zO  Open all folds
+zr  Reduce folding level by one
+zR  Open all folds recursively
+zm  More folding
+zM  Close all folds recursively
+
+
+
+zM  Close all foldlds recursively cursively
+
+
+
+zM  "lose all foldld"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

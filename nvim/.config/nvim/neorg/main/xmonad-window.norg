@@ -1,0 +1,3 @@
+{:index:}
+* install
+  sudo pacman -S xmonad-contrib xmonad

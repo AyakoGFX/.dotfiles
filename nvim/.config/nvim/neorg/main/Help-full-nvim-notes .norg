@@ -1,0 +1,52 @@
+* {:index:}
+* Debugger Keybindings
+  -- `<leader>da`: Run with Args
+  -- `<leader>db`: Toggle Breakpoint
+  -- `<leader>dB`: Breakpoint Condition
+  -- `<leader>dc`: Continue
+  -- `<leader>dC`: Run to Cursor
+  -- `<leader>dg`: Go to Line (No Execute)
+  -- `<leader>di`: Step Into
+  -- `<leader>dj`: Down
+  -- `<leader>dk`: Up
+  -- `<leader>dl`: Run Last
+  -- `<leader>do`: Step Out
+  -- `<leader>dO`: Step Over
+  -- `<leader>dp`: Pause
+  -- `<leader>dr`: Toggle REPL
+  -- `<leader>ds`: Session
+  -- `<leader>dt`: Terminate
+  -- `<leader>dw`: Widgets
+
+* oil filemanager keymaps
+  -- `g?`: Show help (`actions.show_help`)
+  -- `<CR>`: Select (`actions.select`)
+  -- `<C-s>`: Select vsplit (`actions.select_vsplit`)
+  -- `<C-h>`: Select split (`actions.select_split`)
+  -- `<C-t>`: Select tab (`actions.select_tab`)
+  -- `<C-p>`: Preview (`actions.preview`)
+  -- `<C-c>`: Close (`actions.close`)
+  -- `<C-l>`: Refresh (`actions.refresh`)
+  -- `-`: Parent (`actions.parent`)
+  -- `_`: Open cwd (`actions.open_cwd`)
+  -- \`:\` Change directory (`actions.cd`)
+  -- `~`: Toggle change directory (`actions.tcd`)
+  -- `gs`: Change sort (`actions.change_sort`)
+  -- `gx`: Open external (`actions.open_external`)
+  -- `H`: Toggle hidden (`actions.toggle_hidden`) -- Updated key mapping
+  -- `g\`: Toggle trash (`actions.toggle_trash`)
+
+* Folding  Tags in LazyVim
+** To fold HTML tags in LazyVim, you can use the following keymaps:
+   -- `za`: Toggle fold
+   -- `zc`: Close fold
+   -- `zC`: Close all folds
+   -- `zo`: Open fold
+   -- `zO`: Open all folds
+   -- `zr`: Reduce folding level by one
+   -- `zR`: Open all folds recursively
+   -- `zm`: More folding
+   -- `zM`: Close all folds recursively
+
+These keymaps work in normal mode (`n`). So, for example, if you want to toggle a fold, you'd press `za` while in normal mode with your cursor positioned over the line containing the HTML tag you want to fold.
+

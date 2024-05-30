@@ -1,0 +1,55 @@
+[
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 58,
+                "origin_hash": "0df5be1d762f356bd1ae2648f339783d"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Escape",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 1,
+                "origin_hash": "0df5be1d762f356bd1ae2648f339783d"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Caps_Lock",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 42,
+                "origin_hash": "0df5be1d762f356bd1ae2648f339783d"
+            },
+            {
+                "type": 1,
+                "code": 39,
+                "origin_hash": "0df5be1d762f356bd1ae2648f339783d"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "semicolon",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 39,
+                "origin_hash": "0df5be1d762f356bd1ae2648f339783d"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Shift_L + semicolon",
+        "mapping_type": "key_macro"
+    }
+]

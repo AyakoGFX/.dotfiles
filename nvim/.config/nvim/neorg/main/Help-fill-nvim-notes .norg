@@ -1,0 +1,3 @@
+{:index:}
+* nvim clear all marks 
+   delm! | delm A-Z0-9

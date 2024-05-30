@@ -1,0 +1,33 @@
+* {:index:}
+* {:doom for noobs:}
+* install 
+  git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+  ~/.config/emacs/bin/doom install
+
+* arch required dependencies
+  pacman -S git emacs ripgrep
+  pacman -S fd
+
+* uninstall cmds 
+  rm -rf .config/doom
+
+  rm -rf .config/emacs
+
+  rm -rf ~/.emacs
+
+  rm -rf ~/.emacs.d
+
+  rm -rf ~/.doom
+
+  rm -rf ~/.doom.d
+
+** trubleshoot 
+   if not opening or loading doom emacs del this this folder again
+  rm -rf ~/.emacs.d
+
+** add path to .bashrc .zshrc
+   export PATH="$HOME/.emacs.d/bin:$PATH"
+   export PATH="$HOME/.config/emacs/bin:$PATH"
+** add emacs calint 
+   exec /usr/bin/emacs --daemon
+   

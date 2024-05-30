@@ -1,0 +1,42 @@
+* {:index:}
+  see pacman installed packagesO
+  pacman -Q
+
+
+* install nerd font 
+  sudo pacman -Syu
+  sudo pacman -S ttf-firacode-nerd
+
+** fi needed
+   mkdir -p ~/.local/share/fonts
+
+* verify installation
+  ls /usr/share/fonts/TTF | grep "FiraCode"
+  fc-list | grep "FiraCode"
+
+* install live-server
+  npm install -g live-server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
