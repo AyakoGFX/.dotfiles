@@ -13,6 +13,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.dap.core" },
+    { import = "lazyvim.plugins.extras.test.core" },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
     -- { import = "lazyvim.plugins.extras.lang.json" },
@@ -48,21 +49,3 @@ require("lazy").setup({
     },
   },
 })
-
--- enable trasparent
--- function ColorMyPencils(color)
---   color = color or "vscode"
---   vim.cmd.colorscheme(color)
---   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
---   vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
---   vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
---   vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none" })
---
---   local success, err = pcall(vim.api.nvim_set_hl, 0, "IblScope", { bg = "none" })
---   if not success then
---     print("Error setting IblScope highlight: " .. err)
---   else
---     print("IblScope highlight set successfully")
---   end
--- end
--- ColorMyPencils()
