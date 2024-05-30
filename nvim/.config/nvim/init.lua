@@ -1,6 +1,7 @@
 require("config.lazy")
 -- require("config.trans")
 -- require("ibl").setup()
+--add if facing error with transparent settings
 require("ibl")
 -- <leader> key
 --vim.g.mapleader = ' '
@@ -56,7 +57,6 @@ vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 -- -- enable trasparent
--- local function set_highlight()
 vim.api.nvim_set_hl(0, "normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "linenr", { bg = "none" })
