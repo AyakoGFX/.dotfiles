@@ -63,7 +63,7 @@ vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
 
 -- Remap Ctrl-Backspace to delete the previous word in insert mode
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap("c", "<C-W>", "<C-BS>", { noremap = true, silent = true })
 -- Switch buffers
 vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
@@ -102,3 +102,6 @@ vim.opt.clipboard:append("unnamedplus")
 
 -- disable "ignorecase" option if the search pattern contains upper case characters
 --vim.opt.smartcase = true
+--
+
+-- lua/config/keymaps.lua

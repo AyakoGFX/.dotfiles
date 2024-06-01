@@ -2,6 +2,10 @@
   see pacman installed packagesO
   pacman -Q
 
+  manually_installed_packages
+
+  pacman -Qe > manually_installed_packages.txt
+
 
 * install nerd font 
   sudo pacman -Syu
