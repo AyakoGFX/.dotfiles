@@ -28,7 +28,9 @@ sudo pacman -S gnome-disk-utility
 sudo pacman -S baobab
 sudo pacman -S ripgrep
 sudo pacman -S ttf-firacode-nerd
-sudo pacman -S krusader
+# sudo pacman -S krusader
+# ambaint music player gtk
+sudo pacman -S blanket
 # yay -S Kmonad-bin
 #sudo pacman -S xorg-xmodmap
 #sudo pacman -S xorg-xev
