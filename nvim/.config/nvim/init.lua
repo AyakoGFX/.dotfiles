@@ -68,6 +68,8 @@ vim.api.nvim_set_keymap("c", "<C-W>", "<C-BS>", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
 
+-- Keybinding to open dashboard-nvim when pressing <leader>rd
+vim.api.nvim_set_keymap("n", "<leader>rd", ":Dashboard<CR>", { noremap = true, silent = true })
 --vim.keymap.set({ 'n', 'v' }, 'j', 'h')
 --vim.keymap.set({ 'n', 'v' }, 'k', 'j')
 --vim.keymap.set({ 'n', 'v' }, 'l', 'k')
@@ -105,3 +107,34 @@ vim.opt.clipboard:append("unnamedplus")
 --
 
 -- lua/config/keymaps.lua
+if vim.g.neovide then
+  vim.g.neovide_refresh_rate = 144
+  vim.g.neovide_refresh_rate_idle = 6
+  vim.g.neovide_window_blurred = true
+  vim.g.neovide_remember_window_size = true
+  vim.g.neovide_fullscreen = true
+  -- enables the profiler, which shows a frametime graph in the upper left corner.
+  vim.g.neovide_profiler = false
+
+  vim.g.neovide_floating_blur_amount_x = 2.0
+  vim.g.neovide_floating_blur_amount_y = 2.0
+
+  vim.g.neovide_floating_shadow = true
+  vim.g.neovide_transparency = 0.6
+  vim.g.neovide_floating_z_height = 10
+  vim.g.neovide_light_angle_degrees = 45
+  vim.g.neovide_light_radius = 5
+  vim.g.neovide_cursor_smooth_blink = true
+
+  -- Dynamically Change The Scale At Runtime?
+  vim.g.neovide_scale_factor = 1.0
+  local change_scale_factor = function(delta)
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+  end
+  vim.keymap.set("n", "<C-=>", function()
+    change_scale_factor(1.03)
+  end)
+  vim.keymap.set("n", "<C-->", function()
+    change_scale_factor(1 / 1.03)
+  end)
+end
