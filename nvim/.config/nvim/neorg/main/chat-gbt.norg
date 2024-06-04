@@ -1,3 +1,8 @@
+
+i want my bacground colour to be black 
+
+in alacritty terminal this is my config do that
+
 live_config_reload = true
 
 [env]
@@ -14,12 +19,12 @@ style = "Regular"
 [window]
 decorations = "buttonless"
 dynamic_padding = false
-opacity = 0.63
+opacity = 0.85
 
 [colors]
 
 [colors.primary]
-background = "#000000"
+background = "#1e1e2e"
 foreground = "#cdd6f4"
 dim_foreground = "#7f849c"
 bright_foreground = "#cdd6f4"
@@ -34,28 +39,27 @@ cursor = "#b4befe"
 
 [colors.search.matches]
 foreground = "#1e1e2e"
-background = "#000000"
+background = "#a6adc8"
 
 [colors.search.focused_match]
 foreground = "#1e1e2e"
-background = "#000000"
+background = "#a6e3a1"
 
 [colors.footer_bar]
 foreground = "#1e1e2e"
-background = "#000000"
+background = "#a6adc8"
 
 [colors.hints.start]
 foreground = "#1e1e2e"
-background = "#000000"
+background = "#f9e2af"
 
 [colors.hints.end]
 foreground = "#1e1e2e"
-background = "#000000"
+background = "#a6adc8"
 
 [colors.selection]
 text = "#1e1e2e"
-# background = "#7C8BDA"
-background = "#7f849c"
+background = "#f5e0dc"
 
 [colors.normal]
 black = "#45475a"

@@ -20,9 +20,9 @@ zm  More folding
 zM  Close all folds recursively
 
 
-zf  Close all foldlds recursively cursively
+zM  Close all foldlds recursively cursively
 
-
+gsa
 
 zM  "lose all foldld"
 
