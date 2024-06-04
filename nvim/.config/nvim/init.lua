@@ -1,5 +1,7 @@
 require("config.lazy")
+require("config.Telescope-keymaps")
 --add if facing error with transparent settings
+--Telescope-keymaps.lua
 if vim.g.neovide then
   require("config.neo-gui")
 end
