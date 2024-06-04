@@ -21,6 +21,7 @@ sudo pacman -S --noconfirm emacs
 sudo pacman -S --noconfirm google-chrome
 sudo pacman -S --noconfirm fzf
 sudo pacman -S --noconfirm zsh
+sudo pacman -S --yay -S lazygit
 sudo pacman -S --noconfirm xclip
 yay -S --noconfirm paru
 yay -S --noconfirm paru-bin
