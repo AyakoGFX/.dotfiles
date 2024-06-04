@@ -19,7 +19,4 @@ sudo pacman -S nitrogen
 # Install i3 window manager using pacman
 sudo pacman -S i3
 
-sudo pacman -S alacritty
-
 git clone https://github.com/marcoplaitano/wallpapers.git ~/Pictures
-
