@@ -38,6 +38,9 @@ sudo pacman -S screenkey            # Install Screenkey
 sudo pacman -S vlc                  # Install vlc
 sudo pacman -S mpv                  # Install mpv
 sudo pacman -S neovide              # Install neovide
+# install fonts
+sudo pacman -S ttf-jetbrains-mono-nerd
+sudo pacman -S ttf-firacode-nerd
 # sudo pacman -S krusader           # Install Krusader file manager
 sudo pacman -S blanket # ambaint music player gtk
 # yay -S Kmonad-bin
