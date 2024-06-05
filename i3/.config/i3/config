@@ -196,7 +196,7 @@ new_window 1pixel
 # gaps outer 10
 
 # class                 border  bground text    indicator child_border
-client.focused          #000000 #000000 #000000 #000000 #000000
+client.focused          #000000 #000000 #000000 #000000   #424769
 
 ###deamon
 # Restore GNOME's settings
@@ -215,6 +215,6 @@ exec --no-startup-id xset r rate 250 60
 ############################################################################################
 # light
 #sudo pacman -S brightnessctl
-
 bindsym $mod+w exec brightnessctl set +5%
 bindsym $mod+s exec brightnessctl set 5%-
+
