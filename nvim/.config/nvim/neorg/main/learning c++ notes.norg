@@ -1,0 +1,11 @@
+to print
+
+#include <iostream>
+int main() {
+  std::cout << "1 line" << '\n';
+  std::cout << "2 line" << '\n';
+  std::cout << "3 line" << '\n';
+  return 0;
+}
+
+    

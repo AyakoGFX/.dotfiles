@@ -4,7 +4,8 @@ vim.api.nvim_set_keymap("n", "<leader>tC", "<cmd>Telescope commands<CR>", { nore
 vim.api.nvim_set_keymap("n", "<leader>tc", "<cmd>:Telescope colorscheme<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>to", "<cmd>:Telescope oldfiles<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>tR", "<cmd>:Telescope registers<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ts", "<cmd>:Telescope builtin<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tb", "<cmd>:Telescope buffers<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ta", "<cmd>:Telescope builtin<CR>", { noremap = true })
 -- TODO
 -- Telescope commands
 -- :Telescope find_files
