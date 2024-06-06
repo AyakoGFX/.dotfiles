@@ -49,7 +49,7 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "Shift_L + semicolon",
+        "output_symbol": "semicolon",
         "mapping_type": "key_macro"
     }
 ]

@@ -111,8 +111,10 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 alias c=clear
 alias mkd=mkdir
 alias :q=exit
-
-
+alias c=clear
+alias cr='cargo run'
+alias cb='cargo build'
+alias cn='cargo new'
 
 
 

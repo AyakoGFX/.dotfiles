@@ -6,7 +6,7 @@ in alacritty terminal this is my config do that
 live_config_reload = true
 
 [env]
-TERM = "xterm-256color"
+  TERM = "xterm-256color"
 
 [font]
 size = 14.0
