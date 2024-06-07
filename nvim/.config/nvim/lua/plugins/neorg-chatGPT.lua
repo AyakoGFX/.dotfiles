@@ -9,30 +9,14 @@ return {
       load = {
         ["core.defaults"] = {},
         ["core.concealer"] = {},
-        -- ["core.tempus"] = {},
-        -- ["core.keybinds"] = {
-        --   config = {
-        --     default_keybinds = true, -- Enable default keybindings
-        --     -- neorg_leader = "<Leader>o", -- Set leader key for Neorg
-        --     hook = function(keybinds)
-        --       -- Add custom keybindings here
-        --       keybinds.map(
-        --         "norg",
-        --         "n",
-        --         "<Leader>on",
-        --         "<Cmd>Neorg workspace notes<CR>",
-        --         { desc = "Open notes workspace" }
-        --       ) -- Add more custom keybindings as needed
-        --     end,
-        --   },
-        -- },
-
+        ["core.integrations.nvim-cmp"] = {},
         ["core.dirman"] = {
           config = {
 
             workspaces = {
               -- manage workspaces
               main = "~/.config/nvim/neorg/main",
+              UsefulPlugins = "~/.config/nvim/neorg/useful-plugins",
               notes = "~/.config/nvim/neorg/notes",
               scrap = "~/.config/nvim/neorg/scrap",
               javascript = "~/.config/nvim/neorg/javascript",
@@ -44,4 +28,11 @@ return {
       },
     })
   end,
-}
+},
+  require("nvim-treesitter.configs").setup({
+    auto_install = true,
+    -- ensure_installed = { "cpp", "c" }, -- Install the C++ parser
+    highlight = {
+      enable = true, -- Enable syntax highlighting
+    },
+  })

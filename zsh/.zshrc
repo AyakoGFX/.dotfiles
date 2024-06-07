@@ -115,6 +115,7 @@ alias c=clear
 alias cr='cargo run'
 alias cb='cargo build'
 alias cn='cargo new'
+alias hx='helix'
 
 
 

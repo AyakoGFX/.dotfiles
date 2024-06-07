@@ -27,11 +27,12 @@ return {
         -- stylua: ignore
         center = {
           { action = LazyVim.telescope("files"),                                 desc = " Find File",       icon = " ", key = "f" },
-          { action = "Neorg workspace main",                                     desc = " Notes",             icon = "󱞂 ", key = "n" },--󱞂  󰷉
+          { action = "Neorg workspace main",                                     desc = " Notes",           icon = "󱞂 ", key = "n" },--󱞂  󰷉
           { action = "ene | startinsert",                                        desc = " New File",        icon = " ", key = "N" },--󱙓   
+          { action = "Neorg journal",                                            desc = " journal",         icon = " ", key = "J" },--󱞂  󰷉
           { action = "Telescope oldfiles",                                       desc = " Recent Files",    icon = " ", key = "r" },
           { action = "Telescope live_grep",                                      desc = " Find Text",       icon = " ", key = "g" },
-          { action = [[lua LazyVim.telescope.config_files()()]], desc = " Config",                          icon = " ", key = "c" },
+          { action = [[lua LazyVim.telescope.config_files()()]],                 desc = " Config",          icon = " ", key = "c" },
           { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
           { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
           { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
@@ -64,4 +65,6 @@ return {
       return opts
     end,
   },
-}
+},
+  -- Keybinding to open dashboard-nvim when pressing <leader>rd
+  vim.api.nvim_set_keymap("n", "<leader>rd", ":Dashboard<CR>", { noremap = true, silent = true })

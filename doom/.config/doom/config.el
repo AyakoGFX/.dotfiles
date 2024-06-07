@@ -75,6 +75,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;; ~/.doom.d/config.el
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
 
 ;; Emmet Mode
 (use-package! emmet-mode
@@ -101,3 +102,44 @@
 ;; Use company for LSP completion
 (after! eglot
   (add-to-list 'company-backends 'company-capf))
+
+;; cpp
+(use-package! eglot
+  :hook (c++-mode . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs
+               '((c++-mode c-mode) . ("clangd" "--clang-tidy")))
+  (setq eglot-autoshutdown t))
+
+(after! eglot
+  (setq completion-category-overrides '((eglot (styles orderless flex)))))
+
+;; Optional: Configure Company for autocompletion
+(after! company
+  (setq company-idle-delay 0.2
+        company-minimum-prefix-length 1))
+
+;; Optional: Setup Flycheck for syntax checking
+(after! flycheck
+  (setq flycheck-clang-language-standard "c++17"
+        flycheck-gcc-language-standard "c++17"))
+
+;; Useful keybindings
+(map! :leader
+      :desc "Find definition" "c d" #'eglot-find-declaration
+      :desc "Find references" "c r" #'eglot-find-references
+      :desc "Rename symbol" "c R" #'eglot-rename)
+;; Configure dap-mode
+(use-package! dap-mode
+  :after lsp-mode
+  :config
+  (dap-auto-configure-mode)
+  (require 'dap-cpptools))
+;; treesiter cpp config
+(use-package! tree-sitter
+  :hook ((c-mode c++-mode) . tree-sitter-mode)
+  :config
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+(use-package! tree-sitter-langs
+  :after tree-sitter)

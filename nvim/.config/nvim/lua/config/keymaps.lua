@@ -13,9 +13,6 @@ map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
-
--- Keybinding to open dashboard-nvim when pressing <leader>rd
-vim.api.nvim_set_keymap("n", "<leader>rd", ":Dashboard<CR>", { noremap = true, silent = true })
 -- remap all del key
 -- Send visually selected lines to the black hole register when deleted
 vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true })
