@@ -38,6 +38,8 @@ sudo pacman -S screenkey            # Install Screenkey
 sudo pacman -S vlc                  # Install vlc
 sudo pacman -S mpv                  # Install mpv
 sudo pacman -S neovide              # Install neovide
+yay -S latexrun-git                 # install latexrun
+
 # install fonts
 sudo pacman -S ttf-jetbrains-mono-nerd
 sudo pacman -S ttf-firacode-nerd
