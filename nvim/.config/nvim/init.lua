@@ -24,3 +24,7 @@ vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
 -- require("vscode").load("light")
 -- require("vscode").load("dark")
 --vim.cmd("colorscheme tokyonight-night")
+--
+-- notes
+-- vim.g.autoformat = false -- globally
+-- vim.b.autoformat = false -- buffer-local

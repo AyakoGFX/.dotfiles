@@ -1,5 +1,5 @@
 # If not running interactively, don't do anything
-exec zsh
+# exec zsh
 [[ $- != *i* ]] && return
 
 # Load starship prompt if starship is installed
