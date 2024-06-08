@@ -1,0 +1,29 @@
+* how to downlode and use other colour scrame 
+@code lua
+return {
+  "Mofiqul/vscode.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd([[colorscheme vscode]])
+  end,
+}
+@end
+
+
+* how to desable plugins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,4 @@
+local map = LazyVim.safe_keymap_set
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
@@ -5,7 +6,6 @@
 -- Define a function to create key mappings
 -- vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true })
 
-local map = LazyVim.safe_keymap_set
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
@@ -54,3 +54,38 @@ vim.api.nvim_set_keymap("n", "<C-Tab>", ":bprevious<CR>", { noremap = true, sile
 
 -- Disable Ctrl+Z
 vim.api.nvim_set_keymap("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
+
+-- -- floating terminal
+-- local lazyterm = function() LazyVim.terminal(nil, { cwd = LazyVim.root() }) end
+-- map("n", "<leader>ft", lazyterm, { desc = "Terminal (Root Dir)" })
+-- map("n", "<leader>fT", function() LazyVim.terminal() end, { desc = "Terminal (cwd)" })
+-- map("n", "<c-/>", lazyterm, { desc = "Terminal (Root Dir)" })
+-- map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
+--
+-- -- Terminal Mappings
+-- map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+-- map("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
+-- map("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
+-- map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
+-- map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
+-- map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+-- map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+--
+
+-- local unmap = function(mode, lhs)
+--   vim.api.nvim_set_keymap(mode, lhs, "", { noremap = true, silent = true })
+-- end
+--
+-- Override the normal mode mappings
+-- unmap("n", "<leader>ft")
+-- unmap("n", "<leader>fT")
+-- unmap("n", "<c-_>")
+
+-- Override the terminal mode mappings
+-- unmap("t", "<esc><esc>")
+-- unmap("t", "<C-h>")
+-- unmap("t", "<C-j>")
+-- unmap("t", "<C-k>")
+-- unmap("t", "<C-l>")
+-- unmap("t", "<C-/>")
+-- unmap("t", "<c-_>")
