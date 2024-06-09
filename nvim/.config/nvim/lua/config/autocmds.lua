@@ -121,6 +121,7 @@ vim.cmd([[
     autocmd BufEnter *.py let @@=":w\<CR>:vsp | terminal python %\<CR>i"
     autocmd BufEnter *.asm let @@=":w\<CR>:!nasm -f elf64 -o out.o % && ld out.o -o a.out\<CR>:vsp | terminal ./a.out\<CR>i"
     autocmd BufEnter *.cpp let @@=":w\<CR>:!g++ %\<CR>:vsp | terminal ./a.out\<CR>i"
+    " autocmd BufEnter *.cpp let @@=":w\<CR>:!gcc %\<CR>:vsp | terminal ./a.out\<CR>i"
     autocmd BufEnter *.c let @@=":w\<CR>:!gcc %\<CR>:vsp | terminal ./a.out\<CR>i"
     autocmd BufEnter *.go let @@=":w\<CR>:vsp | terminal go run %\<CR>i"
     autocmd BufEnter *.js let @@=":w\<CR>:vsp | terminal node %\<CR>i"

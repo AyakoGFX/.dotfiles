@@ -39,6 +39,7 @@ sudo pacman -S vlc                  # Install vlc
 sudo pacman -S mpv                  # Install mpv
 sudo pacman -S neovide              # Install neovide
 yay -S latexrun-git                 # install latexrun
+sudo pacman -S zoxide
 
 # install fonts
 sudo pacman -S ttf-jetbrains-mono-nerd

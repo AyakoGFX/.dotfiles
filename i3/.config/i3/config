@@ -218,3 +218,24 @@ exec --no-startup-id xset r rate 250 60
 bindsym $mod+w exec brightnessctl set +5%
 bindsym $mod+s exec brightnessctl set 5%-
 
+# For screenshots install :
+# apt-get install maim xclip copyq
+#
+# Feature	Shortcut
+# Full Screen	PrtScrn
+# Selection	Shift + PrtScrn
+# Active Window	Super + PrtScrn
+# Clipboard Full Screen	Ctrl + PrtScrn
+# Clipboard Selection	Ctrl + Shift + PrtScrn
+# Clipboard Active Window	Ctrl + Super + PrtScrn
+##  Screenshots in files
+bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
+bindsym $mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-current.png"
+bindsym Shift+Print exec --no-startup-id maim --format=png --select "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-selected.png"
+
+## Screenshots in clipboards
+bindsym Ctrl+Print exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
+
+
