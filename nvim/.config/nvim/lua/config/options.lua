@@ -9,3 +9,17 @@ vim.opt.swapfile = false
 vim.opt.clipboard:append("unnamedplus")
 -- sync system clipboard
 --vim.opt.clipboard = 'unnamedplus'
+vim.o.tabstop = 3
+vim.o.shiftwidth = 3
+vim.o.softtabstop = 3
+vim.o.expandtab = true
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "cpp",
+--   callback = function()
+--     vim.bo.tabstop = 4
+--     vim.bo.shiftwidth = 4
+--     vim.bo.softtabstop = 4
+--     vim.bo.expandtab = true
+--   end,
+-- })

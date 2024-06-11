@@ -137,6 +137,8 @@ alias cr='cargo run'
 alias cb='cargo build'
 alias cn='cargo new'
 alias hx='helix'
+alias spS='helix'
+alias install='sudo pacman -S'
 eval "$(zoxide init zsh)"
 
 # Replace ls with exa
@@ -184,3 +186,4 @@ alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 
 # Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+export PATH="$HOME/.local/bin:$PATH"

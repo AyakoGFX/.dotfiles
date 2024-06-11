@@ -8,6 +8,10 @@ vim.api.nvim_set_keymap("n", "<leader>tc", "<cmd>:Telescope colorscheme<CR>", { 
 vim.api.nvim_set_keymap("n", "<leader>tb", "<cmd>:Telescope buffers<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>ta", "<cmd>:Telescope builtin<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>tk", "<cmd>:Telescope keymaps<CR>", { noremap = true })
+
+vim.keymap.set("n", "<leader>tM", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set("n", "<leader>tm", ":Telescope file_browser<CR>")
+
 -- TODO
 -- Telescope commands
 -- :Telescope find_files

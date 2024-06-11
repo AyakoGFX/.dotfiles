@@ -1,16 +1,13 @@
 require("config.lazy")
 
-require("ibl") -- this should be above options "transparent bg" do not delet
+-- require("ibl") -- this should be above options "transparent bg" do not delet
 
 require("config.Telescope-keymaps")
-
 require("config.autocmds")
-
 require("config.options")
-
 require("config.keymaps")
-
 require("luarocks-nvim")
+
 if vim.g.neovide then
   require("config.neo-gui")
 end
@@ -28,3 +25,7 @@ vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
 -- notes
 -- vim.g.autoformat = false -- globally
 -- vim.b.autoformat = false -- buffer-local
+--
+--
+--
+-- Set tab width and indentation for C++ files

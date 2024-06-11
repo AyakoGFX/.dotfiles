@@ -1,2 +1,15 @@
-to print
+
+* double 
+  stores a value of ter dot ex
+  @code cpp
+
+  double grade = 2.5;
+
+@end
+  char stores singel caractor
+  @code cpp
+
+    char grade = 'A';
+
+@end
 

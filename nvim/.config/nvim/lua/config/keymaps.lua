@@ -6,6 +6,7 @@ local map = LazyVim.safe_keymap_set
 -- Define a function to create key mappings
 -- vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true })
 
+vim.g.autoformat = false -- globally
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
@@ -15,22 +16,22 @@ map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 -- remap all del key
 -- Send visually selected lines to the black hole register when deleted
-vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "dw", '"_dw', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "d$", '"_d$', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "d0", '"_d0', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "diw", '"_diw', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "di{", '"_di{', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "di(", '"_di(', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "di[", '"_di[', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "dgg", '"_dgg', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "dG", '"_dG', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", 'di"', '"_di"', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "di'", '"_di', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "cc", '"_cc', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "d", '"_d', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "dw", '"_dw', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "d$", '"_d$', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "d0", '"_d0', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "diw", '"_diw', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "di{", '"_di{', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "di(", '"_di(', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "di[", '"_di[', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "dgg", '"_dgg', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "dG", '"_dG', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", 'di"', '"_di"', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "di'", '"_di', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "cc", '"_cc', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("x", "d", '"_d', { noremap = true, silent = true })
 
 -- put coursor  center and move page up and down
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
