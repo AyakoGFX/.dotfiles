@@ -40,6 +40,8 @@ sudo pacman -S mpv                  # Install mpv
 sudo pacman -S neovide              # Install neovide
 yay -S latexrun-git                 # install latexrun
 sudo pacman -S zoxide
+sudo pacman -S yazi
+sudo pacman -S tmux
 
 # install fonts
 sudo pacman -S ttf-jetbrains-mono-nerd
