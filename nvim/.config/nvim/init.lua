@@ -12,11 +12,12 @@ if vim.g.neovide then
   require("config.neo-gui")
 end
 -- -- enable trasparent
-vim.api.nvim_set_hl(0, "normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
-vim.api.nvim_set_hl(0, "linenr", { bg = "none" })
-vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
---
+-- vim.api.nvim_set_hl(0, "normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "linenr", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
+vim.keymap.set("i", "^H", "<C-W>", { noremap = true, silent = true })
+
 -- Set colorscheme when Neovim starts
 -- require("vscode").load("light")
 -- require("vscode").load("dark")

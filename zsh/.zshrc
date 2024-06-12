@@ -124,8 +124,8 @@ alias ls="${aliases[ls]:-ls} -A"
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
 #
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
+# export PATH="$HOME/.tmuxifier/bin:$PATH"
+# eval "$(tmuxifier init -)"
 
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
@@ -187,3 +187,23 @@ alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 # Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 export PATH="$HOME/.local/bin:$PATH"
+
+bindkey '^F' 'find /home/ayako/Documents | fzf | xargs nvim'
+
+
+alias pnv="NVIM_APPNAME=prim-nvim nvim"
+
+alias knv="NVIM_APPNAME=kick-nvim nvim"
+
+
+
+
+
+
+
+
+
+
+
+
+

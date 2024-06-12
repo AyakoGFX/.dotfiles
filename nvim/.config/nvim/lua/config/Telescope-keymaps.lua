@@ -15,6 +15,7 @@ vim.keymap.set("n", "<leader>tm", ":Telescope file_browser<CR>")
 -- TODO
 -- Telescope commands
 -- :Telescope find_files
+--:Telescope projects
 -- :Telescope live_grep
 -- :Telescope buffers
 -- :Telescope help_tags
