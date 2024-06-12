@@ -5,7 +5,7 @@
 return {
    -- disable
    -- { "echasnovski/mini.indentscope", enabled = false },
-   -- { "", enabled = false },
+    
    -- { "", enabled = false },
    -- { "", enabled = false },
    { "echasnovski/mini.indentscope", enabled = false },
@@ -14,5 +14,6 @@ return {
    { "akinsho/bufferline.nvim", enabled = false },
    -- { "lukas-reineke/indent-blankline.nvim", enabled = false },
    -- { "folke/persistence.nvim", enabled = false },
-   -- folke/noice.nvim
+-- off codeium
+    { "Exafunction/codeium.nvim", enabled = false },
 }

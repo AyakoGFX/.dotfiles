@@ -11,6 +11,25 @@ vim.api.nvim_set_keymap("n", "<leader>tk", "<cmd>:Telescope keymaps<CR>", { nore
 
 vim.keymap.set("n", "<leader>tM", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 vim.keymap.set("n", "<leader>tm", ":Telescope file_browser<CR>")
+require('telescope').setup({
+})
+
+local builtin = require('telescope.builtin')
+vim.keymap.set("n", "<leader>tsb", function()
+    builtin.live_grep({
+        grep_open_files = true,
+        prompt_title = "live grep in opened Buffers",
+    })
+end, { desc = "live grep in opened Buffers" })
+
+
+vim.keymap.set("n", "<leader>tsf", function()
+    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+        winblend = 10,
+        previewer = false,
+    }))
+    end, { desc = "search in current file" })
+
 
 -- TODO
 -- Telescope commands

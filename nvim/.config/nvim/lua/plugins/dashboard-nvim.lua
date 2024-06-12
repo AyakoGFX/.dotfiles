@@ -26,7 +26,7 @@ return {
           header = vim.split(logo, "\n"),
         -- stylua: ignore
         center = {
-          { action = LazyVim.telescope("files"),                                 desc = " Find File",       icon = " ", key = "f" },
+          { action = LazyVim.pick("files"),                                 desc = " Find File",       icon = " ", key = "f" },
           { action = "Neorg workspace main",                                     desc = " Notes",           icon = "󱞂 ", key = "n" },--󱞂  󰷉
           { action = "ene | startinsert",                                        desc = " New File",        icon = " ", key = "N" },--󱙓   
           { action = "Neorg journal",                                            desc = " journal",         icon = " ", key = "J" },--󱞂  󰷉

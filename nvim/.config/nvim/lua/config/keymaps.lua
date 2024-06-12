@@ -6,7 +6,6 @@ local map = LazyVim.safe_keymap_set
 -- Define a function to create key mappings
 -- vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true })
 
-vim.g.autoformat = false -- globally
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
