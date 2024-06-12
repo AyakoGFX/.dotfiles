@@ -1,3 +1,4 @@
+{:index:}
 C-a C-o     Rotate through the panes
 C-a C-z     Suspend the current client
 C-a Space   Select next layout
