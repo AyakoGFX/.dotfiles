@@ -16,8 +16,8 @@ end
 -- vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "linenr", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
-vim.keymap.set("i", "^H", "<C-W>", { noremap = true, silent = true })
 
+vim.keymap.set("i", "^H", "<C-W>", { noremap = true, silent = true })
 -- Set colorscheme when Neovim starts
 -- require("vscode").load("light")
 -- require("vscode").load("dark")

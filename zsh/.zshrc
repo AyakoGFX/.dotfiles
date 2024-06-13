@@ -23,6 +23,7 @@
 # 	unset -f __main
 # fi
 
+ 
 # Advanced command-not-found hook
 source /usr/share/doc/find-the-command/ftc.bash
 # Periodic auto-update on Zsh startup: 'ask' or 'no'.
@@ -35,7 +36,8 @@ zstyle ':z4h:' auto-update-days '28'
 zstyle ':z4h:bindkey' keyboard  'pc'
 
 # Don't start tmux.
-zstyle ':z4h:' start-tmux       no
+# zstyle ':z4h:' start-tmux       no
+zstyle ':z4h:' start-tmux       'yes'
 
 # Mark up shell's output with semantic information.
 zstyle ':z4h:' term-shell-integration 'yes'
@@ -129,17 +131,6 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
-alias c=clear
-alias mkd=mkdir
-alias :q=exit
-alias c=clear
-alias cr='cargo run'
-alias cb='cargo build'
-alias cn='cargo new'
-alias hx='helix'
-alias spS='helix'
-alias install='sudo pacman -S'
-eval "$(zoxide init zsh)"
 
 # Replace ls with exa
 alias ls='exa -al --color=always --group-directories-first --icons'     # preferred listing
@@ -195,15 +186,19 @@ alias pnv="NVIM_APPNAME=prim-nvim nvim"
 
 alias knv="NVIM_APPNAME=kick-nvim nvim"
 
+alias c=clear
+alias mkd=mkdir
+alias :q=exit
+alias c=clear
+alias cr='cargo run'
+alias cb='cargo build'
+alias cn='cargo new'
+alias hx='helix'
+alias tr='tmux a'
+alias ta='tmux attach -t'
 
-
-
-
-
-
-
-
-
+alias install='sudo pacman -S'
+eval "$(zoxide init zsh)"
 
 
 
