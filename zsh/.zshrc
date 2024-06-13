@@ -195,7 +195,8 @@ alias cb='cargo build'
 alias cn='cargo new'
 alias hx='helix'
 alias tr='tmux a'
-alias ta='tmux attach -t'
+alias ta='tmux attach -t '
+alias tn='tmux new -s '
 
 alias install='sudo pacman -S'
 eval "$(zoxide init zsh)"
