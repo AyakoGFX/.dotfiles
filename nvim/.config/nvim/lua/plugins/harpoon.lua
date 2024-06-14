@@ -36,28 +36,28 @@ return {
     return {
       -- Harpoon marked files 1 through 4
       {
-        "<c-1>",
+        "<A-1>",
         function()
           harpoon:list():select(1)
         end,
         desc = "Harpoon buffer 1",
       },
       {
-        "<c-2>",
+        "<A-2>",
         function()
           harpoon:list():select(2)
         end,
         desc = "Harpoon buffer 2",
       },
       {
-        "<c-3>",
+        "<A-3>",
         function()
           harpoon:list():select(3)
         end,
         desc = "Harpoon buffer 3",
       },
       {
-        "<c-4>",
+        "<A-4>",
         function()
           harpoon:list():select(4)
         end,
@@ -66,14 +66,14 @@ return {
 
       -- Harpoon next and previous.
       {
-        "<c-5>",
+        "<leader>hn",
         function()
           harpoon:list():next()
         end,
         desc = "Harpoon next buffer",
       },
       {
-        "<c-6>",
+        "<leader>hp",
         function()
           harpoon:list():prev()
         end,
@@ -82,14 +82,14 @@ return {
 
       -- Harpoon user interface.
       {
-        "<c-7>",
+        "<leader>hm",
         function()
           harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
         desc = "Harpoon Toggle Menu",
       },
       {
-        "<c-8>",
+        "<leader>ha",
         function()
           harpoon:list():append()
         end,
@@ -98,7 +98,7 @@ return {
 
       -- Use Telescope as Harpoon user interface.
       {
-        "<c-9>",
+        "<leader>hw",
         function()
           toggle_telescope(harpoon:list())
         end,

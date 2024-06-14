@@ -186,6 +186,7 @@ alias pnv="NVIM_APPNAME=prim-nvim nvim"
 
 alias knv="NVIM_APPNAME=kick-nvim nvim"
 
+clear
 alias c=clear
 alias mkd=mkdir
 alias :q=exit
@@ -195,8 +196,8 @@ alias cb='cargo build'
 alias cn='cargo new'
 alias hx='helix'
 alias tr='tmux a'
-alias ta='tmux attach -t '
-alias tn='tmux new -s '
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
 
 alias install='sudo pacman -S'
 eval "$(zoxide init zsh)"
