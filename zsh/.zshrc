@@ -179,12 +179,14 @@ alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 export PATH="$HOME/.local/bin:$PATH"
 
-bindkey '^F' 'find /home/ayako/Documents | fzf | xargs nvim'
+# bindkey '^F' 'find /home/ayako/Documents | fzf | xargs nvim'
 
 
 alias pnv="NVIM_APPNAME=prim-nvim nvim"
 
 alias knv="NVIM_APPNAME=kick-nvim nvim"
+alias mnv="NVIM_APPNAME=nvim-myown nvim"
+alias xnv="NVIM_APPNAME=nvim-0 nvim"
 
 clear
 alias c=clear
@@ -200,6 +202,7 @@ alias ta='tmux attach -t'
 alias tn='tmux new -s'
 
 alias install='sudo pacman -S'
+alias remove='sudo pacman -R'
 eval "$(zoxide init zsh)"
 
 

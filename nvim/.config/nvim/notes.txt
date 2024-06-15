@@ -19,6 +19,18 @@ zR  Open all folds recursively
 zm  More folding
 zM  Close all folds recursively
 
+    ○ mason-nvim-dap.nvim 
+    ○ neo-tree.nvim 
+    ○ nui.nvim 
+    ○ nvim-dap 
+    ○ nvim-dap-ui 
+    ○ nvim-dap-virtual-text 
+    ○ nvim-nio 
+    ○ nvim-spectre 
+    ○ project.nvim 
+    ○ telescope-file-browser.nvim 
+    ○ todo-comments.nvim 
+    ○ ts-comments.nvim 
 
 zM  Close all foldlds recursively cursively
 

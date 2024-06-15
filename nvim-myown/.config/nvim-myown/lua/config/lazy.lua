@@ -36,6 +36,7 @@ require('lazy').setup({
 	require("plugins.trouble"),
 	require("plugins.UnDoTree"),
 	require("plugins.oil"),
+	require("plugins."),
 
   {'williamboman/mason.nvim'},
   {'williamboman/mason-lspconfig.nvim'},

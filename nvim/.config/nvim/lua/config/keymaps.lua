@@ -53,7 +53,7 @@ vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = t
 vim.api.nvim_set_keymap("n", "<C-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
 
 -- Disable Ctrl+Z
-vim.api.nvim_set_keymap("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
 
 -- -- floating terminal
 -- local lazyterm = function() LazyVim.terminal(nil, { cwd = LazyVim.root() }) end

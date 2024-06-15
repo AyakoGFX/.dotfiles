@@ -78,12 +78,22 @@ return {
 
 --
 ----
---return {
---  {
---    "rose-pine/neovim",
---    priority = 1000,
---    config = function()
---      vim.cmd.colorscheme("rose-pine")
---    end,
---  },
---}
+-- return {
+-- 	{
+-- 		"rose-pine/neovim",
+-- 		priority = 1000,
+-- 		config = function()
+-- 			vim.cmd.colorscheme("rose-pine")
+-- 		end,
+-- 	},
+-- }
+--
+-- return {
+-- 	{
+-- 		"dylanaraps/wal.vim",
+-- 		priority = 1000,
+-- 		config = function()
+-- 			vim.cmd.colorscheme("wal")
+-- 		end,
+-- 	},
+-- }
