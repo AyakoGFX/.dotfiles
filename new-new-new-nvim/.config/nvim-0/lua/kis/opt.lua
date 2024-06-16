@@ -67,9 +67,9 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- " Don't wrap lines
-vim.opt.wrap = true
+vim.opt.wrap = false
 -- " Wrap lines at convenient points
-vim.opt.linebreak = true
+vim.opt.linebreak = false
 --
 -- " Start scrolling when we'are 8 lines aways from borders
 vim.opt.scrolloff = 8
@@ -85,3 +85,13 @@ vim.opt.gdefault = true
 
 -- -- Lazy redraw
 -- vim.o.lazyredraw = true
+--
+--
+-- -- enable trasparent
+-- vim.api.nvim_set_hl(0, "normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "linenr", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
+--
+-- vim.g.autoformat = false -- globally
+-- vim.b.autoformat = false -- buffer-local
