@@ -10,7 +10,6 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
-		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("telescope").setup({
 				pickers = {
@@ -34,6 +33,13 @@ return {
       vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "List buffers" })
       vim.keymap.set("n", "<leader>st", builtin.builtin, { desc = "List built-in commands" })
       vim.keymap.set("n", "<leader>sf", builtin.current_buffer_fuzzy_find, { desc = "Search Current File" })
+      vim.keymap.set("n", "<leader>sf", builtin.current_buffer_fuzzy_find, { desc = "Search Current File" })
+
+
+      vim.keymap.set("n", "<leader>sb", function()
+        builtin.live_grep({
+          grep_open_files = true, prompt_title = "live grep in opened Buffers",})
+      end, { desc = "live grep in opened Buffers" })
 
 
       vim.keymap.set("n", "<leader><space>", require("telescope").extensions.zoxide.list, { desc = "List zoxide directories" })
