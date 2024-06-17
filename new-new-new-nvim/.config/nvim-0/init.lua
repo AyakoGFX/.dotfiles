@@ -2,7 +2,6 @@ require("kis.opt")
 require("kis.keymaps")
 require("kis.lazy")
 require("kis.keymaps")
-vim.g.did_load_netrw = 1
 -- vim.api.nvim_set_hl(0, "normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "linenr", { bg = "none" })

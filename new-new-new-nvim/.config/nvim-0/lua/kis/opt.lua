@@ -10,9 +10,6 @@ vim.o.confirm = true
 
 -- Make line numbers default
 vim.wo.number = true
---
--- Set relative line numbers
-vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = "a"
@@ -50,8 +47,8 @@ vim.o.termguicolors = true
 
 -- -- Don't show modes (insert/visual)
 -- vim.opt.showmode = false
+
 -- " Open splits on the right and below
-vim.opt.inccommand = "split"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -75,9 +72,9 @@ vim.opt.wrap = false
 vim.opt.linebreak = false
 --
 -- " Start scrolling when we'are 8 lines aways from borders
-vim.opt.scrolloff = 11
+vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 15
-vim.opt.sidescroll = 7
+vim.opt.sidescroll = 5
 
 -- " This makes vim act like all other editors, buffers can
 -- " exist in the background without being in a window.
@@ -89,22 +86,12 @@ vim.opt.gdefault = true
 -- -- Lazy redraw
 -- vim.o.lazyredraw = true
 --
+--
 -- -- enable trasparent
 -- vim.api.nvim_set_hl(0, "normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "linenr", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
 --
-vim.g.autoformat = true -- globally
+-- vim.g.autoformat = false -- globally
 -- vim.b.autoformat = false -- buffer-local
---
---
----- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "cpp",
---   callback = function()
---     vim.bo.tabstop = 2
---     vim.bo.shiftwidth = 2
---     vim.bo.softtabstop = 2
---     vim.bo.expandtab = true
---   end,
--- })
