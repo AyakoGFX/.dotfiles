@@ -42,6 +42,7 @@ yay -S latexrun-git                 # install latexrun
 sudo pacman -S zoxide
 sudo pacman -S yazi
 sudo pacman -S tmux
+sudo pacman -S polkit-gnome
 
 # install fonts
 sudo pacman -S ttf-jetbrains-mono-nerd
