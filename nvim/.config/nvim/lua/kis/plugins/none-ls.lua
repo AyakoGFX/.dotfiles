@@ -15,6 +15,6 @@ return {
 		})
 -- ast_grep
 		-- vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Format Document" })
+    vim.keymap.set("n", "gf", vim.lsp.buf.format, { desc = "Format Document" })
 	end,
 }
