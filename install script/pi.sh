@@ -42,6 +42,12 @@ yay -S latexrun-git                 # install latexrun
 sudo pacman -S zoxide
 sudo pacman -S yazi
 sudo pacman -S tmux
+sudo pacman -S polkit-gnome
+
+# power management
+yay -S auto-cpufreq             # to actvate auto-cpufreq u need to open the giu app 
+                                #and click install
+
 
 # install fonts
 sudo pacman -S ttf-jetbrains-mono-nerd
