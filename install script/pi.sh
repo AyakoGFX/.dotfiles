@@ -46,6 +46,7 @@ sudo pacman -S polkit-gnome
 # power management
 sudo pacman -S tlp
 sudo pacman -S tlpui
+yay -S auto-cpufreq
 # install fonts
 sudo pacman -S ttf-jetbrains-mono-nerd
 sudo pacman -S ttf-firacode-nerd
