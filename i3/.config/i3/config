@@ -204,9 +204,9 @@ client.focused          #000000 #000000 #000000 #000000   #424769
 # note to install this below
 # sudo pacman -S lxappearance gtk-engines qt5ct
 
-exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
-exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
-exec --no-startup-id /usr/lib/gsd-xsettings
+# exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
+# exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
+# exec --no-startup-id /usr/lib/gsd-xsettings
 
 ############################################################################################
 exec --no-startup-id nitrogen --restore
