@@ -43,7 +43,9 @@ sudo pacman -S zoxide
 sudo pacman -S yazi
 sudo pacman -S tmux
 sudo pacman -S polkit-gnome
-
+# power management
+sudo pacman -S tlp
+sudo pacman -S tlpui
 # install fonts
 sudo pacman -S ttf-jetbrains-mono-nerd
 sudo pacman -S ttf-firacode-nerd
