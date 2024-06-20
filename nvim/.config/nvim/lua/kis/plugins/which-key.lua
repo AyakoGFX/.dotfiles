@@ -19,12 +19,15 @@ return { -- Useful plugin to show you pending keybinds.
 
 		-- Document existing key chains
 		require("which-key").register({
-			-- lsp keys
-			-- ["<leader>gd"] = { name = "definition", _ = "which_key_ignore" },
-			-- ["<leader>gr"] = { name = "references", _ = "which_key_ignore" },
-			-- ["<leader>ca"] = { name = "code_action", _ = "which_key_ignore" },
-			-- ["<leader>rn"] = { name = "rename", _ = "which_key_ignore" },
-			-- ["<leader>gf"] = { name = "format-buffer", _ = "which_key_ignore" },
+        ['<leader>c'] = { name = 'Code', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = 'Buffer', _ = 'which_key_ignore' },
+        ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
+        ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = 'trouble', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = 'Truble', _ = 'which_key_ignore' },
+        ['<leader>h'] = { name = 'Harpoon', _ = 'which_key_ignore' },
+        ['<leader>q'] = { name = 'Sessions', _ = 'which_key_ignore' },
+        ['<leader>r'] = { name = 'rename & dashboard', _ = 'which_key_ignore' },
 		})
 	end,
 }

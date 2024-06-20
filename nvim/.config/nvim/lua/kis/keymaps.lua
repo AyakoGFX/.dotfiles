@@ -54,6 +54,10 @@ vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 -- Remap U to redo
 vim.api.nvim_set_keymap("n", "U", "<C-r>", { noremap = true, silent = true })
 
+-- vim.api.nvim_set_keymap('n', '<Leader>y', '"+y', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>p', '"+p', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>Y', '"+y', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>P', '"+p', { noremap = true })
 
 -- Remap Ctrl-Backspace to delete the previous word in insert mode
 -- vim.api.nvim_set_keymap("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })

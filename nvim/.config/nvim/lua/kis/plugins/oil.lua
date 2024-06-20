@@ -21,7 +21,9 @@ return {
 				["H"] = "actions.toggle_hidden", -- Updated key mapping
 				["g\\"] = "actions.toggle_trash",
 			},
+      hijack_netrw = false,
 		})
 		vim.keymap.set("n", "-", oil.toggle_float, {})
+    -- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 	end,
 }

@@ -6,6 +6,6 @@ return {
     config = true,
     lazy = false,
     -- Map <leader>ut to :TransparentToggle in normal mode
-    vim.api.nvim_set_keymap("n", "<leader>ut", ":TransparentToggle<CR>", { noremap = true, silent = true }, { desc = "Toggle Transparent"}),
+    -- vim.api.nvim_set_keymap("n", "<leader>ut", ":TransparentToggle<CR>", { noremap = true, silent = true }, { desc = "Toggle Transparent"}),
   },
 }
