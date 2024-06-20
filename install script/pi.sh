@@ -43,6 +43,7 @@ sudo pacman -S zoxide
 sudo pacman -S yazi
 sudo pacman -S tmux
 sudo pacman -S polkit-gnome
+sudo pacman -S go
 
 # power management
 yay -S auto-cpufreq             # to actvate auto-cpufreq u need to open the giu app 
