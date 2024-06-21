@@ -65,3 +65,4 @@
 (package! dap-mode)
 (package! tree-sitter)
 (package! tree-sitter-langs)
+(package! cc-mode)

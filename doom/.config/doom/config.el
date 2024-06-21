@@ -143,3 +143,11 @@
 
 (use-package! tree-sitter-langs
   :after tree-sitter)
+
+
+(after! c-mode
+  (set-eglot-client! 'c-mode 'eglot-clangd))
+
+(map! :map c-mode-map
+      :localleader
+      "c" #'compile)

@@ -1,4 +1,3 @@
-
 require("kis.opt")
 require("kis.keymaps")
 require("kis.lazy")
