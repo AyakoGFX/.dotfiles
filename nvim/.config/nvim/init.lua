@@ -8,6 +8,8 @@ require("kis.autoCMD")
 -- vim.api.nvim_set_hl(0, "cursorlinenr", { bg = "none" })
 -- init.lua
 -- vim.cmd('colorscheme desert')
+-- vim.cmd('colorscheme dawn')
+-- vim.cmd('colorscheme vimvscode')
 -- blue
 -- darkblue
 -- default

@@ -34,7 +34,7 @@ return {
           -- { action = "Neorg journal",                                            desc = " journal",         icon = " ", key = "J" },--󱞂  󰷉
           { action = "Telescope oldfiles",                                       desc = " Recent Files",    icon = " ", key = "r" },
           { action = "Telescope live_grep",                                      desc = " Find Text",       icon = " ", key = "g" },
-          { action = [[lua LazyVim.telescope.config_files()()]],                 desc = " Config",          icon = " ", key = "c" },
+          -- { action = [[lua LazyVim.telescope.config_files()()]],                 desc = " Config",          icon = " ", key = "c" },
           { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
           -- { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
           -- { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },

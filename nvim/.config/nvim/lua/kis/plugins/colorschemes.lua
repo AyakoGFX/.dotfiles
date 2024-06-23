@@ -1,11 +1,11 @@
--- return {
---   "Mofiqul/vscode.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd([[colorscheme vscode]])
---   end,
--- }
+return {
+  "Mofiqul/vscode.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd([[colorscheme vscode]])
+  end,
+}
 
 -- return {
 --   "LunarVim/darkplus.nvim",
@@ -16,14 +16,14 @@
 --   end,
 -- }
 
-return {
-    'ellisonleao/gruvbox.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd[[colorscheme gruvbox]]
-    end
-}
+-- return {
+--     'ellisonleao/gruvbox.nvim',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--       -- vim.cmd[[colorscheme gruvbox]]
+--     end
+-- }
 --
 --
 
