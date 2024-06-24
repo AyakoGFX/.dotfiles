@@ -5,7 +5,9 @@
 --   vim.api.nvim_set_keymap('n', '<Esc>', ':nohlsearch<CR><C-R>=has("diff")?"<Bar>diffupdate":""<CR><CR><Esc>', { noremap = true, silent = true })
 -- end
 
-
+-- Map Ctrl + S to save in normal mode
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+--
 -- Keymap to close the current buffer with a description
 vim.keymap.set('n', '<leader>bd', ':bd<CR>', { desc = 'Close current buffer', noremap = true, silent = true })
 
