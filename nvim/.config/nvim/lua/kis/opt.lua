@@ -4,6 +4,8 @@ vim.g.maplocalleader = " "
 vim.opt.cursorline = true
 -- Set highlight on search
 vim.o.hlsearch = true
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
 
 -- Ask for confirmation when trying to exit Neovim
 vim.o.confirm = true

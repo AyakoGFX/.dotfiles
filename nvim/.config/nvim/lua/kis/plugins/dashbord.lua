@@ -4,14 +4,22 @@ return {
     "nvimdev/dashboard-nvim",
     lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
     opts = function()
-      local logo = [[
-         ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-         ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
-         ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
-         ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
-         ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
-         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
-    ]]
+       local logo = [[
+       ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗          Z
+       ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║      Z    
+       ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║   z       
+       ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+       ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║           
+       ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝           
+     ]]
+      --   local logo = [[
+    --      ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
+    --      ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
+    --      ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
+    --      ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+    --      ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
+    --      ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
+    -- ]]
 
       logo = string.rep("\n", 8) .. logo .. "\n\n"
 
@@ -27,18 +35,18 @@ return {
         -- stylua: ignore
         center = {
 -- Telescope zoxide 
-          { action = "Telescope find_files",                                      desc = " Find File",       icon = " ", key = "f" },
-          { action = "Telescope zoxide list",                                      desc = " zoxide Greo",       icon = " ", key = "z" },
-          -- { action = "Neorg workspace main",                                     desc = " Notes",           icon = "󱞂 ", key = "n" },--󱞂  󰷉
-          -- { action = "ene | startinsert",                                        desc = " New File",        icon = " ", key = "n" },--󱙓   
-          -- { action = "Neorg journal",                                            desc = " journal",         icon = " ", key = "J" },--󱞂  󰷉
+          { action = "Telescope find_files",                                     desc = " Find File",       icon = " ", key = "f" },
+          { action = "Telescope zoxide list",                                    desc = " zoxide Greo",     icon = " ", key = "z" },
           { action = "Telescope oldfiles",                                       desc = " Recent Files",    icon = " ", key = "r" },
           { action = "Telescope live_grep",                                      desc = " Find Text",       icon = " ", key = "g" },
-          -- { action = [[lua LazyVim.telescope.config_files()()]],                 desc = " Config",          icon = " ", key = "c" },
           { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
+          { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
+            -- { action = "Neorg workspace main",                                     desc = " Notes",           icon = "󱞂 ", key = "n" },--󱞂  󰷉
+            -- { action = "ene | startinsert",                                        desc = " New File",        icon = " ", key = "n" },--󱙓   
+            -- { action = "Neorg journal",                                            desc = " journal",         icon = " ", key = "J" },--󱞂  󰷉
+            -- { action = [[lua LazyVim.telescope.config_files()()]],                 desc = " Config",          icon = " ", key = "c" },
           -- { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
           -- { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
-          { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
         },
           footer = function()
             local stats = require("lazy").stats()
