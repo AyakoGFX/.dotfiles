@@ -50,8 +50,8 @@ sudo pacman -S go
 # power management
 yay -S auto-cpufreq             # to actvate auto-cpufreq u need to open the giu app 
                                 #and click install
-
-
+paru -S visual-studio-code-bin
+paru -S shell-color-scripts
 # install fonts
 sudo pacman -S ttf-jetbrains-mono-nerd
 sudo pacman -S ttf-firacode-nerd
