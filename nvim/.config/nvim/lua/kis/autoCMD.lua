@@ -2,9 +2,9 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
-vim.api.nvim_set_keymap('n', '<Leader>cc', ':@g<CR>', {noremap = true, silent = true, desc = "Compile Code"})
+-- vim.api.nvim_set_keymap('n', '<Leader>cc', ':@g<CR>', {noremap = true, silent = true, desc = "Compile Code"})
 
-function RunFileAutocmds()
+-- function RunFileAutocmds()
   vim.cmd([[
     augroup run_file
     autocmd!
@@ -20,7 +20,7 @@ function RunFileAutocmds()
     autocmd BufEnter *.html let @g=":w\<CR>:silent !chromium %\<CR>"
     augroup end
     ]])
-end
+-- end
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
