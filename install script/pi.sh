@@ -31,7 +31,6 @@ sudo pacman -S ripgrep              # Line-oriented search tool
 sudo pacman -S ttf-firacode-nerd    # Monospaced font with programming ligatures
 sudo pacman -S alacritty            # Install Alacritty terminal emulator
 sudo pacman -S blueman              # Install the Blueman Bluetooth manager
-sudo pacman -S picom                # Install Picom compositor
 sudo pacman -S rofi                 # Install Rofi
 sudo pacman -S cmake                # Install CMake
 sudo pacman -S screenkey            # Install Screenkey
@@ -49,7 +48,8 @@ sudo pacman -S go
 
 # power management
 yay -S auto-cpufreq             # to actvate auto-cpufreq u need to open the giu app 
-                                #and click install
+# sudo pacman -S picom                # Install Picom compositor
+yay -S picom-ftlabs-git                            #and click install
 paru -S visual-studio-code-bin
 paru -S shell-color-scripts
 # install fonts
