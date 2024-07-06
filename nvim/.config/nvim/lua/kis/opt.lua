@@ -1,4 +1,5 @@
 -- Set <space> as the leader key
+vim.opt.conceallevel = 2
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.cursorline = true

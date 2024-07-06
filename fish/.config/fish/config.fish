@@ -140,6 +140,7 @@ alias tn='tmux new -su'
 alias install='sudo pacman -S'
 alias remove='sudo pacman -R'
 alias speed='xset r rate 250 60'
+alias tldrf='tldr --list | fzf --preview "tldr {1}" --preview-window=right,60% | xargs tldr'
 
 # Path modification
 set -x PATH $HOME/.config/emacs/bin $PATH
@@ -150,4 +151,10 @@ zoxide init fish | source
 set -x KITTY_FONT_FAMILY "FiraCode Nerd Font"
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
+set -x PATH $HOME/.config/emacs/bin $PATH
+
+# if test -f ~/.Xmodmap
+#     xmodmap ~/.Xmodmap
+# end
+
 colorscript random
