@@ -1,0 +1,12 @@
+
+configuration {
+drun-display-format: "{icon} {name}";
+show-icons: true;
+}
+
+
+
+@theme "~/.config/rofi/theme.rasi"
+
+
+
