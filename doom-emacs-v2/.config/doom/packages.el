@@ -53,11 +53,14 @@
 ;; (load-theme 'nordic-night t)
 
 (package! vscode-dark-plus-theme)
-(package! doom-modeline)
-
 (package! beacon)
+(package! doom-modeline)
+(package! all-the-icons-dired)
+;; (package! nerd-icons-install-fonts)
+
 ;; (package! clippy)
 ;; (package! )
 ;; (package! )
 ;; (package! )
 ;; (package! )
+(package! nerd-icons-dired)

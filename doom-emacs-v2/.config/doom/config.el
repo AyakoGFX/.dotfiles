@@ -79,6 +79,8 @@
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
 ;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 22))
 
+(all-the-icons-dired-mode 1)
+
 (beacon-mode 1)
 
 ;; on line-numbers-type
@@ -123,7 +125,7 @@
   (forward-line 1)
   (transpose-lines 1)
   (forward-line -1)
- (indent -according-to-mode))
+  (indent-according-to-mode))
 
 (global-set-key [(meta k)]  'move-line-up)
 (global-set-key [(meta j)]  'move-line-down)
@@ -137,14 +139,14 @@
        :desc "Open dired" "d" #'dired
        :desc "Dired jump to current" "j" #'dired-jump)
       (:after dired
-              (:map dired-mode-map
-               :desc "Peep-dired image previews" "d p" #'peep-dired
-               :desc "Dired view file"           "d v" #'dired-view-file)))
+       (:map dired-mode-map
+        :desc "Peep-dired image previews" "d p" #'peep-dired
+        :desc "Dired view file"           "d v" #'dired-view-file)))
 
 (evil-define-key 'normal dired-mode-map
   (kbd "M-RET") 'dired-display-file
   (kbd "h") 'dired-up-directory
-  (kbd "l") 'dired-open-file ; use dired-find-file instead of dired-open.
+  (kbd "l") 'dired-find-file ; use dired-find-file instead of dired-open.
   (kbd "m") 'dired-mark
   (kbd "t") 'dired-toggle-marks
   (kbd "u") 'dired-unmark
@@ -169,7 +171,10 @@
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
 ;; Get file icons in dired
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;;
+;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(add-hook 'dired-mode-hook 'nerd-icons-dired-mode)
+;;
 ;; With dired-open plugin, you can launch external programs for certain extensions
 ;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
 (setq dired-open-extensions '(("gif" . "sxiv")
@@ -177,6 +182,7 @@
                               ("png" . "sxiv")
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
+
 
 ;; (defun shell-spawn (name)
 ;;   "create a new buff"
