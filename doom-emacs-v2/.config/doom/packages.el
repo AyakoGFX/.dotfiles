@@ -51,16 +51,18 @@
 
 ;; (package! nordic-night-theme)
 ;; (load-theme 'nordic-night t)
+(unpin! org-roam)
+(package! org-roam-ui)
 
-(package! vscode-dark-plus-theme)
 (package! beacon)
 (package! doom-modeline)
-(package! all-the-icons-dired)
-;; (package! nerd-icons-install-fonts)
+(package! vscode-dark-plus-theme)
 
+(package! all-the-icons-dired)
+(package! nerd-icons-dired)
+;; (package! nerd-icons-install-fonts)
+;;
 ;; (package! clippy)
 ;; (package! )
 ;; (package! )
 ;; (package! )
-;; (package! )
-(package! nerd-icons-dired)

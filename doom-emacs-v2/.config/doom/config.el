@@ -32,7 +32,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;; (setq doom-theme 'doom-one)
+
+(setq doom-theme 'doom-one)
 
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -97,11 +98,45 @@
 ;; (global-set-key (kbd "U") #'redo)   ; Use U for redo
 (evil-define-key 'normal evil-normal-state-map (kbd "U") #'redo)
 
+(after! org-roam
+  (setq org-roam-directory "~/roam")
+  (setq org-roam-completion-everywhere t)
+  ;; Keybindings
+  ;; (map! :leader
+  ;;       (:prefix ("r" . "org-roam")
+;;        :desc "Find file" "f" #'org-roam-find-file
+;;        :desc "Insert" "i" #'org-roam-insert
+;;        :desc "Switch" "s" #'org-roam-switch-to-buffer
+;;        :desc "Complete link" "c" #'compilation-at-point
+;;        :desc "Capture" "c" #'org-roam-capture
+;;        :desc "Show graph" "g" #'org-roam-graph))
+
+  ;; Additional keybinding in org-mode-map
+  (map! :map org-mode-map
+        ;; Use `C-M-i` for completion-at-point
+        "C-M-i" #'completion-at-point)
+  ;; Enable org-roam
+  (org-roam-db-autosync-enable))
+
+(use-package! websocket
+    :after org-roam)
+
+(use-package! org-roam-ui
+    :after org-roam ;; or :after org
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
 
 ;; transparent
-;; (add-to-list 'default-frame-alist '(alpha-background . 60))
+(add-to-list 'default-frame-alist '(alpha-background . 90))
 
-(load-theme 'vscode-dark-plus t)
+;; (load-theme 'vscode-dark-plus t)
 
 ;; seting up modline
 (use-package doom-modeline

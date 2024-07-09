@@ -141,7 +141,7 @@ alias install='sudo pacman -S'
 alias remove='sudo pacman -R'
 alias speed='xset r rate 250 60'
 alias tldrf='tldr --list | fzf --preview "tldr {1}" --preview-window=right,60% | xargs tldr'
-
+alias e='emacsclient -c &'
 # Path modification
 set -x PATH $HOME/.config/emacs/bin $PATH
 
