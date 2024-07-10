@@ -1,3 +1,11 @@
+#+title: Config
+#+auto_tangle: t
+# #+STARTUP: showeverything
+#+PROPERTY:header-args :tangle config.el
+
+* Comments set by doom team
+#+begin_src elisp
+
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
@@ -77,6 +85,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+#+end_src
+* org mode
+
+#+begin_src elisp
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
@@ -106,7 +118,10 @@
              "|"                 ; The pipe necessary to separate "active" states and "inactive" states
              "DONE(d)"           ; Task has been completed
              "CANCELLED(c)" )))) ; Task has been cancelled
-
+#+end_src
+** Org-auto-tangle
+=org-auto-tangle= allows you to add the option =#+auto_tangle: t= in your Org file so that it automatically tangles when you save the document.  I have made adding this to your file even easier by creating a function 'dt/insert-auto-tangle-tag' and setting it to a keybinding 'SPC i a'.
+#+begin_src elisp
 (use-package! org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode)
@@ -122,7 +137,10 @@
 
 (map! :leader
       :desc "Insert auto_tangle tag" "i a" #'dt/insert-auto-tangle-tag)
+#+end_src
 
+** org roam
+#+begin_src elisp
 (after! org-roam
   (setq org-roam-directory "~/roam")
   (setq org-roam-completion-everywhere t)
@@ -148,7 +166,10 @@
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
+#+end_src
 
+** org font
+#+begin_src elisp
 ;; (defun dt/org-colors-doom-one ()
 ;;   "Enable Doom One colors for Org headers."
 ;;   (interactive)
@@ -166,7 +187,9 @@
 ;;     (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
 
 ;; (dt/org-colors-doom-one)
-
+#+end_src
+** dired
+#+begin_src elisp
 ;; dired
 (map! :leader
       (:prefix ("d" . "dired")
@@ -217,51 +240,109 @@
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 
+#+end_src
+
+** flyspell enable
+#+begin_src elisp
 ;; Set the location of aspell executable
 ;; (setq ispell-program-name "aspell")
 (setq ispell-program-name "hunspell")
 
 ;; Set the default dictionary
 (setq ispell-dictionary "en_US")
-
+#+end_src
+** true transparent
+#+begin_src elisp
 ;; (add-to-list 'default-frame-alist '(alpha-background . 90))
+#+end_src
 
+** setting bacground colour
+#+begin_src elisp
 ;; (custom-set-faces
 ;;  '(default ((t (:background "#171718")))))
+#+end_src
+** Remembering minibuffer prompt history
+One thing you will do a lot in Emacs is enter text into minibuffer prompts. Everything from M-x, isearch, the describe-* commands, and even the shell modes will receive a lot of input from you over time.
 
+You’ll quickly realize that it would be helpful for Emacs to remember the things you’ve entered into these prompts the next time you use them. That’s where the savehist-mode comes in!
+
+When you enable this mode, you will be able to use M-n (next-history-element) and M-p (previous-history-element) key bindings in almost every minibuffer (and shell) prompt to call up the inputs you used previously for the current command.
+
+I also like to set the history-length to a reasonable number to reduce the impact that reading these history files can have on Emacs’ startup performance.
+#+begin_src elisp
 ;; Save what you enter into minibuffer prompts
 (setq history-length 25)
 (savehist-mode 1)
 
+#+end_src
+** Remembering the last place you visited in a file
+Sometimes it’s convenient for Emacs to remember the last location you were at when you visited a particular file. The save-place-mode can help with that!
+
+Once you turn on this mode, Emacs will drop your cursor to the last visited location in any file that you open.
+#+begin_src elisp
 ;; Remember and restore the last cursor location of opened files
 (save-place-mode 1)
 
+#+end_src
+
+** Prevent using UI dialog's for prompts
+Emacs will show prompts to confirm many different types of actions, and for some of them it shows a graphical dialog box. If you prefer to keep your Emacs workflow more keyboard-focused, you can turn off those dialog box prompts with this setting:
+#+begin_src elisp
 ;; Don't pop up UI dialogs when prompting
 (setq use-dialog-box nil)
+#+end_src
+** Automatically revert buffers for changed files
+One thing that can be annoying about Emacs when you first start using it is that it doesn’t automatically refresh file buffers when the file on disk has been changed outside of Emacs. This can often happen when you’re using tools that generate some kind of text file output that you need to read in an Emacs buffer.
 
+The global-auto-revert-mode will make Emacs watch the files for all open buffers for changes on disk and it will automatically refresh those buffers if they don’t have unsaved changes!
+#+begin_src elisp
 ;; Revert buffers when the underlying file has changed
 (global-auto-revert-mode 1)
+#+end_src
+I also like adding the following setting to cause other types of buffers in Emacs to update when related files on disk have changed.
 
+The place this is most useful is when you’re using Emacs’ excellent Dired package! The following setting will cause Dired buffers to be automatically refreshed when files get added or deleted from the directory you are browsing:
+#+begin_src elisp
 ;; Revert Dired and other buffers
 (setq global-auto-revert-non-file-buffers t)
+#+end_src
+** a
 
+* personal config
+** BEACON
+Never lose your cursor.  When you scroll, your cursor will shine!  This is a global minor-mode. Turn it on everywhere with:
+#+begin_src elisp
 (beacon-mode 1)
+#+end_src
 
+** Set Icons For Dired
+#+begin_src elisp
 (all-the-icons-dired-mode 1)
-
+#+end_src
+** On relative line numbers
+#+begin_src elisp
 (setq display-line-numbers-type 'relative)
-
+#+end_src
+** Set default shell in Emacs vterm
+#+begin_src elisp
 (setq shell-file-name (executable-find "fish"))
-
+#+end_src
+** Set Font
+#+begin_src elisp
 ;; FiraCode Nerd Font
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
+#+end_src
+** Use Ctrl + hjkl to move between windows
+#+begin_src elisp
 
 ;; Use Ctrl+hjkl to move between windows
 (define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
-
+#+end_src
+** set alt + jk to move line up and down
+#+begin_src elisp
 (defun move-line-up ()
   "Move up the current line."
   (interactive)
@@ -279,3 +360,5 @@
 
 (global-set-key [(meta k)]  'move-line-up)
 (global-set-key [(meta j)]  'move-line-down)
+
+#+end_src

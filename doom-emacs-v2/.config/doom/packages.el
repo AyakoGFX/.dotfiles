@@ -66,3 +66,14 @@
 ;; (package! )
 ;; (package! )
 ;; (package! )
+
+;; (package! flycheck-aspell)
+
+(package! calfw)
+(package! calfw-org)
+;;(package! dashboard)
+(package! org-auto-tangle)
+(package! org-web-tools)
+(package! ox-gemini)
+(package! peep-dired)
+(package! resize-window)
