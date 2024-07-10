@@ -68,7 +68,7 @@
 ;; (package! )
 
 ;; (package! flycheck-aspell)
-
+(package! org-bullets)
 (package! calfw)
 (package! calfw-org)
 ;;(package! dashboard)

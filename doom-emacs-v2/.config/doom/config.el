@@ -82,8 +82,8 @@
 (after! org
   (setq org-directory "~/roam"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
-        org-ellipsis " ▼ "
-        org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
+        org-ellipsis " ↴ " ; ⇩ ▼ ↴
+        ;; org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
         org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
         org-log-done 'time
         org-hide-emphasis-markers t
@@ -106,6 +106,35 @@
              "|"                 ; The pipe necessary to separate "active" states and "inactive" states
              "DONE(d)"           ; Task has been completed
              "CANCELLED(c)" )))) ; Task has been cancelled
+;; (after! org
+;;   (custom-set-faces
+;;    ;; Font sizes and colors for Org mode headers using Doom One theme colors
+;;    '(org-level-1 ((t (:height 1.7 :foreground "#51afef"))))
+;;    '(org-level-2 ((t (:height 1.6 :foreground "#c678dd"))))
+;;    '(org-level-3 ((t (:height 1.5 :foreground "#a9a1e1"))))
+;;    '(org-level-4 ((t (:height 1.4 :foreground "#7cc3f3"))))
+;;    '(org-level-5 ((t (:height 1.3 :foreground "#d499e5"))))
+;;    '(org-level-6 ((t (:height 1.3 :foreground "#a8d7f7"))))
+;;    '(org-level-7 ((t (:height 1.2 :foreground "#e2bbee"))))
+;;    '(org-level-8 ((t (:height 1.1 :foreground "#dceffb"))))
+;;    ;; Add more levels and colors as needed
+;;    ))
+
+
+(after! org
+  (custom-set-faces
+   ;; Font sizes and colors for Org mode headers using Doom One theme colors
+   '(org-level-1 ((t (:height 1.6  :inherit outline-1 ultra-bold))))
+   '(org-level-2 ((t (:height 1.5  :inherit outline-2 extra-bold))))
+   '(org-level-3 ((t (:height 1.4  :inherit outline-3 bold))))
+   '(org-level-4 ((t (:height 1.3  :inherit outline-4 semi-bold))))
+   '(org-level-5 ((t (:height 1.2  :inherit outline-5 normal))))
+   '(org-level-6 ((t (:height 1.1  :inherit outline-6 normal))))
+   '(org-level-7 ((t (:height 1.0  :inherit outline-7 normal))))
+   '(org-level-8 ((t (:height 0.9  :inherit outline-8 normal))))
+   ;; Add more levels and colors as needed
+   ))
+        ;; Define function to set Doom One colors for Org mode headers
 
 (use-package! org-auto-tangle
   :defer t
@@ -166,6 +195,41 @@
 ;;     (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
 
 ;; (dt/org-colors-doom-one)
+
+(beacon-mode 1)
+
+(all-the-icons-dired-mode 1)
+
+(setq display-line-numbers-type 'relative)
+
+(setq shell-file-name (executable-find "fish"))
+
+;; FiraCode Nerd Font
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
+
+;; Use Ctrl+hjkl to move between windows
+(define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
+
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(global-set-key [(meta k)]  'move-line-up)
+(global-set-key [(meta j)]  'move-line-down)
 
 ;; dired
 (map! :leader
@@ -245,37 +309,11 @@
 ;; Revert Dired and other buffers
 (setq global-auto-revert-non-file-buffers t)
 
-(beacon-mode 1)
+(setq bookmark-default-file "~/.config/doom/bookmarks")
 
-(all-the-icons-dired-mode 1)
-
-(setq display-line-numbers-type 'relative)
-
-(setq shell-file-name (executable-find "fish"))
-
-;; FiraCode Nerd Font
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
-
-;; Use Ctrl+hjkl to move between windows
-(define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
-
-(defun move-line-up ()
-  "Move up the current line."
-  (interactive)
-  (transpose-lines 1)
-  (forward-line -2)
-  (indent-according-to-mode))
-
-(defun move-line-down ()
-  "Move down the current line."
-  (interactive)
-  (forward-line 1)
-  (transpose-lines 1)
-  (forward-line -1)
-  (indent-according-to-mode))
-
-(global-set-key [(meta k)]  'move-line-up)
-(global-set-key [(meta j)]  'move-line-down)
+(map! :leader
+      (:prefix ("b". "buffer")
+       :desc "List bookmarks"                          "L" #'list-bookmarks
+       :desc "Set bookmark"                            "m" #'bookmark-set
+       :desc "Delete bookmark"                         "M" #'bookmark-delete
+       :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
