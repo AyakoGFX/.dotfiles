@@ -372,9 +372,9 @@ The place this is most useful is when you’re using Emacs’ excellent Dired pa
 #+end_src
 
 * BOOKMARKS AND BUFFERS
+** Bookmarks
 Doom Emacs uses 'SPC b' for keybindings related to bookmarks and buffers.
 
-** Bookmarks
 Bookmarks are somewhat like registers in that they record positions you can jump to.  Unlike registers, they have long names, and they persist automatically from one Emacs session to the next. The prototypical use of bookmarks is to record where you were reading in various files.
 
 | COMMAND         | DESCRIPTION                            | KEYBINDING |
