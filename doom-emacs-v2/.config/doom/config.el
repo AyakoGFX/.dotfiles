@@ -124,14 +124,14 @@
 (after! org
   (custom-set-faces
    ;; Font sizes and colors for Org mode headers using Doom One theme colors
-   '(org-level-1 ((t (:height 1.6  :inherit outline-1 ultra-bold))))
-   '(org-level-2 ((t (:height 1.5  :inherit outline-2 extra-bold))))
-   '(org-level-3 ((t (:height 1.4  :inherit outline-3 bold))))
-   '(org-level-4 ((t (:height 1.3  :inherit outline-4 semi-bold))))
-   '(org-level-5 ((t (:height 1.2  :inherit outline-5 normal))))
-   '(org-level-6 ((t (:height 1.1  :inherit outline-6 normal))))
-   '(org-level-7 ((t (:height 1.0  :inherit outline-7 normal))))
-   '(org-level-8 ((t (:height 0.9  :inherit outline-8 normal))))
+   '(org-level-1 ((t (:height 1.5  :inherit outline-1 ultra-bold))))
+   '(org-level-2 ((t (:height 1.4  :inherit outline-2 extra-bold))))
+   '(org-level-3 ((t (:height 1.3  :inherit outline-3 bold))))
+   '(org-level-4 ((t (:height 1.2  :inherit outline-4 semi-bold))))
+   '(org-level-5 ((t (:height 1.1  :inherit outline-5 normal))))
+   '(org-level-6 ((t (:height 1.0  :inherit outline-6 normal))))
+   '(org-level-7 ((t (:height 0.9  :inherit outline-7 normal))))
+   '(org-level-8 ((t (:height 0.8  :inherit outline-8 normal))))
    ;; Add more levels and colors as needed
    ))
         ;; Define function to set Doom One colors for Org mode headers
@@ -178,25 +178,7 @@
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
 
-;; (defun dt/org-colors-doom-one ()
-;;   "Enable Doom One colors for Org headers."
-;;   (interactive)
-;;   (dolist
-;;       (face
-;;        '((org-level-1 1.7 "#51afef" ultra-bold)
-;;          (org-level-2 1.6 "#c678dd" extra-bold)
-;;          (org-level-3 1.5 "#98be65" bold)
-;;          (org-level-4 1.4 "#da8548" semi-bold)
-;;          (org-level-5 1.3 "#5699af" normal)
-;;          (org-level-6 1.2 "#a9a1e1" normal)
-;;          (org-level-7 1.1 "#46d9ff" normal)
-;;          (org-level-8 1.0 "#ff6c6b" normal)))
-;;     (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
-;;     (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
-
-;; (dt/org-colors-doom-one)
-
-(beacon-mode 1)
+;; (beacon-mode 1)
 
 (all-the-icons-dired-mode 1)
 
@@ -294,8 +276,8 @@
 ;;  '(default ((t (:background "#171718")))))
 
 ;; Save what you enter into minibuffer prompts
-(setq history-length 25)
-(savehist-mode 1)
+;; (setq history-length 25)
+;; (savehist-mode 1)
 
 ;; Remember and restore the last cursor location of opened files
 (save-place-mode 1)
@@ -317,3 +299,18 @@
        :desc "Set bookmark"                            "m" #'bookmark-set
        :desc "Delete bookmark"                         "M" #'bookmark-delete
        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
+
+;; Disable org-appear-mode
+(add-hook 'org-mode-hook #'org-appear-mode)
+;; Set a higher garbage collection threshold (e.g., 100 MB)
+(setq gc-cons-threshold (* 100 1024 1024))
+;; Disable flycheck
+(global-flycheck-mode -1)
+
+;; Minimize garbage collection during startup
+(setq gc-cons-threshold most-positive-fixnum)
+
+;; Lower threshold back to 8 MiB (default is 800kB)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (expt 2 23))))
