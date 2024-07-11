@@ -304,8 +304,9 @@
 (add-hook 'org-mode-hook #'org-appear-mode)
 ;; Set a higher garbage collection threshold (e.g., 100 MB)
 (setq gc-cons-threshold (* 100 1024 1024))
+
 ;; Disable flycheck
-(global-flycheck-mode -1)
+;; (global-flycheck-mode -1)
 
 ;; Minimize garbage collection during startup
 (setq gc-cons-threshold most-positive-fixnum)

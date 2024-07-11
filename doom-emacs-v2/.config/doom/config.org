@@ -3,7 +3,7 @@
 # #+STARTUP: showeverything
 #+PROPERTY:header-args :tangle config.el
 
-* Comments set by doom team
+* COMMENTS SET BY DOOM TEAM
 #+begin_src elisp
 
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
@@ -86,7 +86,7 @@
 ;; they are implemented.
 
 #+end_src
-* org mode
+* ORG MODE
 ** main org
 #+begin_src elisp
 (map! :leader
@@ -198,7 +198,7 @@
           org-roam-ui-open-on-start t))
 #+end_src
 
-* other config
+* OTHER CONFIG
 ** BEACON
 Never lose your cursor.  When you scroll, your cursor will shine!  This is a global minor-mode. Turn it on everywhere with:
 #+begin_src elisp
@@ -395,14 +395,15 @@ Bookmarks are somewhat like registers in that they record positions you can jump
        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
 #+END_SRC
 
-* optimizing
+* OPTIMIZING
 #+begin_src elisp
 ;; Disable org-appear-mode
 (add-hook 'org-mode-hook #'org-appear-mode)
 ;; Set a higher garbage collection threshold (e.g., 100 MB)
 (setq gc-cons-threshold (* 100 1024 1024))
+
 ;; Disable flycheck
-(global-flycheck-mode -1)
+;; (global-flycheck-mode -1)
 
 ;; Minimize garbage collection during startup
 (setq gc-cons-threshold most-positive-fixnum)
