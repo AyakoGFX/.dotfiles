@@ -124,14 +124,14 @@
 (after! org
   (custom-set-faces
    ;; Font sizes and colors for Org mode headers using Doom One theme colors
-   '(org-level-1 ((t (:height 1.5  :inherit outline-1 ultra-bold))))
-   '(org-level-2 ((t (:height 1.4  :inherit outline-2 extra-bold))))
-   '(org-level-3 ((t (:height 1.3  :inherit outline-3 bold))))
-   '(org-level-4 ((t (:height 1.2  :inherit outline-4 semi-bold))))
-   '(org-level-5 ((t (:height 1.1  :inherit outline-5 normal))))
-   '(org-level-6 ((t (:height 1.0  :inherit outline-6 normal))))
+   '(org-level-1 ((t (:height 1.4  :inherit outline-1 ultra-bold))))
+   '(org-level-2 ((t (:height 1.3  :inherit outline-2 extra-bold))))
+   '(org-level-3 ((t (:height 1.2  :inherit outline-3 bold))))
+   '(org-level-4 ((t (:height 1.1  :inherit outline-4 semi-bold))))
+   '(org-level-5 ((t (:height 1.0  :inherit outline-5 normal))))
+   '(org-level-6 ((t (:height 0.9  :inherit outline-6 normal))))
    '(org-level-7 ((t (:height 0.9  :inherit outline-7 normal))))
-   '(org-level-8 ((t (:height 0.8  :inherit outline-8 normal))))
+   '(org-level-8 ((t (:height 0.9  :inherit outline-8 normal))))
    ;; Add more levels and colors as needed
    ))
         ;; Define function to set Doom One colors for Org mode headers
@@ -164,19 +164,47 @@
   (org-roam-db-autosync-enable))
 
 (use-package! websocket
-    :after org-roam)
+  :after org-roam)
 
 (use-package! org-roam-ui
-    :after org-roam ;; or :after org
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-;;  :hook (after-init . org-roam-ui-mode)
-    :config
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
+  :after org-roam ;; or :after org
+  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+  ;;         a hookable mode anymore, you're advised to pick something yourself
+  ;;         if you don't care about startup time, use
+  ;;  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+
+;; Bind this to SPC n r I
+(defun org-roam-node-insert-immediate (arg &rest args)
+  (interactive "P")
+  (let ((args (cons arg args))
+        (org-roam-capture-templates (list (append (car org-roam-capture-templates)
+                                                  '(:immediate-finish t)))))
+    (apply #'org-roam-node-insert args)))
+
+(map! :leader
+      :prefix ("n" . "notes")
+      :desc "Insert org-roam node" "r I" #'org-roam-node-insert-immediate)
+
+;; Removing timestamp from filename
+(after! org-roam
+  (setq org-roam-capture-templates
+        '(("d" "default" plain "%?"
+           :target (file+head "${slug}.org"
+                              "#+title: ${title}\n")
+           :unnarrowed t))))
+
+(after! deft
+(setq deft-directory "~/roam/"
+      deft-extension '("txt" "org" "md")
+      ;; deft-strip-summary-regexp "\\([\n ]\\|^#\\+[[:upper:][:lower:]_]+:.*$\\)"
+      ;; deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"
+      deft-use-filename-as-title t
+      deft-recursive t))
 
 ;; (beacon-mode 1)
 
