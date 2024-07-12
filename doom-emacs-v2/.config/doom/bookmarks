@@ -3,9 +3,9 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/empty.org")
- (front-context-string)
- (rear-context-string . "\n#+title: empty\n")
- (position . 83)
- (last-modified 26257 18831 398645 38000))
+ (filename . "~/roam/index_org.org")
+ (front-context-string . "\n* Linux\n\n\n[[id:")
+ (rear-context-string . "itle: index.org\n")
+ (position . 87)
+ (last-modified 26257 29518 304585 350000))
 )

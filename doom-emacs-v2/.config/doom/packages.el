@@ -54,10 +54,11 @@
 (unpin! org-roam)
 (package! org-roam-ui)
 
+(package! org-preview-html)
+
 (package! beacon)
 (package! doom-modeline)
 (package! vscode-dark-plus-theme)
-
 (package! all-the-icons-dired)
 (package! nerd-icons-dired)
 ;; (package! nerd-icons-install-fonts)

@@ -136,6 +136,18 @@
    ))
         ;; Define function to set Doom One colors for Org mode headers
 
+(defun org-roam-search ()
+  "Search org-roam directory using consult-ripgrep. With live-preview."
+  (interactive)
+  (let ((consult-ripgrep-args "rg --null --ignore-case --type org --line-buffered --color=never --max-columns=500 --no-heading --line-number"))
+    (consult-ripgrep org-roam-directory)))
+
+;; Key binding setup
+(after! org-roam
+  (map! :leader
+        (:prefix ("n" . "notes")
+          :desc "Org-roam search" "r S" #'org-roam-search)))
+
 (use-package! org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode)
