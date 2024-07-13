@@ -80,7 +80,7 @@
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
-  (setq org-directory "~/roam"
+  (setq org-directory "~/org"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ↴ " ; ⇩ ▼ ↴
         ;; org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
