@@ -135,6 +135,17 @@
    ;; Add more levels and colors as needed
    ))
         ;; Define function to set Doom One colors for Org mode headers
+  ;; "Search org-roam directory using consult-ripgrep. With live-preview."
+(defun org-search ()
+  "Search org-files directory using consult-ripgrep. With live-preview."
+  (interactive)
+  (let ((consult-ripgrep-args "rg --null --ignore-case --type org --line-buffered --color=never --max-columns=500 --no-heading --line-number"))
+    (consult-ripgrep org-directory)))
+
+(after! org
+  (map! :leader
+        (:prefix ("n" . "notes")
+          :desc "Org-grep/search" "g " #'org-search)))
 
 (defun org-roam-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
@@ -165,7 +176,7 @@
       :desc "Insert auto_tangle tag" "i a" #'dt/insert-auto-tangle-tag)
 
 (after! org-roam
-  (setq org-roam-directory "~/roam")
+  (setq org-roam-directory "~/roam/")
   (setq org-roam-completion-everywhere t)
   ;; (setq org-roam-graph-viewer "~/usr/bin/brave")
   ;; Additional keybinding in org-mode-map
@@ -210,6 +221,41 @@
                               "#+title: ${title}\n")
            :unnarrowed t))))
 
+(after! org
+  (setq org-agenda-files
+  '("~/org/agenda.org")))
+
+(after! org-agenda
+(setq
+   ;; org-fancy-priorities-list '("[A]" "[B]" "[C]")
+   ;; org-fancy-priorities-list '("❗" "[B]" "[C]")
+   ;; org-fancy-priorities-list '("🔴" "🟡" "🟢")
+   ;; org-fancy-priorities-list '("🔴" "🔵" "🟢")
+   org-fancy-priorities-list '("🟥" "🟧" "🟨")
+   org-priority-faces
+   '((?A :foreground "#ff6c6b" :weight bold)
+     (?B :foreground "#98be65" :weight bold)
+     (?C :foreground "#c678dd" :weight bold))
+   org-agenda-block-separator 8411)
+
+(setq org-agenda-custom-commands
+      '(("v" "A better agenda view"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+          (tags "PRIORITY=\"B\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Medium-priority unfinished tasks:")))
+          (tags "PRIORITY=\"C\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Low-priority unfinished tasks:")))
+          (tags "customtag"
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Tasks marked with customtag:")))
+
+          (agenda "")
+          (alltodo ""))))))
+
 (after! deft
 (setq deft-directory "~/roam/"
       deft-extension '("txt" "org" "md")
@@ -217,6 +263,32 @@
       ;; deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"
       deft-use-filename-as-title t
       deft-recursive t))
+
+;; (pixel-scroll-mode 1)
+;; (good-scroll-mode 1)
+
+;; (setq
+;;  scroll-conservatively 1000                     ;; only 'jump' when moving this far
+;;  scroll-margin 4                                ;; scroll N lines to screen edge
+;;  scroll-step 1                                  ;; keyboard scroll one line at a time
+;;  mouse-wheel-scroll-amount '(6 ((shift) . 1))   ;; mouse scroll N lines
+;;  mouse-wheel-progressive-speed nil              ;; don't accelerate scrolling
+
+;;  redisplay-dont-pause t                         ;; don't pause display on input
+
+;;  ;; Always redraw immediately when scrolling,
+;;  ;; more responsive and doesn't hang!
+;;  fast-but-imprecise-scrolling nil
+;;  jit-lock-defer-time 0
+;;  )
+
+        ;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ; one line at a time
+(setq mouse-wheel-progressive-speed nil)            ; don't accelerate scrolling
+(setq-default smooth-scroll-margin 0)
+(setq scroll-step 1
+      scroll-margin 1
+      scroll-conservatively 100000) ;100000
 
 ;; (beacon-mode 1)
 

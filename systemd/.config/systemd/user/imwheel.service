@@ -1,0 +1,15 @@
+[Unit]
+Description=IMWheel
+Wants=display-manager.service
+After=display-manager.service
+
+[Service]
+Type=simple
+#Next line is only required for Xorg, should be removed for Wayland
+Environment=XAUTHORITY=%h/.Xauthority
+ExecStart=/usr/bin/imwheel -d
+ExecStop=/usr/bin/pkill imwheel
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical-session.target

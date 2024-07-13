@@ -55,6 +55,8 @@
 (package! org-roam-ui)
 
 (package! org-preview-html)
+(package! emojify)
+;; (package! good-scroll)
 
 (package! beacon)
 (package! doom-modeline)
