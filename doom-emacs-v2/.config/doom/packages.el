@@ -55,8 +55,8 @@
 (unpin! org-roam)
 (package! org-roam-ui)
 (package! org-download)
-;; (package! )
-;; (package! )
+(package! denote)
+(package! consult-denote)
 ;; (package! )
 ;;
 (package! org-preview-html)
