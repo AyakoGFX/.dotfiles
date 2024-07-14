@@ -3,9 +3,9 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/Main-notes/empty.org")
+ (filename . "~/roam/fix_scroll_speed.org")
  (front-context-string)
- (rear-context-string . "\n#+title: empty\n")
- (position . 83)
- (last-modified 26258 33109 248253 444000))
+ (rear-context-string . "ix scroll speed\n")
+ (position . 94)
+ (last-modified 26258 48374 202329 662000))
 )
