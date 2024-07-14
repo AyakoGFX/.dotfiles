@@ -54,7 +54,11 @@
 ;; (load-theme 'nordic-night t)
 (unpin! org-roam)
 (package! org-roam-ui)
-
+(package! org-download)
+;; (package! )
+;; (package! )
+;; (package! )
+;;
 (package! org-preview-html)
 (package! emojify)
 ;; (package! good-scroll)
@@ -66,7 +70,6 @@
 (package! nerd-icons-dired)
 ;; (package! nerd-icons-install-fonts)
 ;; (package! clippy)
-;; (package! )
 ;; (package! )
 ;; (package! )
 
