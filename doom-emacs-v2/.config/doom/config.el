@@ -264,6 +264,14 @@
       deft-use-filename-as-title t
       deft-recursive t))
 
+(use-package multi-vterm :ensure t)
+;; Define keybindings for multi-vterm in Doom Emacs
+(map! :leader
+      (:prefix ("-" . "multi-vterm")
+        :desc "Open multi-vterm" "t" #'multi-vterm
+        :desc "Next vterm" "n" #'multi-vterm-next
+        :desc "Previous vterm" "p" #'multi-vterm-prev))
+
 ;; (pixel-scroll-mode 1)
 ;; (good-scroll-mode 1)
 

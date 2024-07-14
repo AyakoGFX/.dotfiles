@@ -48,6 +48,7 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+(package! multi-vterm)
 
 ;; (package! nordic-night-theme)
 ;; (load-theme 'nordic-night t)
@@ -64,7 +65,6 @@
 (package! all-the-icons-dired)
 (package! nerd-icons-dired)
 ;; (package! nerd-icons-install-fonts)
-;;
 ;; (package! clippy)
 ;; (package! )
 ;; (package! )
