@@ -702,7 +702,3 @@ Bookmarks are somewhat like registers in that they record positions you can jump
             (setq gc-cons-threshold (expt 2 23))))
 #+end_src
 ** name
-* name
-* name
-* name
-* name
