@@ -190,7 +190,6 @@
 (setq org-indent-mode-turns-on-hiding-stars nil)
 
 ;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
-(setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
 
 (use-package! org-auto-tangle
   :defer t
@@ -448,7 +447,10 @@
 
 (all-the-icons-dired-mode 1)
 
-(setq display-line-numbers-type 'relative)
+;; (setq display-line-numbers-type 'relative)
+
+;; off
+(setq display-line-numbers-type nil)
 
 (setq shell-file-name (executable-find "fish"))
 
@@ -536,7 +538,7 @@
 ;; Set the default dictionary
 (setq ispell-dictionary "en_US")
 
-;; (add-to-list 'default-frame-alist '(alpha-background . 90))
+(add-to-list 'default-frame-alist '(alpha-background . 90))
 
 ;; (custom-set-faces
 ;;  '(default ((t (:background "#171718")))))

@@ -206,7 +206,6 @@
 (setq org-indent-mode-turns-on-hiding-stars nil)
 
 ;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
-(setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
 
 #+end_src
 ** Org-auto-tangle
@@ -499,7 +498,10 @@ Never lose your cursor.  When you scroll, your cursor will shine!  This is a glo
 #+end_src
 ** On relative line numbers
 #+begin_src elisp
-(setq display-line-numbers-type 'relative)
+;; (setq display-line-numbers-type 'relative)
+
+;; off
+(setq display-line-numbers-type nil)
 #+end_src
 ** Set default shell in Emacs vterm
 #+begin_src elisp
@@ -605,7 +607,7 @@ Never lose your cursor.  When you scroll, your cursor will shine!  This is a glo
 #+end_src
 ** true transparent
 #+begin_src elisp
-;; (add-to-list 'default-frame-alist '(alpha-background . 90))
+(add-to-list 'default-frame-alist '(alpha-background . 90))
 #+end_src
 
 ** setting bacground colour
