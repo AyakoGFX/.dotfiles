@@ -71,10 +71,11 @@
 ;; (package! nerd-icons-install-fonts)
 ;; (package! clippy)
 ;; (package! )
-;; (package! )
 
 ;; (package! flycheck-aspell)
-(package! org-bullets)
+;; (package! org-bullets)
+(package! olivetti)
+(package! org-superstar)
 (package! org-auto-tangle)
 ;; (package! org-web-tools)
 ;; (package! calfw)

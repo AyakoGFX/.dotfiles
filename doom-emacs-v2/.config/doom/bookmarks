@@ -3,9 +3,9 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/fix_scroll_speed.org")
+ (filename . "~/roam/nixos.org")
  (front-context-string)
- (rear-context-string . "ix scroll speed\n")
- (position . 94)
- (last-modified 26258 48374 202329 662000))
+ (rear-context-string . "\n#+title: nixos\n")
+ (position . 83)
+ (last-modified 26260 54394 821980 487000))
 )

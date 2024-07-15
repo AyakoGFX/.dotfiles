@@ -109,14 +109,14 @@
 ;; (after! org
 ;;   (custom-set-faces
 ;;    ;; Font sizes and colors for Org mode headers using Doom One theme colors
-;;    '(org-level-1 ((t (:height 1.7 :foreground "#51afef"))))
-;;    '(org-level-2 ((t (:height 1.6 :foreground "#c678dd"))))
-;;    '(org-level-3 ((t (:height 1.5 :foreground "#a9a1e1"))))
-;;    '(org-level-4 ((t (:height 1.4 :foreground "#7cc3f3"))))
-;;    '(org-level-5 ((t (:height 1.3 :foreground "#d499e5"))))
-;;    '(org-level-6 ((t (:height 1.3 :foreground "#a8d7f7"))))
-;;    '(org-level-7 ((t (:height 1.2 :foreground "#e2bbee"))))
-;;    '(org-level-8 ((t (:height 1.1 :foreground "#dceffb"))))
+;;    '(org-level-1 ((t (:height 1.4 :foreground "#51afef"))))
+;;    '(org-level-2 ((t (:height 1.3 :foreground "#c678dd"))))
+;;    '(org-level-3 ((t (:height 1.2 :foreground "#a9a1e1"))))
+;;    '(org-level-4 ((t (:height 1.0 :foreground "#7cc3f3"))))
+;;    '(org-level-5 ((t (:height 1.0 :foreground "#d499e5"))))
+;;    '(org-level-6 ((t (:height 1.9 :foreground "#a8d7f7"))))
+;;    '(org-level-7 ((t (:height 1.9 :foreground "#e2bbee"))))
+;;    '(org-level-8 ((t (:height 1.9 :foreground "#dceffb"))))
 ;;    ;; Add more levels and colors as needed
 ;;    ))
 
@@ -127,7 +127,7 @@
    '(org-level-1 ((t (:height 1.4  :inherit outline-1 ultra-bold))))
    '(org-level-2 ((t (:height 1.3  :inherit outline-2 extra-bold))))
    '(org-level-3 ((t (:height 1.2  :inherit outline-3 bold))))
-   '(org-level-4 ((t (:height 1.1  :inherit outline-4 semi-bold))))
+   '(org-level-4 ((t (:height 1.0  :inherit outline-4 semi-bold))))
    '(org-level-5 ((t (:height 1.0  :inherit outline-5 normal))))
    '(org-level-6 ((t (:height 0.9  :inherit outline-6 normal))))
    '(org-level-7 ((t (:height 0.9  :inherit outline-7 normal))))
@@ -158,6 +158,39 @@
   (map! :leader
         (:prefix ("n" . "notes")
           :desc "Org-roam search" "r S" #'org-roam-search)))
+
+  (defun org-make-olist (arg)
+    (interactive "P")
+    (let ((n (or arg 1)))
+      (when (region-active-p)
+        (setq n (count-lines (region-beginning)
+                             (region-end)))
+        (goto-char (region-beginning)))
+      (dotimes (i n)
+        (beginning-of-line)
+        (insert (concat (number-to-string (1+ i)) ". "))
+        (forward-line))))
+(map! :leader
+      :desc "Create a Numbered List"
+      "C-|" #'org-make-olist )
+
+(add-hook 'org-mode-hook 'org-superstar-mode)
+ (add-hook 'org-mode-hook 'olivetti-mode)
+ (setq olivetti-body-width 120)
+
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+;; This is usually the default, but keep in mind it must be nil
+(setq org-hide-leading-stars nil)
+;; This line is necessary.
+(setq org-superstar-leading-bullet ?\s)
+;; If you use Org Indent you also need to add this, otherwise the
+;; above has no effect while Indent is enabled.
+(setq org-indent-mode-turns-on-hiding-stars nil)
+
+;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
+(setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
 
 (use-package! org-auto-tangle
   :defer t
@@ -257,12 +290,12 @@
           (alltodo ""))))))
 
 (after! deft
-;; (setq deft-directory "~/roam/"
-(setq deft-directory "~/notes/"
+(setq deft-directory "~/roam/"
+;; (setq deft-directory "~/notes/"
       deft-extension '("txt" "org" "md")
       ;; deft-strip-summary-regexp "\\([\n ]\\|^#\\+[[:upper:][:lower:]_]+:.*$\\)"
       ;; deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"
-      ;; deft-use-filename-as-title t
+      deft-use-filename-as-title t
       deft-recursive t))
 
 (require 'denote)
