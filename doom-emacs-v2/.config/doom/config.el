@@ -33,12 +33,12 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
 
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+;; (setq display-line-numbers-type t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -583,3 +583,21 @@
 (add-hook 'emacs-startup-hook
           (lambda ()
             (setq gc-cons-threshold (expt 2 23))))
+
+;; (setq doom-theme 'doom-one)
+
+(use-package naga-theme
+  :config
+  ;; If you wish to disable accentuated org blocks
+  (setq naga-theme-use-lighter-org-block-background nil)
+  (setq naga-theme-modeline-style 'filled-green)
+  (load-theme 'naga t))
+
+;; (require 'ef-themes)
+;; ;; Disable all other themes to avoid awkward blending:
+;; (mapc #'disable-theme custom-enabled-themes)
+
+;; ;; Load the theme of choice:
+;; (load-theme 'ef-autumn :no-confirm)
+
+;; (setq ef-themes-to-toggle '(ef-autumn ef-melissa-light))

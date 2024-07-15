@@ -49,7 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 (package! multi-vterm)
-
+(package! naga-theme)
+(package! ef-themes)
 ;; (package! nordic-night-theme)
 ;; (load-theme 'nordic-night t)
 (unpin! org-roam)

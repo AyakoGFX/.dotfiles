@@ -41,12 +41,12 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
 
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+;; (setq display-line-numbers-type t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -89,6 +89,7 @@
 * ORG MODE
 ** main org
 #+begin_src elisp
+
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
@@ -704,3 +705,63 @@ Bookmarks are somewhat like registers in that they record positions you can jump
             (setq gc-cons-threshold (expt 2 23))))
 #+end_src
 ** name
+* theme
+#+begin_src elisp
+;; (setq doom-theme 'doom-one)
+
+(use-package naga-theme
+  :config
+  ;; If you wish to disable accentuated org blocks
+  (setq naga-theme-use-lighter-org-block-background nil)
+  (setq naga-theme-modeline-style 'filled-green)
+  (load-theme 'naga t))
+
+;; (require 'ef-themes)
+;; ;; Disable all other themes to avoid awkward blending:
+;; (mapc #'disable-theme custom-enabled-themes)
+
+;; ;; Load the theme of choice:
+;; (load-theme 'ef-autumn :no-confirm)
+
+;; (setq ef-themes-to-toggle '(ef-autumn ef-melissa-light))
+
+#+end_src
+
+
+* [[https://protesilaos.com/emacs/ef-themes-pictures][Sample Images]]
+** Dark themes
++ This section contains:
++ ef-autumn
++ ef-bio
++ ef-cherie
++ ef-dark
++ ef-deuteranopia-dark
++ ef-dream
++ ef-duo-dark
++ ef-elea-dark
++ ef-maris-dark
++ ef-melissa-dark
++ ef-night
++ ef-rosa
++ ef-symbiosis
++ ef-trio-dark
++ ef-tritanopia-dark
++ ef-winter
+** Light themes
++ This section contains:
++ ef-arbutus
++ ef-cyprus
++ ef-day
++ ef-deuteranopia-light
++ ef-duo-light
++ ef-elea-light
++ ef-frost
++ ef-kassio
++ ef-light
++ ef-maris-light
++ ef-melissa-light
++ ef-reverie
++ ef-spring
++ ef-summer
++ ef-trio-light
++ ef-tritanopia-light
