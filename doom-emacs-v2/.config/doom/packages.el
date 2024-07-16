@@ -58,8 +58,8 @@
 (package! org-download)
 (package! denote)
 (package! consult-denote)
-;; (package! )
-;;
+(package! minimal-theme)
+;
 (package! org-preview-html)
 (package! emojify)
 ;; (package! good-scroll)

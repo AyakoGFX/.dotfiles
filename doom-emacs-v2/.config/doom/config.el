@@ -92,7 +92,7 @@
         org-link-abbrev-alist    ; This overwrites the default Doom org-link-abbrev-list
           '(("google" . "http://www.google.com/search?q=")
             ("arch-wiki" . "https://wiki.archlinux.org/index.php/")
-            ("ddg" . "https://duckduckgo.com/?q=")
+0            ("ddg" . "https://duckduckgo.com/?q=")
             ("wiki" . "https://en.wikipedia.org/wiki/"))
         org-table-convert-region-max-lines 20000
         org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
@@ -119,7 +119,13 @@
 ;;    '(org-level-8 ((t (:height 1.9 :foreground "#dceffb"))))
 ;;    ;; Add more levels and colors as needed
 ;;    ))
-
+ (setq org-emphasis-alist
+  '(("*" (bold :slant italic :weight black :foreground "#1ABC9C" )) ; blue-green
+    ("/" (italic :foreground "#F3CA40" ))
+    ("_" (:underline t  )) ; light green
+    ("=" (:foreground "#E74C3C")) ;red
+    ("~" (:foreground "#53df83" )) ; lime green
+    ("+" (:strike-through nil :foreground "#FFC300" )))) ;orange
 
 (after! org
   (custom-set-faces
@@ -176,7 +182,7 @@
 
 (add-hook 'org-mode-hook 'org-superstar-mode)
  (add-hook 'org-mode-hook 'olivetti-mode)
- (setq olivetti-body-width 120)
+ (setq olivetti-body-width 100)
 
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
@@ -585,13 +591,13 @@
             (setq gc-cons-threshold (expt 2 23))))
 
 ;; (setq doom-theme 'doom-one)
-
-(use-package naga-theme
-  :config
-  ;; If you wish to disable accentuated org blocks
-  (setq naga-theme-use-lighter-org-block-background nil)
-  (setq naga-theme-modeline-style 'filled-green)
-  (load-theme 'naga t))
+(setq doom-theme 'doom-henna)
+;; (use-package naga-theme
+;;   :config
+;;   ;; If you wish to disable accentuated org blocks
+;;   (setq naga-theme-use-lighter-org-block-background nil)
+;;   (setq naga-theme-modeline-style 'filled-green)
+;;   (load-theme 'naga t))
 
 ;; (require 'ef-themes)
 ;; ;; Disable all other themes to avoid awkward blending:
@@ -601,3 +607,20 @@
 ;; (load-theme 'ef-autumn :no-confirm)
 
 ;; (setq ef-themes-to-toggle '(ef-autumn ef-melissa-light))
+
+ (setq global-vi-tilde-fringe-mode nil ) ; removes the tildas
+
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      inhibit-compacting-font-caches t            ; When there are lots of glyphs, keep them in memory
+      truncate-string-ellipsis "…")              ; Unicode ellispis are nicer than "...", and also save /precious/ space
+
+(display-time-mode 1)                             ; Enable time in the mode-line
+(unless (equal "Battery status not available"
+               (battery))
+  (display-battery-mode 1))                       ; On laptops it's nice to know how much power you have
+(global-subword-mode 1)                           ; Iterate through CamelCase words
+(setq-default line-spacing 5)
+(remove-hook 'after-init-hook #'doom-modeline-mode)
+(setq org-indent-indentation-per-level 4)
