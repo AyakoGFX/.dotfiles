@@ -2,6 +2,6 @@
     "version": "2.0.1",
     "autoload": {
         "AT Translated Set 2 keyboard": "new preset",
-        "CASUE USB KB": "esc to caps"
+        "CASUE USB KB": "vim"
     }
 }

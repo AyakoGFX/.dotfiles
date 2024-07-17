@@ -85,3 +85,9 @@
 ;; (package! ox-gemini)
 ;; (package! peep-dired)
 ;; (package! resize-window)
+
+
+;; for c/c++
+(package! eglot)
+(package! tree-sitter)
+(package! tree-sitter-langs)

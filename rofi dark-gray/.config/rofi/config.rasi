@@ -1,12 +1,10 @@
+/** Basic config file **/
 
 configuration {
-drun-display-format: "{icon} {name}";
-show-icons: true;
+  show-icons: true;
+  icon-theme: "Papirus";
+  display-drun: "";
+  display-window: "﩯 ";
+  display-combi: "  ";
 }
-
-
-
-@theme "~/.config/rofi/theme.rasi"
-
-
-
+@theme "themes/sidetab-nord.rasi"

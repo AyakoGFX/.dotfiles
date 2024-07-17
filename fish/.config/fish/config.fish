@@ -152,7 +152,8 @@ set -x KITTY_FONT_FAMILY "FiraCode Nerd Font"
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x PATH $HOME/.config/emacs/bin $PATH
-
+set -x QT_QPA_PLATFORM xcb
+export QT_QPA_PLATFORM=xcb
 # if test -f ~/.Xmodmap
 #     xmodmap ~/.Xmodmap
 # end

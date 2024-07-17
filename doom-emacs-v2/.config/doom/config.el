@@ -624,3 +624,35 @@
 (setq-default line-spacing 5)
 (remove-hook 'after-init-hook #'doom-modeline-mode)
 (setq org-indent-indentation-per-level 4)
+
+;; ;; Enable Tree-Sitter
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+
+;; (add-hook 'c-mode-hook #'tree-sitter-mode)
+;; (add-hook 'c++-mode-hook #'tree-sitter-mode)
+
+;; ;; Configure Eglot with Tree-Sitter
+;; (use-package! eglot
+;;   :config
+;;   (add-to-list 'eglot-server-programs '((c-mode c++-mode) . ("clangd")))
+;;   (add-hook 'c-mode-hook 'eglot-ensure)
+;;   (add-hook 'c++-mode-hook 'eglot-ensure))
+
+(use-package! eglot
+  :config
+  (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
+  (add-hook 'c-mode-hook 'eglot-ensure)
+  (add-hook 'c++-mode-hook 'eglot-ensure))
+
+(use-package! tree-sitter
+  :config
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+(use-package! tree-sitter-langs
+  :after tree-sitter
+  :config
+  (tree-sitter-require 'c)
+  (add-hook 'c-mode-hook #'tree-sitter-hl-mode)
+  (add-hook 'c++-mode-hook #'tree-sitter-hl-mode))
