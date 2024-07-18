@@ -537,6 +537,13 @@
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 
+(defun my-dired-view-file ()
+  (interactive)
+  (dired-view-file)
+  (local-set-key (kbd "<f5>") 'View-quit))
+
+(define-key dired-mode-map (kbd "<f5>") 'my-dired-view-file)
+
 ;; Set the location of aspell executable
 ;; (setq ispell-program-name "aspell")
 (setq ispell-program-name "hunspell")

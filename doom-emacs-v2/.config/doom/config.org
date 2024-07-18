@@ -600,6 +600,13 @@ Never lose your cursor.  When you scroll, your cursor will shine!  This is a glo
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 
+(defun my-dired-view-file ()
+  (interactive)
+  (dired-view-file)
+  (local-set-key (kbd "<f5>") 'View-quit))
+
+(define-key dired-mode-map (kbd "<f5>") 'my-dired-view-file)
+
 #+end_src
 
 ** flyspell enable

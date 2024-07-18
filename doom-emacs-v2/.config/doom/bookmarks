@@ -3,9 +3,9 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/fix_discord.org")
+ (filename . "~/roam/arch_script_index.org")
  (front-context-string)
- (rear-context-string . "le: fix discord\n")
- (position . 89)
- (last-modified 26261 31564 418857 142000))
+ (rear-context-string . "ch Script Index\n")
+ (position . 104)
+ (last-modified 26264 2861 92712 90000))
 )
