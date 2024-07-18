@@ -53,14 +53,10 @@
 (package! ef-themes)
 ;; (package! nordic-night-theme)
 ;; (load-theme 'nordic-night t)
-(unpin! org-roam)
-(package! org-roam-ui)
-(package! org-download)
-(package! denote)
 (package! consult-denote)
+(package! denote)
 (package! minimal-theme)
 ;
-(package! org-preview-html)
 (package! emojify)
 ;; (package! good-scroll)
 
@@ -76,8 +72,13 @@
 ;; (package! flycheck-aspell)
 ;; (package! org-bullets)
 (package! olivetti)
+;; (unpin! org-roam)
+(package! org-roam-ui)
+(package! org-download)
 (package! org-superstar)
+(package! org-preview-html)
 (package! org-auto-tangle)
+(package! org-modern)
 ;; (package! org-web-tools)
 ;; (package! calfw)
 ;; (package! calfw-org)
@@ -85,8 +86,9 @@
 ;; (package! ox-gemini)
 ;; (package! peep-dired)
 ;; (package! resize-window)
-
-
+;;
+;; When using org-roam via the `+roam` flag
+(unpin! org-roam company-org-roam)
 ;; for c/c++
 (package! eglot)
 (package! tree-sitter)

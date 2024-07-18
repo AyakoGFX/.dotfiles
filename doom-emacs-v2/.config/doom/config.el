@@ -197,6 +197,13 @@
 
 ;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
 
+;; Option 1: Per buffer
+(add-hook 'org-mode-hook #'org-modern-mode)
+(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+
+;; Option 2: Globally
+;; (with-eval-after-load 'org (global-org-modern-mode))
+
 (use-package! org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode)
@@ -581,24 +588,10 @@
        :desc "Delete bookmark"                         "M" #'bookmark-delete
        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
 
-;; Disable org-appear-mode
-(add-hook 'org-mode-hook #'org-appear-mode)
-;; Set a higher garbage collection threshold (e.g., 100 MB)
-(setq gc-cons-threshold (* 100 1024 1024))
-
-;; Disable flycheck
-;; (global-flycheck-mode -1)
-
-;; Minimize garbage collection during startup
-(setq gc-cons-threshold most-positive-fixnum)
-
-;; Lower threshold back to 8 MiB (default is 800kB)
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (setq gc-cons-threshold (expt 2 23))))
-
 ;; (setq doom-theme 'doom-one)
-(setq doom-theme 'doom-henna)
+;; (setq doom-theme 'doom-henna)
+;; (setq doom-theme 'homage-black)
+;; (setq doom-theme 'homage-white)
 ;; (use-package naga-theme
 ;;   :config
 ;;   ;; If you wish to disable accentuated org blocks
@@ -663,3 +656,27 @@
   (tree-sitter-require 'c)
   (add-hook 'c-mode-hook #'tree-sitter-hl-mode)
   (add-hook 'c++-mode-hook #'tree-sitter-hl-mode))
+
+;; Disable org-appear-mode
+(add-hook 'org-mode-hook #'org-appear-mode)
+;; Set a higher garbage collection threshold (e.g., 100 MB)
+(setq gc-cons-threshold (* 100 1024 1024))
+
+;; Disable flycheck
+;; (global-flycheck-mode -1)
+
+;; Minimize garbage collection during startup
+(setq gc-cons-threshold most-positive-fixnum)
+
+;; Lower threshold back to 8 MiB (default is 800kB)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (expt 2 23))))
+
+(global-font-lock-mode t)
+(setq font-lock-maximum-decoration t)
+(setq font-lock-maximum-size 100000)
+(setq font-lock-support-mode 'lazy-lock-mode)
+
+;; Toggle Evil mode with F9
+(global-set-key (kbd "<f9>") 'evil-mode)

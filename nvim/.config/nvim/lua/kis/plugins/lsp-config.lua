@@ -46,6 +46,11 @@ return {
         capabilities = capabilities,
       })
 
+      -- python Server setup
+      lspconfig.pylsp.setup({
+        capabilities = capabilities,
+      })
+
       -- Clangd (C/C++) setup
       lspconfig.clangd.setup({
         capabilities = capabilities,

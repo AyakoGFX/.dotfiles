@@ -214,6 +214,15 @@
 ;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
 
 #+end_src
+** org-modern-mode
+#+begin_src elisp
+;; Option 1: Per buffer
+(add-hook 'org-mode-hook #'org-modern-mode)
+(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+
+;; Option 2: Globally
+;; (with-eval-after-load 'org (global-org-modern-mode))
+#+end_src
 ** Org-auto-tangle
 =org-auto-tangle= allows you to add the option =#+auto_tangle: t= in your Org file so that it automatically tangles when you save the document.  I have made adding this to your file even easier by creating a function 'dt/insert-auto-tangle-tag' and setting it to a keybinding 'SPC i a'.
 #+begin_src elisp
@@ -698,29 +707,12 @@ Bookmarks are somewhat like registers in that they record positions you can jump
        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
 #+END_SRC
 
-* OPTIMIZING
-#+begin_src elisp
-;; Disable org-appear-mode
-(add-hook 'org-mode-hook #'org-appear-mode)
-;; Set a higher garbage collection threshold (e.g., 100 MB)
-(setq gc-cons-threshold (* 100 1024 1024))
-
-;; Disable flycheck
-;; (global-flycheck-mode -1)
-
-;; Minimize garbage collection during startup
-(setq gc-cons-threshold most-positive-fixnum)
-
-;; Lower threshold back to 8 MiB (default is 800kB)
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (setq gc-cons-threshold (expt 2 23))))
-#+end_src
-** name
 * theme
 #+begin_src elisp
 ;; (setq doom-theme 'doom-one)
-(setq doom-theme 'doom-henna)
+;; (setq doom-theme 'doom-henna)
+;; (setq doom-theme 'homage-black)
+;; (setq doom-theme 'homage-white)
 ;; (use-package naga-theme
 ;;   :config
 ;;   ;; If you wish to disable accentuated org blocks
@@ -738,6 +730,9 @@ Bookmarks are somewhat like registers in that they record positions you can jump
 ;; (setq ef-themes-to-toggle '(ef-autumn ef-melissa-light))
 
 #+end_src
+
+#+RESULTS:
+: homage-white
 
 ** [[https://protesilaos.com/emacs/ef-themes-pictures][Sample Images]]
 ** Dark themes
@@ -830,5 +825,32 @@ Bookmarks are somewhat like registers in that they record positions you can jump
   (tree-sitter-require 'c)
   (add-hook 'c-mode-hook #'tree-sitter-hl-mode)
   (add-hook 'c++-mode-hook #'tree-sitter-hl-mode))
+#+end_src
+* OPTIMIZING
+#+begin_src elisp
+;; Disable org-appear-mode
+(add-hook 'org-mode-hook #'org-appear-mode)
+;; Set a higher garbage collection threshold (e.g., 100 MB)
+(setq gc-cons-threshold (* 100 1024 1024))
 
+;; Disable flycheck
+;; (global-flycheck-mode -1)
+
+;; Minimize garbage collection during startup
+(setq gc-cons-threshold most-positive-fixnum)
+
+;; Lower threshold back to 8 MiB (default is 800kB)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (expt 2 23))))
+
+(global-font-lock-mode t)
+(setq font-lock-maximum-decoration t)
+(setq font-lock-maximum-size 100000)
+(setq font-lock-support-mode 'lazy-lock-mode)
+#+end_src
+* custome function
+#+begin_src elisp
+;; Toggle Evil mode with F9
+(global-set-key (kbd "<f9>") 'evil-mode)
 #+end_src
