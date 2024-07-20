@@ -590,8 +590,8 @@
 
 ;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-henna)
-;; (setq doom-theme 'homage-black)
-;; (setq doom-theme 'homage-white)
+;; (setq doom-theme 'doom-homage-black)
+;; (setq doom-theme 'doom-homage-white)
 ;; (use-package naga-theme
 ;;   :config
 ;;   ;; If you wish to disable accentuated org blocks

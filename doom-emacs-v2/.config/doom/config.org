@@ -708,11 +708,12 @@ Bookmarks are somewhat like registers in that they record positions you can jump
 #+END_SRC
 
 * theme
++ list of doom-theme
 #+begin_src elisp
 ;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-henna)
-;; (setq doom-theme 'homage-black)
-;; (setq doom-theme 'homage-white)
+;; (setq doom-theme 'doom-homage-black)
+;; (setq doom-theme 'doom-homage-white)
 ;; (use-package naga-theme
 ;;   :config
 ;;   ;; If you wish to disable accentuated org blocks
@@ -848,6 +849,8 @@ Bookmarks are somewhat like registers in that they record positions you can jump
 (setq font-lock-maximum-decoration t)
 (setq font-lock-maximum-size 100000)
 (setq font-lock-support-mode 'lazy-lock-mode)
+;; Whether display the buffer name.
+(setq doom-modeline-buffer-name t)
 #+end_src
 * custome function
 #+begin_src elisp
