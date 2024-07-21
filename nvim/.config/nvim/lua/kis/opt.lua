@@ -60,7 +60,7 @@ vim.opt.splitright = true
 
 -- " update vim after file update from outside
 vim.opt.autoread = true
-
+-- vim.o.tabline = 0
 -- " Indentation
 vim.opt.autoindent = true
 vim.opt.smartindent = true

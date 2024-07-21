@@ -158,4 +158,5 @@ export QT_QPA_PLATFORM=xcb
 #     xmodmap ~/.Xmodmap
 # end
 
+# starship init fish | source
 colorscript random
