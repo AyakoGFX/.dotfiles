@@ -4,6 +4,20 @@ end
 
 -- vim.api.nvim_set_keymap('n', '<Leader>cc', ':@g<CR>', {noremap = true, silent = true, desc = "Compile Code"})
 
+local api = vim.api
+local fn = vim.fn
+
+api.nvim_create_augroup("WorkingDirectory", { clear = true })
+api.nvim_create_autocmd({"BufEnter"}, {
+  pattern = {"*.*",".git","CMakeLists.txt"},
+  callback = function()
+    local path = fn.expand('%:h')..'/'
+    path = "cd "..path
+    api.nvim_command(path)
+  end,
+  group = "WorkingDirectory",
+})
+
 -- function RunFileAutocmds()
   vim.cmd([[
     augroup run_file
