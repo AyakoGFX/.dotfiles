@@ -1,12 +1,30 @@
-return {
-  "Mofiqul/vscode.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    vim.cmd([[colorscheme vscode]])
-  end,
-}
+-- return {
+--   "Mofiqul/vscode.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd([[colorscheme vscode]])
+--   end,
+-- }
 
+-- return {
+--   "navarasu/onedark.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd([[colorscheme onedark]])
+--   end,
+-- }
+--
+
+-- return {
+--   "NTBBloodbath/doom-one.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd([[colorscheme doom-one]])
+--   end,
+-- }
 -- return {
 --   "LunarVim/darkplus.nvim",
 --   lazy = false,
@@ -60,21 +78,21 @@ return {
 --     end
 -- }
 
--- return {
---   "catppuccin/nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd([[colorscheme catppuccin]])
---   end,
---   color_overrides = {
---     mocha = {
---       base = "#000000",
---       mantle = "#000000",
---       crust = "#000000",
---     },
---   },
--- }
+return {
+  "catppuccin/nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd([[colorscheme catppuccin]])
+  end,
+  color_overrides = {
+    mocha = {
+      base = "#000000",
+      mantle = "#000000",
+      crust = "#000000",
+    },
+  },
+}
 
 --
 ----
