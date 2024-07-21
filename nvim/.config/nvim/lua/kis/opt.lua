@@ -68,7 +68,7 @@ vim.opt.smarttab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-
+vim.opt.showtabline = 0
 -- " Always use spaces insted of tabs
 vim.opt.expandtab = true
 
