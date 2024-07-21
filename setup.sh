@@ -144,5 +144,14 @@ else
 fi
 
 
+# audio setup
+echo "visual-studio-code-bin"
+if confirm "installing"; then
+sudo pacman -S --noconfirm visual-studio-code-bin
+
+else
+    echo "not installed"
+fi
+
 sudo pacman -S --noconfirm hunspell-en_US ispell hunspell
 
