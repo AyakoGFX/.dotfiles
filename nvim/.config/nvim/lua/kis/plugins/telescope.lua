@@ -29,10 +29,9 @@ return {
       vim.keymap.set("n", "<C-f>", builtin.find_files, { desc = "Find files (Ctrl + F)" })
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
-      vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Open old files" })
+      vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent files" })
       vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "List buffers" })
       vim.keymap.set("n", "<leader>st", builtin.builtin, { desc = "List built-in commands" })
-      vim.keymap.set("n", "<leader>sf", builtin.current_buffer_fuzzy_find, { desc = "Search Current File" })
       vim.keymap.set("n", "<leader>sf", builtin.current_buffer_fuzzy_find, { desc = "Search Current File" })
 
 
