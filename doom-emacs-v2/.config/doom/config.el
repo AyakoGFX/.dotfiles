@@ -268,7 +268,7 @@
 
 (after! org
   (setq org-agenda-files
-  '("~/org/agenda.org")))
+  '("~/roam/org/agenda.org")))
 
 (after! org-agenda
 (setq
@@ -677,6 +677,8 @@
 (setq font-lock-maximum-decoration t)
 (setq font-lock-maximum-size 100000)
 (setq font-lock-support-mode 'lazy-lock-mode)
+;; Whether display the buffer name.
+(setq doom-modeline-buffer-name t)
 
 ;; Toggle Evil mode with F9
 (global-set-key (kbd "<f9>") 'evil-mode)

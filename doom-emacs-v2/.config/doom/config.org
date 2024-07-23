@@ -86,8 +86,7 @@
 ;; they are implemented.
 
 #+end_src
-* ORG MODE
-** main org
+* ORG MODE ** main org
 #+begin_src elisp
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
@@ -296,7 +295,7 @@
 #+begin_src elisp
 (after! org
   (setq org-agenda-files
-  '("~/org/agenda.org")))
+  '("~/roam/org/agenda.org")))
 
 (after! org-agenda
 (setq
