@@ -91,7 +91,7 @@
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
-  (setq org-directory "~/org"
+  (setq org-directory "~/roam/org"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ↴ " ; ⇩ ▼ ↴
         ;; org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
@@ -103,7 +103,7 @@
         org-link-abbrev-alist    ; This overwrites the default Doom org-link-abbrev-list
           '(("google" . "http://www.google.com/search?q=")
             ("arch-wiki" . "https://wiki.archlinux.org/index.php/")
-0            ("ddg" . "https://duckduckgo.com/?q=")
+            ("ddg" . "https://duckduckgo.com/?q=")
             ("wiki" . "https://en.wikipedia.org/wiki/"))
         org-table-convert-region-max-lines 20000
         org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
