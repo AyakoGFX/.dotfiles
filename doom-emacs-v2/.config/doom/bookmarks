@@ -3,9 +3,9 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/arch_script_index.org")
+ (filename . "~/roam/audio_pipewire.org")
  (front-context-string)
- (rear-context-string . "ch Script Index\n")
- (position . 104)
- (last-modified 26264 2861 92712 90000))
+ (rear-context-string . " audio pipewire\n")
+ (position . 92)
+ (last-modified 26271 65352 680895 734000))
 )
