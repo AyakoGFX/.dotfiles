@@ -15,6 +15,10 @@ style = "Regular"
 decorations = "buttonless"
 dynamic_padding = false
 opacity = 0.63
+
+
+
+
 [[keyboard.bindings]]
 key = "Back"
 mods = "Control"
