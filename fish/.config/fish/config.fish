@@ -162,4 +162,5 @@ export QT_QPA_PLATFORM=xcb
 # end
 
 # starship init fish | source
-colorscript random
+# colorscript random
+pokemon-colorscripts -r
