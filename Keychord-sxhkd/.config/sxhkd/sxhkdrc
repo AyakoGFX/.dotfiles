@@ -1,0 +1,11 @@
+super + p
+    dmenu_run
+
+super + u ; {n,b,f,r}
+      {nitrogen,google-chrome-stable,pcmanfm,openrbg}
+
+super + t
+    alacritty -e btop
+
+
+
