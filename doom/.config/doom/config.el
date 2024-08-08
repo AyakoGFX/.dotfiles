@@ -553,12 +553,12 @@
 
 ;; Set the location of aspell executable
 ;; (setq ispell-program-name "aspell")
-(setq ispell-program-name "hunspell")
+;; (setq ispell-program-name "hunspell")
 
 ;; Set the default dictionary
-(setq ispell-dictionary "en_US")
+;; (setq ispell-dictionary "en_US")
 
-(add-to-list 'default-frame-alist '(alpha-background . 90))
+;; (add-to-list 'default-frame-alist '(alpha-background . 90))
 
 ;; (custom-set-faces
 ;;  '(default ((t (:background "#171718")))))
@@ -589,7 +589,7 @@
        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
 
 ;; (setq doom-theme 'doom-one)
-;; (setq doom-theme 'doom-henna)
+(setq doom-theme 'doom-henna)
 ;; (setq doom-theme 'doom-homage-black)
 ;; (setq doom-theme 'doom-homage-white)
 ;; (use-package naga-theme
