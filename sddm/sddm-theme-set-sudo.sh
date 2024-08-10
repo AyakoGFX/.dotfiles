@@ -5,4 +5,5 @@ sudo cp -r suavedark  /usr/share/sddm/themes/elarun/
 #
 # [Theme]
 #Current=suave-dark
+# or use arch linux tweak tool
 #sudo systemctl restart sddm

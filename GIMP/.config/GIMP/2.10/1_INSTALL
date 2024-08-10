@@ -1,0 +1,94 @@
+TO_INSTALL:
+
+
+GENERAL PATHS (including support files):
+
+	/gimp/2.0/gimpressionist/*
+	/gimp/2.0/gradients/*
+	/gimp/2.0/patterns/*
+	/gimp/2.0/scripts/*
+	/gimp/2.0/scripts/images/*
+
+
+
+
+Put the scripts in :
+
+	Windows 7/10
+	C:\Program Files\GIMP 2\share\gimp\2.0\scripts
+	or
+	C:\Users\YOUR-NAME\AppData\Roaming\GIMP\2.10\scripts
+	
+    
+	Linux
+	/home/yourname/.config/GIMP/2.10/scripts  
+	or
+	Linux system-wide
+	/usr/share/gimp/2.0/scripts
+
+
+
+Put the images in :
+
+	Windows 7/10
+	C:\Program Files\GIMP 2\share\gimp\2.0\scripts\images
+	or
+	C:\Users\YOUR-NAME\AppData\Roaming\GIMP\2.10\scripts\images
+	
+    
+	Linux
+	/home/yourname/.config/GIMP/2.10/scripts/images
+	or
+	Linux system-wide
+	/usr/share/gimp/2.0/scripts/images
+	
+
+
+Put the Gimpressionist presets in :
+
+	Windows 7/10
+	C:\Program Files\GIMP 2\share\gimp\2.0\gimpressionist\preset
+	or
+	C:\Users\YOUR-NAME\AppData\Roaming\GIMP\2.10\gimpressionist\presets
+	
+ 
+	Linux
+	/home/yourname/.config/GIMP/2.10/gimpressionist/presets 
+	or
+	Linux - system-wide
+	/usr/share/gimp/2.0/gimpressionist/Presets 
+
+
+
+Put the Gradients in :
+
+	Windows 7/10
+	C:\Program Files\GIMP 2\share\gimp\2.0\gradients
+	or
+	C:\Users\YOUR-NAME\AppData\Roaming\GIMP\2.10\gradients
+	
+    
+	Linux
+	/home/yourname/.config/GIMP/2.10/gradients
+	or
+	Linux - system-wide
+	/usr/share/gimp/2.0/gradients
+	
+	
+
+Put the patterns in :
+
+	Windows 7/10
+	C:\Program Files\GIMP 2\share\gimp\2.0\patterns
+	or
+	C:\Users\YOUR-NAME\AppData\Roaming\GIMP\2.10\patterns
+    
+	
+	Linux
+	/home/yourname/.config/GIMP/2.10/patterns
+	or
+	Linux - system-wide
+	/usr/share/gimp/2.0/patterns
+	
+	
+
