@@ -3,9 +3,9 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/tty_font_terminal.org")
+ (filename . "~/roam/make_yay_faster.org")
  (front-context-string)
- (rear-context-string . "y font terminal\n")
- (position . 95)
- (last-modified 26296 27811 974749 404000))
+ (rear-context-string . "make yay faster\n")
+ (position . 93)
+ (last-modified 26296 36624 600880 178000))
 )
