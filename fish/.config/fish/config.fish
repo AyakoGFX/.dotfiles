@@ -166,12 +166,33 @@ export QT_QPA_PLATFORM=xcb
 
 
 # This function runs the command `find . | fzf`, which allows you to search for files using fzf
-function fzf_find
-    find . | fzf
-end
-# Bind the function to Ctrl+f
-bind \cf fzf_find
+# function fzf_find
+#     find . | fzf
+# end
+# # Bind the function to Ctrl+f
+# bind \cf fzf_find
 
+function fzf_find_files
+    set selected (find . | fzf)
+    if test -n "$selected"
+        if test -d "$selected"
+            cd "$selected"
+        else if test -f "$selected"
+            nvim "$selected"
+        end
+    end
+end
+
+bind \cg 'fzf_find_files'
+
+function fzf_find_dir
+    set selected (find . -type d | fzf)
+    if test -n "$selected"
+        cd "$selected"
+    end
+end
+
+bind \cf 'fzf_find_dir'
 
 # starship init fish | source
 # colorscript random
