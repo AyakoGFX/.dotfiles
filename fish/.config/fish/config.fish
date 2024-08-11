@@ -164,6 +164,15 @@ export QT_QPA_PLATFORM=xcb
 #     xmodmap ~/.Xmodmap
 # end
 
+
+# This function runs the command `find . | fzf`, which allows you to search for files using fzf
+function fzf_find
+    find . | fzf
+end
+# Bind the function to Ctrl+f
+bind \cf fzf_find
+
+
 # starship init fish | source
 # colorscript random
 pokemon-colorscripts -r
