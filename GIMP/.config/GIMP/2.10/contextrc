@@ -1,9 +1,9 @@
 # GIMP user context
 
-(tool "gimp-align-tool")
+(tool "gimp-unified-transform-tool")
 (paint-info "gimp-paintbrush")
-(foreground (color-rgb 1 1 1))
-(background (color-rgb 1 0.92965649361826563 0.45720399429386593))
+(foreground (color-rgb 0.88627450980392153 0.93333333333333335 0.094117647058823528))
+(background (color-rgb 1 0.92941176470588238 0.45882352941176469))
 (brush "2. Hardness 050")
 (dynamics "Dynamics Off")
 (mybrush "100% Opaque")
