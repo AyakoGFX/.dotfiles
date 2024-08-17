@@ -2,7 +2,7 @@ eza
 papirus-icon-theme 
 arc-gtk-theme
 lxappearance
-
+bibata-cursor-theme
 
 
 sudo pacman -S --noconfirm --needed btrfs-assistant

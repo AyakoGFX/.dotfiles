@@ -1,6 +1,6 @@
 # GIMP user context
 
-(tool "gimp-unified-transform-tool")
+(tool "gimp-scale-tool")
 (paint-info "gimp-paintbrush")
 (foreground (color-rgb 0.88627450980392153 0.93333333333333335 0.094117647058823528))
 (background (color-rgb 1 0.92941176470588238 0.45882352941176469))

@@ -4,7 +4,7 @@
     (icon-name "gimp-cursor")
     (name "Core Pointer")
     (tool-options "GimpTransformGridOptions"
-        (tool "gimp-unified-transform-tool")
+        (tool "gimp-scale-tool")
         (background (color-rgb 1 0.92941176470588238 0.45882352941176469)))
     (use-fg-bg yes)
     (use-opacity-paint-mode no)

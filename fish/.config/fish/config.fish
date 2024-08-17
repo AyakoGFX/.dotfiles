@@ -138,10 +138,11 @@ alias tr='tmux -u a'
 alias ta='tmux -u attach -t'
 alias tn='tmux new -su'
 alias sp='sudo pacman '
+alias fix='setxkbmap -option caps:swapescape && xset r rate 250 60'
 alias remap='setxkbmap -option caps:swapescape'
 alias speed='xset r rate 250 60'
 alias tldrf='tldr --list | fzf --preview "tldr {1}" --preview-window=right,60% | xargs tldr'
-alias e='emacsclient -c &'
+alias e='emacsclient -c'
 
 alias smci='sudo make clean install && rm *.o && rm *.orig'
 # Path modification
@@ -196,3 +197,5 @@ bind \cf 'fzf_find_dir'
 # starship init fish | source
 # colorscript random
 pokemon-colorscripts -r
+# sysinfo-retro
+# cpufetch
