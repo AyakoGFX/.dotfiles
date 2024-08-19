@@ -11,8 +11,8 @@
     (size 640 480))
 (session-info "toplevel"
     (factory-entry "gimp-single-image-window")
-    (position 8 8)
-    (size 1900 1039)
+    (position 6 6)
+    (size 1904 1041)
     (open-on-exit)
     (aux-info
         (left-docks-width "230")
@@ -59,7 +59,7 @@
                 (aux-info
                     (show-button-bar "true"))))
         (book
-            (position 267)
+            (position 261)
             (current-page 0)
             (dockable "gimp-layer-list"
                 (tab-style automatic)
