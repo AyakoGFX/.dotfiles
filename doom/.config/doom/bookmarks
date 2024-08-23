@@ -3,9 +3,9 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/make_yay_faster.org")
+ (filename . "~/roam/set_default_app_in_linux_with_xdg_mime.org")
  (front-context-string)
- (rear-context-string . "make yay faster\n")
- (position . 93)
- (last-modified 26296 36624 600880 178000))
+ (rear-context-string . "x with xdg-mime\n")
+ (position . 116)
+ (last-modified 26309 59493 397124 35000))
 )
