@@ -51,7 +51,6 @@ sed -i "s/^ParallelDownloads *= *[0-9]*/ParallelDownloads = $PARALLEL_DOWNLOADS/
 sed -i '/^# *Color/s/^# *//' /etc/pacman.conf
 
 # Add ILoveCandy option if not present
-# This adds a playful pacman-style progress bar
 if ! grep -q "ILoveCandy" /etc/pacman.conf; then
     echo "Adding ILoveCandy option..."
     sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
