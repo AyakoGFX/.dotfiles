@@ -1,47 +1,48 @@
 #!/bin/bash
 
-# Check if running as root
+# Check for sudo privileges
 if [ "$EUID" -ne 0 ]; then
-    echo "Please run as root"
-    exit 1
+    echo "This script requires sudo privileges. Please enter your password."
+    exec sudo "$0" "$@"
+    exit $?
 fi
 
-# Ask user for number of mirrors
-read -p "Enter the number of mirrors to use (default is 70): " MIRROR_COUNT
-MIRROR_COUNT=${MIRROR_COUNT:-70}
+# Function to check and install packages
+check_and_install() {
+    if ! command -v $1 &> /dev/null; then
+        echo "$1 is not installed. Installing..."
+        pacman -S --noconfirm $1
+    fi
+}
 
-# Check if reflector is installed, if not, install it
-if ! command -v reflector &> /dev/null; then
-    echo "reflector is not installed. Installing..."
-    pacman -S --noconfirm reflector
-fi
+# Check and install required packages
+echo "Checking and installing required packages..."
+check_and_install reflector
+check_and_install sed
+clear
 
-# Check if sed is installed, if not, install it
-if ! command -v sed &> /dev/null; then
-    echo "sed is not installed. Installing..."
-    pacman -S --noconfirm sed
-fi
+# User input for configuration
+echo "Configuring mirror and download settings..."
+read -p "Enter the number of mirrors to use (default is 50): " MIRROR_COUNT
+MIRROR_COUNT=${MIRROR_COUNT:-50}
+
+read -p "Enter the number of parallel downloads (default is 7): " PARALLEL_DOWNLOADS
+PARALLEL_DOWNLOADS=${PARALLEL_DOWNLOADS:-7}
 
 # Update mirror list
-reflector --verbose --sort rate -l $MIRROR_COUNT --save /etc/pacman.d/mirrorlist
+echo "Updating mirror list..."
+sudo reflector --verbose --sort rate -l $MIRROR_COUNT --save /etc/pacman.d/mirrorlist
 
 # Update pacman.conf
-sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
-sed -i '/^#Color/s/^#//' /etc/pacman.conf
-sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
+echo "Modifying pacman.conf..."
+sed -i '/^# *ParallelDownloads/s/^# *//' /etc/pacman.conf
+sed -i "s/^ParallelDownloads *= *[0-9]*/ParallelDownloads = $PARALLEL_DOWNLOADS/" /etc/pacman.conf
+sed -i '/^# *Color/s/^# *//' /etc/pacman.conf
 
-echo "Mirror list updated with $MIRROR_COUNT mirrors and pacman.conf modified."
+# Add ILoveCandy if not present
+if ! grep -q "ILoveCandy" /etc/pacman.conf; then
+    echo "Adding ILoveCandy option..."
+    sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
+fi
 
-# Usage Examples:
-#
-# 1. Sort 30 latest mirrors by speed:
-#    sudo reflector --verbose --sort rate -l 30 --save /etc/pacman.d/mirrorlist
-#
-# 2. Sort 30 latest mirrors by delay time:
-#    sudo reflector --verbose --sort delay -l 30 --save /etc/pacman.d/mirrorlist
-#
-# 3. Sort 30 latest mirrors from specific countries (Italy and France):
-#    sudo reflector --verbose --sort rate -l 30 -c Italy -c France --save /etc/pacman.d/mirrorlist
-#
-# 4. Sort 15 latest HTTPS-only mirrors by speed:
-#    sudo reflector --verbose --sort rate -l 15 -p https --save /etc/pacman.d/mirrorlist
+echo "Setup complete! Mirror list updated and pacman.conf modified with $PARALLEL_DOWNLOADS parallel downloads."
