@@ -82,6 +82,10 @@ alias ll 'eza -l --color=always --group-directories-first --icons'  # long forma
 alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listing
 alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 
+# emacs
+# export EMACS_DIR="$HOME/.emacs.d-doom"
+# alias doom='emacs -q --eval "(setq user-emacs-directory \"~/.emacs.d-doom\")"'
+
 # Common use
 alias .. 'cd ..'
 alias ... 'cd ../..'
@@ -144,11 +148,34 @@ alias speed='xset r rate 250 60'
 alias tldrf='tldr --list | fzf --preview "tldr {1}" --preview-window=right,60% | xargs tldr'
 alias e='emacsclient -c'
 
+# alias g='git'
+# alias ga='git add'
+# alias gb='git checkout -B'
+# alias gbr='git branch'
+# alias gc='git commit'
+# alias gca='git commit -a'
+# alias gcA='git commit --amend'
+# alias gcAn='git commit --amend --no-edit'
+# alias gcam='git commit -am'
+# alias gcl='git clone'
+# alias gcm='git commit -m'
+# alias gco='git checkout'
+# alias gd='git diff'
+# alias gds='git diff --staged'
+# alias gl='git log --color --oneline --graph --full-history'
+# alias gp='git push'
+# alias gpl='git pull'
+# alias grb='git rebase'
+# alias grs='git reset'
+# alias gs='git status'
+# alias gsh='git show'
+#
 alias cleanup='sudo pacman -Rsn $(pacman -Qdtq)'
 
 alias smci='sudo make clean install'
 # Path modification
 set -x PATH $HOME/.config/emacs/bin $PATH
+
 
 # Initialize zoxide in Fish shell
 zoxide init fish | source
