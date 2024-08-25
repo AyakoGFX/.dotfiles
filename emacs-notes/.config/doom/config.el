@@ -395,3 +395,5 @@
 
 ;; (setq doom-theme 'doom-one)
 (setq doom-theme 'doom-henna)
+
+(use-package! wks-mode)
