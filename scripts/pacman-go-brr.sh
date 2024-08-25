@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# This script configures Pacman (Arch Linux package manager) by updating the mirror list
-# and modifying the pacman.conf file for improved performance and aesthetics.
+# This script optimizes Pacman (Arch Linux package manager) configuration:
+# 1. Updates mirror list for faster downloads using reflector
+# 2. Modifies pacman.conf to enhance performance and aesthetics
+# Key features:
+# - Selects fastest mirrors based on download rates
+# - Configures parallel downloads for improved speed
+# - Enables colorized output for better readability
 
 # Check for sudo privileges
 if [ "$EUID" -ne 0 ]; then
