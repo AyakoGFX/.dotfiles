@@ -15,6 +15,7 @@ style = "Regular"
 decorations = "buttonless"
 dynamic_padding = false
 opacity = 0.63
+# opacity = 1
 
 
 
@@ -27,7 +28,8 @@ chars = "\u0017"
 [colors]
 
 [colors.primary]
-background = "#000000"
+# background = "#000000"
+background = "#16161e"
 foreground = "#cdd6f4"
 dim_foreground = "#7f849c"
 bright_foreground = "#cdd6f4"
