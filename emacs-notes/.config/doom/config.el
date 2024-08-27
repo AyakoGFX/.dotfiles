@@ -357,7 +357,7 @@
 (use-package multi-vterm :ensure t)
 ;; Define keybindings for multi-vterm in Doom Emacs
 (map! :leader
-      (:prefix ("-" . "multi-vterm")
+      (:prefix ("t" . "multi-vterm")
         :desc "Open multi-vterm" "t" #'multi-vterm
         :desc "Next vterm" "n" #'multi-vterm-next
         :desc "Previous vterm" "p" #'multi-vterm-prev))
@@ -397,3 +397,38 @@
 (setq doom-theme 'doom-henna)
 
 (use-package! wks-mode)
+
+;; Set the location of aspell executable
+(setq ispell-program-name "aspell")
+;; (setq ispell-program-name "hunspell")
+
+;; Set the default dictionary
+(setq ispell-dictionary "en_US")
+;; (setq ispell-local-dictionary "en_US")
+
+;; Load Wucuo and set up hooks for programming and text modes
+(after! wucuo
+  (add-hook 'prog-mode-hook #'wucuo-start)
+  (add-hook 'text-mode-hook #'wucuo-start))
+
+;; Disable flyspell-mode and flyspell-prog-mode if enabled
+(setq flyspell-mode nil)
+(setq flyspell-prog-mode nil)
+
+;; Configure Wucuo behavior
+(setq wucuo-flyspell-start-mode 'fast) ;; Use 'normal' for more comprehensive checking
+(setq wucuo-update-interval 5) ;; Adjust the interval as needed
+
+;; Skip spell checking in certain modes
+(setq wucuo-spell-check-buffer-predicate
+      (lambda ()
+        (not (memq major-mode
+                   '(dired-mode
+                     log-edit-mode
+                     compilation-mode
+                     help-mode
+                     profiler-report-mode
+                     speedbar-mode
+                     gud-mode
+                     calc-mode
+                     Info-mode)))))

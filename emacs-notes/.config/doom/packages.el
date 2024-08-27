@@ -56,8 +56,9 @@
 (package! nerd-icons-dired)
 (package! org-auto-tangle)
 (package! multi-vterm)
-(unpin! org-roam company-org-roam)
+(package! wucuo)
 
+(unpin! org-roam company-org-roam)
 (package! wks-mode
   :recipe (:host github
            :repo "3L0C/wks-mode"))
