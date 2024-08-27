@@ -154,6 +154,7 @@
        (org               ; organize your plain life in plain text
         +roam2
         +pretty
+        +dragndrop
         )
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more

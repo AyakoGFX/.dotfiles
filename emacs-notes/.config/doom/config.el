@@ -225,6 +225,12 @@
           (agenda "")
           (alltodo ""))))))
 
+(after! org-download
+(setq org-download-image-dir "~/roam/img/")
+(setq-default org-download-image-dir "~/roam/img/"))
+(after! org
+(setq org-attach-directory "~/roam/img/"))
+
 (after! deft
 (setq deft-directory "~/roam/"
 ;; (setq deft-directory "~/notes/"

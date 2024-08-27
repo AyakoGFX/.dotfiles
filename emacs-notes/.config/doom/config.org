@@ -251,6 +251,14 @@
           (agenda "")
           (alltodo ""))))))
 #+end_src
+** org download
+#+begin_src elisp
+(after! org-download
+(setq org-download-image-dir "~/roam/img/")
+(setq-default org-download-image-dir "~/roam/img/"))
+(after! org
+(setq org-attach-directory "~/roam/img/"))
+#+end_src
 ** deft
 #+begin_src elisp
 (after! deft
