@@ -3,7 +3,7 @@
 #+STARTUP: showeverything
 #+PROPERTY:header-args :tangle config.el
 
-** Set Font
+* Set Font
 #+begin_src elisp
 ;; FiraCode Nerd Font
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
@@ -477,6 +477,32 @@ The place this is most useful is when you’re using Emacs’ excellent Dired pa
 ** Set Icons For Dired
 #+begin_src elisp
 ;; (all-the-icons-dired-mode 1)
+#+end_src
+** BOOKMARKS AND BUFFERS
+Doom Emacs uses 'SPC b' for keybindings related to bookmarks and buffers.
+
+Bookmarks are somewhat like registers in that they record positions you can jump to.  Unlike registers, they have long names, and they persist automatically from one Emacs session to the next. The prototypical use of bookmarks is to record where you were reading in various files.
+
+| COMMAND         | DESCRIPTION                            | KEYBINDING |
+|-----------------+----------------------------------------+------------|
+| list-bookmarks  | /List bookmarks/                         | SPC b L    |
+| bookmark-set    | /Set bookmark/                           | SPC b m    |
+| bookmark-delete | /Delete bookmark/                        | SPC b M    |
+| bookmark-save   | /Save current bookmark to bookmark file/ | SPC b w    |
+
+#+BEGIN_SRC emacs-lisp
+(setq bookmark-default-file "~/.config/doom/bookmarks")
+
+(map! :leader
+      (:prefix ("b". "buffer")
+       :desc "List bookmarks"                          "L" #'list-bookmarks
+       :desc "Set bookmark"                            "m" #'bookmark-set
+       :desc "Delete bookmark"                         "M" #'bookmark-delete
+       :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
+#+END_SRC
+** MU4E
+#+begin_src elisp
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 #+end_src
 * theme
 + list of doom-theme

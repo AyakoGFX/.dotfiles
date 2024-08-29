@@ -399,6 +399,17 @@
 
 ;; (all-the-icons-dired-mode 1)
 
+(setq bookmark-default-file "~/.config/doom/bookmarks")
+
+(map! :leader
+      (:prefix ("b". "buffer")
+       :desc "List bookmarks"                          "L" #'list-bookmarks
+       :desc "Set bookmark"                            "m" #'bookmark-set
+       :desc "Delete bookmark"                         "M" #'bookmark-delete
+       :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
+
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
+
 ;; (setq doom-theme 'doom-one)
 (setq doom-theme 'doom-henna)
 
