@@ -2,10 +2,16 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
- (filename . "~/roam/setup_qemu_in_arch_linux_virtual_machine.org")
- (front-context-string)
- (rear-context-string . "Virtual machine\n")
- (position . 118)
- (last-modified 26321 32227 698333 152000))
+(("config.org"
+ (filename . "~/.dotfiles/emacs-notes/.config/doom/config.org")
+ (front-context-string . ";; (add-hook 'or")
+ (rear-context-string . "n 1: Per buffer\n")
+ (position . 5976)
+ (last-modified 26322 5463 887487 974000))
+("linux_index.org"
+ (filename . "~/roam/Index's/linux_index.org")
+ (front-context-string . "GPU: 1002:1638\nA")
+ (rear-context-string . "nd_src\n\nmy ids\n\n")
+ (position . 4048)
+ (last-modified 26322 5422 418410 777000))
 )

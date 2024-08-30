@@ -8,7 +8,7 @@
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ↴ " ; ⇩ ▼ ↴
         ;; org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
-        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        ;; org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
         org-log-done 'time
         org-hide-emphasis-markers t
         ;; ex. of org-link-abbrev-alist in action
@@ -119,11 +119,26 @@
 ;; above has no effect while Indent is enabled.
 (setq org-indent-mode-turns-on-hiding-stars nil)
 
+(setq org-superstar-item-bullet-alist nil)
+
+
+;; (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○"))
 ;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
 
 ;; Option 1: Per buffer
 (add-hook 'org-mode-hook #'org-modern-mode)
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+
+;; off bullets from org-modern-mode
+(setq org-modern-star 'replace)
+
+;; off all bullets
+;; (setq org-modern-hide-stars 't)  ;; Hide all stars
+
+;; (setq org-modern-priority nil)
+
+;; off list
+(setq org-modern-list nil)
 
 ;; Option 2: Globally
 ;; (with-eval-after-load 'org (global-org-modern-mode))
@@ -200,7 +215,7 @@
    ;; org-fancy-priorities-list '("❗" "[B]" "[C]")
    ;; org-fancy-priorities-list '("🔴" "🟡" "🟢")
    ;; org-fancy-priorities-list '("🔴" "🔵" "🟢")
-   org-fancy-priorities-list '("🟥" "🟧" "🟨")
+   ;; org-fancy-priorities-list '("🟥" "🟧" "🟨")
    org-priority-faces
    '((?A :foreground "#ff6c6b" :weight bold)
      (?B :foreground "#98be65" :weight bold)

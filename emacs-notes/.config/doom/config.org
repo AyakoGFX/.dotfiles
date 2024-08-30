@@ -9,7 +9,7 @@
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
 #+end_src
 
-* ORG MODE ** main org
+* ORG MODE Main org
 #+begin_src elisp
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
@@ -18,7 +18,7 @@
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ↴ " ; ⇩ ▼ ↴
         ;; org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
-        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        ;; org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
         org-log-done 'time
         org-hide-emphasis-markers t
         ;; ex. of org-link-abbrev-alist in action
@@ -133,6 +133,10 @@
 ;; above has no effect while Indent is enabled.
 (setq org-indent-mode-turns-on-hiding-stars nil)
 
+(setq org-superstar-item-bullet-alist nil)
+
+
+;; (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○"))
 ;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
 
 #+end_src
@@ -142,9 +146,21 @@
 (add-hook 'org-mode-hook #'org-modern-mode)
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 
+;; off bullets from org-modern-mode
+(setq org-modern-star 'replace)
+
+;; off all bullets
+;; (setq org-modern-hide-stars 't)  ;; Hide all stars
+
+;; (setq org-modern-priority nil)
+
+;; off list
+(setq org-modern-list nil)
+
 ;; Option 2: Globally
 ;; (with-eval-after-load 'org (global-org-modern-mode))
 #+end_src
+
 ** Org-auto-tangle
 =org-auto-tangle= allows you to add the option =#+auto_tangle: t= in your Org file so that it automatically tangles when you save the document.  I have made adding this to your file even easier by creating a function 'dt/insert-auto-tangle-tag' and setting it to a keybinding 'SPC i a'.
 #+begin_src elisp
@@ -165,7 +181,6 @@
       :desc "Insert auto_tangle tag" "i a" #'dt/insert-auto-tangle-tag)
 #+end_src
 
-  drwxr-xr-x 1 ayako ayako  624 Jul 13 04:07
 ** org roam
 #+begin_src elisp
 (after! org-roam
@@ -226,7 +241,7 @@
    ;; org-fancy-priorities-list '("❗" "[B]" "[C]")
    ;; org-fancy-priorities-list '("🔴" "🟡" "🟢")
    ;; org-fancy-priorities-list '("🔴" "🔵" "🟢")
-   org-fancy-priorities-list '("🟥" "🟧" "🟨")
+   ;; org-fancy-priorities-list '("🟥" "🟧" "🟨")
    org-priority-faces
    '((?A :foreground "#ff6c6b" :weight bold)
      (?B :foreground "#98be65" :weight bold)
