@@ -119,8 +119,12 @@
 ;; above has no effect while Indent is enabled.
 (setq org-indent-mode-turns-on-hiding-stars nil)
 
+;; off list
 (setq org-superstar-item-bullet-alist nil)
-
+;; (setq org-superstar-item-bullet-alist
+;;       '((?* . ?•)  ;; * becomes •
+;;         (?+ . ?➤)  ;; + becomes ➤
+;;         (?- . ?–))) ;; - becomes –
 
 ;; (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○"))
 ;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
