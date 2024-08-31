@@ -49,7 +49,7 @@
     ("_" (:underline t  )) ; light green
     ("=" (:foreground "#E74C3C")) ;red
     ("~" (:foreground "#53df83" )) ; lime green
-    ("+" (:strike-through nil :foreground "#FFC300" )))) ;orange
+    ("+" (:strike-through t :foreground "#FFC300" )))) ;orange
 
 (after! org
   (custom-set-faces
@@ -146,6 +146,8 @@
 
 ;; Option 2: Globally
 ;; (with-eval-after-load 'org (global-org-modern-mode))
+
+(require 'org-preview-html)
 
 (use-package! org-auto-tangle
   :defer t

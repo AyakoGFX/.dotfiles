@@ -57,7 +57,7 @@
 (package! org-auto-tangle)
 (package! multi-vterm)
 (package! wucuo)
-
+(package! org-preview-html)
 (unpin! org-roam company-org-roam)
 (package! wks-mode
   :recipe (:host github

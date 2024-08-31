@@ -59,7 +59,7 @@
     ("_" (:underline t  )) ; light green
     ("=" (:foreground "#E74C3C")) ;red
     ("~" (:foreground "#53df83" )) ; lime green
-    ("+" (:strike-through nil :foreground "#FFC300" )))) ;orange
+    ("+" (:strike-through t :foreground "#FFC300" )))) ;orange
 
 (after! org
   (custom-set-faces
@@ -142,7 +142,6 @@
 
 ;; (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○"))
 ;; (setq org-superstar-headline-bullets-list '(" " " " "-" "·" "-" "·"))
-
 #+end_src
 ** org-modern-mode
 #+begin_src elisp
@@ -165,6 +164,12 @@
 ;; (with-eval-after-load 'org (global-org-modern-mode))
 #+end_src
 
+* Org-preview-html-mode
+#+begin_src elisp
+(require 'org-preview-html)
+#+end_src
++ usage
+  Open an Org file and execute =M-x org-preview-html-mode.= A preview window opens next to the Org file. If you want to manage this window separate (aka, make it a frame) use the function =org-preview-html-pop-window-to-frame.=
 ** Org-auto-tangle
 =org-auto-tangle= allows you to add the option =#+auto_tangle: t= in your Org file so that it automatically tangles when you save the document.  I have made adding this to your file even easier by creating a function 'dt/insert-auto-tangle-tag' and setting it to a keybinding 'SPC i a'.
 #+begin_src elisp
