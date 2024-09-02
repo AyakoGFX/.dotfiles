@@ -1,3 +1,4 @@
 #!/bin/bash
 
-xrandr --refresh 60 --output eDP --mode 1280x720
+# xrandr --refresh 60 --output eDP --mode 1280x720
+xrandr --output eDP-1 --mode 1280x720 --refresh 60

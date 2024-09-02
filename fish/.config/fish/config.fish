@@ -195,6 +195,8 @@ export QT_QPA_PLATFORM=xcb
 #     xmodmap ~/.Xmodmap
 # end
 
+set -x NIXPKGS_ALLOW_UNFREE 1
+# export NIXPKGS_ALLOW_UNFREE=1 # use this in bash
 
 # This function runs the command `find . | fzf`, which allows you to search for files using fzf
 # function fzf_find

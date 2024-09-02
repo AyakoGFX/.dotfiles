@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("config.org"
+(("org-capture-last-stored"
+ (filename . "~/roam/after_modifing_fstab_to_this_cmds.org")
+ (front-context-string)
+ (rear-context-string . "ab to this cmds\n")
+ (position . 120)
+ (last-modified 26325 46893 24403 891000))
+("config.org"
  (filename . "~/.dotfiles/emacs-notes/.config/doom/config.org")
  (front-context-string . ";; (add-hook 'or")
  (rear-context-string . "n 1: Per buffer\n")
