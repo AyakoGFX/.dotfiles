@@ -53,13 +53,15 @@
 ;;    '(org-level-8 ((t (:height 1.9 :foreground "#dceffb"))))
 ;;    ;; Add more levels and colors as needed
 ;;    ))
- (setq org-emphasis-alist
-  '(("*" (bold :slant italic :weight black :foreground "#1ABC9C" )) ; blue-green
-    ("/" (italic :foreground "#F3CA40" ))
-    ("_" (:underline t  )) ; light green
-    ("=" (:foreground "#E74C3C")) ;red
-    ("~" (:foreground "#53df83" )) ; lime green
-    ("+" (:strike-through t :foreground "#FFC300" )))) ;orange
+
+
+ ;; (setq org-emphasis-alist
+ ;;  '(("*" (bold :slant italic :weight black :foreground "#1ABC9C" )) ; blue-green
+ ;;    ("/" (italic :foreground "#F3CA40" ))
+ ;;    ("_" (:underline t  )) ; light green
+ ;;    ("=" (:foreground "#E74C3C")) ;red
+ ;;    ("~" (:foreground "#53df83" )) ; lime green
+ ;;    ("+" (:strike-through t :foreground "#FFC300" )))) ;orange
 
 (after! org
   (custom-set-faces

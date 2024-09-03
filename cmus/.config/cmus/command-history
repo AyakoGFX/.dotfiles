@@ -1,0 +1,22 @@
+update-cache 
+w
+add -p ~/Music/lofi/
+pl-create lofi
+add -p ~/Music/war-song/
+pl-create war
+add -p ~/Music/just-music/
+pl-create just-music
+pl-create 1
+add -p ~/Music/phonk/
+pl-create phonk
+q
+add -p ~/Music/Classical-music/
+clear 
+add ~/Music/Classical-music/
+pl-create clasical
+pl-create
+load ~/Music/clasical.pl
+add ~/Music/
+add ~/Music/just-music/
+help
+?

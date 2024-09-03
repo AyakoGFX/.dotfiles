@@ -150,6 +150,43 @@ alias en='emacsclient -c'
 alias e='emacsclient'
 alias lin='curl -fsSL https://christitus.com/linux | sh'
 alias lindev='curl -fsSL https://christitus.com/linux | sh'
+
+# Alias's to modified commands
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='trash -v'
+alias mkdir='mkdir -p'
+alias ping='ping -c 10'
+alias less='less -R'
+alias freshclam='sudo freshclam'
+alias se='sudoedit'
+alias vis='nvim "+set si"'
+
+
+# alias chmod commands
+alias mx='chmod a+x'
+alias 000='chmod -R 000'
+alias 644='chmod -R 644'
+alias 666='chmod -R 666'
+alias 755='chmod -R 755'
+alias 777='chmod -R 777'
+
+# To see if a command is aliased, a file, or a built-in command
+alias checkcommand="type -t"
+
+
+# Alias's for safe and forced reboots
+alias rebootsafe='sudo shutdown -r now'
+alias rebootforce='sudo shutdown -r -n now'
+
+# Search command line history
+alias h="history | grep "
+
+# Search running processes
+alias pp="ps aux | grep "
+alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
+
+# git
 # alias g='git'
 # alias ga='git add'
 # alias gb='git checkout -B'
@@ -229,32 +266,32 @@ bind \cf 'fzf_find_dir'
 
 # starship init fish | source
 # colorscript random
-# pokemon-colorscripts -r
+pokemon-colorscripts -r
 # sysinfo-retro
 # cpufetch
 
-echo "
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣼⣿⣼⣿⣿⣟⣿⣭⣻⣶⣴⣦⣀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⢇⡌⣣⣾⣿⣿⣾⣿⣷⣸⣿⡷⣝⢿⣷⣄⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢀⣾⣿⢹⡘⡇⢿⣿⣟⣻⢛⣹⣿⣿⣿⣷⠽⣧⣽⣿⢀⡀⠀
-⠀⢀⠀⣠⣶⣶⡾⢛⣿⣏⠯⢁⣤⣬⣙⠻⣿⠿⣿⣿⣿⣿⣧⡙⣿⣿⣟⡁⠀
-⢀⡀⠭⢥⣤⣤⣶⣿⡿⢸⣷⠰⣭⣙⣃⠘⢷⣶⣶⣼⣿⣿⢿⣷⣿⣿⡟⣅⠀
-⠀⠐⢶⣖⡋⠙⢛⠫⢴⣿⢿⣀⡈⠳⣌⢿⡺⢉⣿⣾⣿⣿⣮⣿⡿⣳⢀⣏⠀
-⠀⣀⣈⠹⣿⠿⢿⣦⣤⣭⣿⠞⠙⢲⣊⡡⡍⠘⠭⣙⡥⢿⡋⣴⣟⡵⢺⡏⠁
-⠀⠀⠈⢳⣶⣾⠏⣩⡿⠋⠀⠀⡒⠶⣄⡀⠉⢉⠧⠶⢦⡀⠥⢉⣶⣶⠏⣇⠀
-⠀⠀⠀⠈⠉⠁⢰⣿⣷⠀⠀⠀⠈⠲⠤⠟⠒⠂⠀⢀⣀⠁⠠⣼⣿⣯⢀⡇⠀
-⠀⠀⠀⠀⠀⠀⠸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⡜⠣⠤⢠⣾⣿⣿⠉⣼⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢿⣿⡇⠀⢀⡀⠀⢀⠀⠀⡼⠀⣠⣴⣿⣿⣿⣿⢀⡏⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠘⣿⣷⡾⠛⠛⠿⣾⣦⣰⣷⡾⠟⣿⣯⢊⡽⣿⠞⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣇⠀⢱⣶⠂⡼⠃⣿⡇⣸⠇⣧⡟⣰⣿⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣶⣼⡯⠞⠁⢠⣿⣷⣿⣰⢏⣴⣿⡿⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡞⣡⡏⣿⢡⡞⣩⡿⠃⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⣹⡟⣴⢇⡿⣼⠏⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣧⡟⣾⡏⣿⡇⡟⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠙⠇⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡟⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-" 
+# echo "
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣼⣿⣼⣿⣿⣟⣿⣭⣻⣶⣴⣦⣀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⢇⡌⣣⣾⣿⣿⣾⣿⣷⣸⣿⡷⣝⢿⣷⣄⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⢀⣾⣿⢹⡘⡇⢿⣿⣟⣻⢛⣹⣿⣿⣿⣷⠽⣧⣽⣿⢀⡀⠀
+# ⠀⢀⠀⣠⣶⣶⡾⢛⣿⣏⠯⢁⣤⣬⣙⠻⣿⠿⣿⣿⣿⣿⣧⡙⣿⣿⣟⡁⠀
+# ⢀⡀⠭⢥⣤⣤⣶⣿⡿⢸⣷⠰⣭⣙⣃⠘⢷⣶⣶⣼⣿⣿⢿⣷⣿⣿⡟⣅⠀
+# ⠀⠐⢶⣖⡋⠙⢛⠫⢴⣿⢿⣀⡈⠳⣌⢿⡺⢉⣿⣾⣿⣿⣮⣿⡿⣳⢀⣏⠀
+# ⠀⣀⣈⠹⣿⠿⢿⣦⣤⣭⣿⠞⠙⢲⣊⡡⡍⠘⠭⣙⡥⢿⡋⣴⣟⡵⢺⡏⠁
+# ⠀⠀⠈⢳⣶⣾⠏⣩⡿⠋⠀⠀⡒⠶⣄⡀⠉⢉⠧⠶⢦⡀⠥⢉⣶⣶⠏⣇⠀
+# ⠀⠀⠀⠈⠉⠁⢰⣿⣷⠀⠀⠀⠈⠲⠤⠟⠒⠂⠀⢀⣀⠁⠠⣼⣿⣯⢀⡇⠀
+# ⠀⠀⠀⠀⠀⠀⠸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⡜⠣⠤⢠⣾⣿⣿⠉⣼⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⢿⣿⡇⠀⢀⡀⠀⢀⠀⠀⡼⠀⣠⣴⣿⣿⣿⣿⢀⡏⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠘⣿⣷⡾⠛⠛⠿⣾⣦⣰⣷⡾⠟⣿⣯⢊⡽⣿⠞⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣇⠀⢱⣶⠂⡼⠃⣿⡇⣸⠇⣧⡟⣰⣿⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣶⣼⡯⠞⠁⢠⣿⣷⣿⣰⢏⣴⣿⡿⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡞⣡⡏⣿⢡⡞⣩⡿⠃⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⣹⡟⣴⢇⡿⣼⠏⠀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣧⡟⣾⡏⣿⡇⡟⠀⠀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠙⠇⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡟⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+# " 
 

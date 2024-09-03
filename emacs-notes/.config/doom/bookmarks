@@ -3,11 +3,11 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/after_modifing_fstab_to_this_cmds.org")
+ (filename . "~/roam/how_to_check_i_am_using_pulseaudio_or_pipewire.org")
  (front-context-string)
- (rear-context-string . "ab to this cmds\n")
- (position . 120)
- (last-modified 26325 46893 24403 891000))
+ (rear-context-string . "dio or pipewire\n")
+ (position . 124)
+ (last-modified 26326 40863 315635 983000))
 ("config.org"
  (filename . "~/.dotfiles/emacs-notes/.config/doom/config.org")
  (front-context-string . ";; (add-hook 'or")
