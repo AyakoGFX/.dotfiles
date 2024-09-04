@@ -210,7 +210,7 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 # alias gsh='git show'
 #
 alias cleanup='sudo pacman -Rsn $(pacman -Qdtq)'
-
+alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias smci='sudo make clean install'
 # Path modification
 set -x PATH $HOME/.config/emacs/bin $PATH
