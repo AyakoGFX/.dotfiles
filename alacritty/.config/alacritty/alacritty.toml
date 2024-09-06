@@ -15,6 +15,7 @@ style = "Regular"
 decorations = "buttonless"
 dynamic_padding = false
 # opacity = 0.63
+# opacity = 0.80
 opacity = 1
 
 
