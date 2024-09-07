@@ -186,6 +186,21 @@ alias h="history | grep "
 alias pp="ps aux | grep "
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 
+alias se='sudoedit'
+
+# run bash cmd in fish
+function b
+    bash -c "$argv"
+end
+
+function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
+    if test "$argv" = !!
+        echo sudo $history[1]
+        eval command sudo $history[1]
+    else
+        command sudo $argv
+    end
+end
 # git
 # alias g='git'
 # alias ga='git add'
