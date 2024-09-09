@@ -188,6 +188,7 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 
 alias se='sudoedit'
 
+alias t='termdown --blink'
 # run bash cmd in fish
 function b
     bash -c "$argv"

@@ -3,6 +3,12 @@ require("kis.keymaps")
 require("kis.lazy")
 require("kis.autoCMD")
 
+
+-- :wsudo in Neovim to save the file with sudo privileges.
+vim.api.nvim_create_user_command('Wsudo', function()
+  vim.cmd('w !sudo tee % > /dev/null')
+end, {})
+
 -- vim.api.nvim_set_hl(0, "normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "linenr", { bg = "none" })

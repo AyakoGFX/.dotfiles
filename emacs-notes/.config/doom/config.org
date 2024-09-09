@@ -95,6 +95,21 @@
   (let ((consult-ripgrep-args "rg --null --ignore-case --type org --line-buffered --color=never --max-columns=500 --no-heading --line-number"))
     (consult-ripgrep org-roam-directory)))
 
+;; "With prefix arg, prompt for DIRECTORY to search tags."
+(defun my-tags-view (&optional directory)
+  "With prefix arg, prompt for DIRECTORY to search tags."
+  (interactive (list (if current-prefix-arg (read-directory-name "Directory: "))))
+  (let ((directory (or directory org-roam-directory)))
+    ;; forward prefix arg - this makes it so prefix args passed to `org-tags-view'
+    ;; require one more prefix, eg. C-u C-u my-tags-view => todo-only tags
+    (setq current-prefix-arg
+          (unless (equal current-prefix-arg '(4))
+            (list (ash (prefix-numeric-value current-prefix-arg) -2))))
+    (let ((org-agenda-files (list directory)))
+      (call-interactively #'org-tags-view))))
+
+
+
 ;; Key binding setup
 (after! org-roam
   (map! :leader
@@ -245,6 +260,8 @@
 (after! org
   (setq org-agenda-files
   '("~/roam/org/agenda.org")))
+;; https://stackoverflow.com/questions/11384516/how-to-make-all-org-files-under-a-folder-added-in-agenda-list-automatically
+(setq org-agenda-files (directory-files-recursively "~/roam/" "\\.org$"))
 
 (after! org-agenda
 (setq
