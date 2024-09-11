@@ -450,8 +450,12 @@
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-henna)
+
+(setq doom-theme 'catppuccin)
+;; (setq catppuccin-flavor latte) ;; or 'latte, 'macchiato, or 'mocha 'frappe
+;; (catppuccin-reload)
 
 (use-package! wks-mode)
 

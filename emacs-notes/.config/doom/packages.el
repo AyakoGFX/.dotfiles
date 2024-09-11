@@ -59,6 +59,7 @@
 (package! wucuo)
 (package! org-preview-html)
 (unpin! org-roam company-org-roam)
+(package! catppuccin-theme)
 (package! wks-mode
   :recipe (:host github
            :repo "3L0C/wks-mode"))
