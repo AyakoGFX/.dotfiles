@@ -338,6 +338,18 @@
 (after! dired
   (define-key dired-mode-map (kbd "<f5>") 'my-dired-view-file))
 
+;; ;; Bind <mouse-9> to `next-buffer`
+;; (map! :n "<mouse-9>" #'next-buffer)
+
+;; ;; Bind <mouse-8> to `previous-buffer`
+;; (map! :n "<mouse-8>" #'previous-buffer)
+
+;; Bind <mouse-9> to `next-buffer` globally
+(global-set-key [mouse-9] #'next-buffer)
+
+;; Bind <mouse-8> to `previous-buffer` globally
+(global-set-key [mouse-8] #'previous-buffer)
+
  (setq global-vi-tilde-fringe-mode nil ) ; removes the tildas
 
 (setq undo-limit 80000000                         ; Raise undo-limit to 80Mb

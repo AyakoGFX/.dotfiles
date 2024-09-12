@@ -374,6 +374,21 @@
 (after! dired
   (define-key dired-mode-map (kbd "<f5>") 'my-dired-view-file))
 #+end_src
+* Custom keys mouse
+#+begin_src elisp
+;; ;; Bind <mouse-9> to `next-buffer`
+;; (map! :n "<mouse-9>" #'next-buffer)
+
+;; ;; Bind <mouse-8> to `previous-buffer`
+;; (map! :n "<mouse-8>" #'previous-buffer)
+
+;; Bind <mouse-9> to `next-buffer` globally
+(global-set-key [mouse-9] #'next-buffer)
+
+;; Bind <mouse-8> to `previous-buffer` globally
+(global-set-key [mouse-8] #'previous-buffer)
+#+end_src
+
 * doom appearance
 #+begin_src elisp
  (setq global-vi-tilde-fringe-mode nil ) ; removes the tildas

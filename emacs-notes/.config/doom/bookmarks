@@ -3,11 +3,11 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/roam/split_and_merge_files_in_linux.org")
+ (filename . "~/roam/disable_double_click_prevention_mouse_linux.org")
  (front-context-string)
- (rear-context-string . " files in linux\n")
- (position . 108)
- (last-modified 26337 38368 503372 933000))
+ (rear-context-string . "ion mouse linux\n")
+ (position . 130)
+ (last-modified 26337 60474 583483 156000))
 ("config.org"
  (filename . "~/.dotfiles/emacs-notes/.config/doom/config.org")
  (front-context-string . ";; (add-hook 'or")
