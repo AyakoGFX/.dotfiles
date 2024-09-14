@@ -15,6 +15,7 @@ return {
       ['<leader>t'] = { name = 'Trouble', ['_'] = 'which_key_ignore' },
       ['<leader>h'] = { name = 'Harpoon', ['_'] = 'which_key_ignore' },
       ['<leader>q'] = { name = 'Sessions', ['_'] = 'which_key_ignore' },
+      ['<leader>g'] = { name = 'Git', ['_'] = 'which_key_ignore' },
       ['<leader>r'] = { name = 'Rename & Dashboard', ['_'] = 'which_key_ignore' },
     })
   end
