@@ -2,7 +2,10 @@
 #+auto_tangle: t
 #+STARTUP: showeverything
 #+PROPERTY:header-args :tangle config.el
-
+#+begin_src elisp
+;; org-roam-db-location
+;; org-roam-node-find
+#+end_src
 * Set Font
 #+begin_src elisp
 ;; FiraCode Nerd Font
@@ -254,14 +257,114 @@
            :target (file+head "${slug}.org"
                               "#+title: ${title}\n")
            :unnarrowed t))))
+
+;; roam-tags
+(defun roam-tags-view (&optional todo-only match)
+  "Show all headlines for files in `org-roam-directory` matching a TAGS criterion.
+The prefix arg TODO-ONLY limits the search to TODO entries."
+  (interactive "P")
+  (when org-agenda-overriding-arguments
+    (setq todo-only (car org-agenda-overriding-arguments)
+          match (nth 1 org-agenda-overriding-arguments)))
+  (let* ((org-tags-match-list-sublevels
+          org-tags-match-list-sublevels)
+         (completion-ignore-case t)
+         (org--matcher-tags-todo-only todo-only)
+         rtn rtnall files file pos matcher
+         buffer)
+    (when (and (stringp match) (not (string-match "\\S-" match)))
+      (setq match nil))
+    (catch 'exit
+      (setq org-agenda-buffer-name
+            (org-agenda--get-buffer-name
+             (and org-agenda-sticky
+                  (if (stringp match)
+                      (format "*Org Agenda(%s:%s)*"
+                              (or org-keys (or (and todo-only "M") "m"))
+                              match)
+                    (format "*Org Agenda(%s)*"
+                            (or (and todo-only "M") "m"))))))
+      (setq matcher (org-make-tags-matcher match))
+      ;; Prepare agendas (and `org-tag-alist-for-agenda') before
+      ;; expanding tags within `org-make-tags-matcher'
+      (org-agenda-prepare (concat "TAGS " match))
+      (setq match (car matcher)
+            matcher (cdr matcher))
+      (org-compile-prefix-format 'tags)
+      (org-set-sorting-strategy 'tags)
+      (setq org-agenda-query-string match)
+      (setq org-agenda-redo-command
+            (list 'roam-tags-view
+                  `(quote ,org--matcher-tags-todo-only)
+                  `(if current-prefix-arg nil ,org-agenda-query-string)))
+      ;; Get files from `org-roam-directory`
+      (setq files (directory-files-recursively org-roam-directory "\\.org\\'") ;; Find all .org files
+            rtnall nil)
+      (while (setq file (pop files))
+        (catch 'nextfile
+          (org-check-agenda-file file)
+          (setq buffer (if (file-exists-p file)
+                           (org-get-agenda-file-buffer file)
+                         (error "No such file %s" file)))
+          (if (not buffer)
+              ;; If file does not exist, error message to agenda
+              (setq rtn (list
+                         (format "ORG-AGENDA-ERROR: No such org-file %s" file))
+                    rtnall (append rtnall rtn))
+            (with-current-buffer buffer
+              (unless (derived-mode-p 'org-mode)
+                (error "Agenda file %s is not in Org mode" file))
+              (save-excursion
+                (save-restriction
+                  (if (eq buffer org-agenda-restrict)
+                      (narrow-to-region org-agenda-restrict-begin
+                                        org-agenda-restrict-end)
+                    (widen))
+                  (setq rtn (org-scan-tags 'agenda
+                                           matcher
+                                           org--matcher-tags-todo-only))
+                  (setq rtnall (append rtnall rtn))))))))
+      (org-agenda--insert-overriding-header
+        (with-temp-buffer
+          (insert "Headlines with TAGS match: ")
+          (add-text-properties (point-min) (1- (point))
+                               (list 'face 'org-agenda-structure
+                                     'short-heading
+                                     (concat "Match: " match)))
+          (setq pos (point))
+          (insert match "\n")
+          (add-text-properties pos (1- (point)) (list 'face 'org-agenda-structure-filter))
+          (setq pos (point))
+          (unless org-agenda-multi
+            (insert (substitute-command-keys
+                     "Press \
+\\<org-agenda-mode-map>`\\[universal-argument] \\[org-agenda-redo]' \
+to search again\n")))
+          (add-text-properties pos (1- (point))
+                               (list 'face 'org-agenda-structure-secondary))
+          (buffer-string)))
+      (org-agenda-mark-header-line (point-min))
+      (when rtnall
+        (insert (org-agenda-finalize-entries rtnall 'tags) "\n"))
+      (goto-char (point-min))
+      (or org-agenda-multi (org-agenda-fit-window-to-buffer))
+      (add-text-properties
+       (point-min) (point-max)
+       `(org-agenda-type tags
+                         org-last-args (,org--matcher-tags-todo-only ,match)
+                         org-redo-cmd ,org-agenda-redo-command
+                         org-series-cmd ,org-cmd))
+      (org-agenda-finalize)
+      (setq buffer-read-only t))))
 #+end_src
 ** org agenda
 #+begin_src elisp
 (after! org
   (setq org-agenda-files
   '("~/roam/org/agenda.org")))
+
 ;; https://stackoverflow.com/questions/11384516/how-to-make-all-org-files-under-a-folder-added-in-agenda-list-automatically
-(setq org-agenda-files (directory-files-recursively "~/roam/" "\\.org$"))
+;; (setq org-agenda-files (directory-files-recursively "~/roam/" "\\.org$"))
 
 (after! org-agenda
 (setq
@@ -616,6 +719,93 @@ https://github.com/3L0C/wks-mode.git
                      gud-mode
                      calc-mode
                      Info-mode)))))
+#+end_src
+* dashboard in doom eamcs
+#+begin_src elisp
+;; (dolist (item '("Recently opened files"
+;;                  "Reload last session"
+;;                  "Open org-agenda"
+;;                  "Open project"
+;;                  "Jump to bookmark"
+;;                  "Open private configuration"
+;;                  "Open documentation"))
+;;   (setq +doom-dashboard-menu-sections
+;;         (assoc-delete-all item +doom-dashboard-menu-sections)))
+;; (setq +doom-dashboard-name)
+
+;; alternative way to do ⬇
+;; (assoc-delete-all "Jump to bookmark" +doom-dashboard-menu-sections)
+;; (assoc-delete-all "Open private configuration" +doom-dashboard-menu-sections)
+;; (assoc-delete-all "Open documentation" +doom-dashboard-menu-sections)
+
+
+  ;;set img
+  ;; (setq fancy-splash-image (concat doom-private-dir "logo1.svg"))
+
+  ;; set Dashboard asci
+  ;; (defun my-weebery-is-always-greater ()
+  ;;   (let* ((banner '("⢸⣿⣿⣿⣿⠃⠄⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀⠄"
+  ;;                    "⢸⣿⣿⣿⡟⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷"
+  ;;                    "⢸⣿⣿⠟⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿"
+  ;;                    "⢸⣿⢫⣾⣿⡟⣾⡸⢠⡿⢳⡿⠍⣼⣿⢏⣿⣷⢄⡀⠄⢠⣾⢻⣿⣸⣿⣿⣿⣿⣿⣿⣿"
+  ;;                    "⡿⣡⣿⣿⡟⡼⡁⠁⣰⠂⡾⠉⢨⣿⠃⣿⡿⠍⣾⣟⢤⣿⢇⣿⢇⣿⣿⢿⣿⣿⣿⣿⣿"
+  ;;                    "⣱⣿⣿⡟⡐⣰⣧⡷⣿⣴⣧⣤⣼⣯⢸⡿⠁⣰⠟⢀⣼⠏⣲⠏⢸⣿⡟⣿⣿⣿⣿⣿⣿"
+  ;;                    "⣿⣿⡟⠁⠄⠟⣁⠄⢡⣿⣿⣿⣿⣿⣿⣦⣼⢟⢀⡼⠃⡹⠃⡀⢸⡿⢸⣿⣿⣿⣿⣿⡟"
+  ;;                    "⣿⣿⠃⠄⢀⣾⠋⠓⢰⣿⣿⣿⣿⣿⣿⠿⣿⣿⣾⣅⢔⣕⡇⡇⡼⢁⣿⣿⣿⣿⣿⣿⢣"
+  ;;                    "⣿⡟⠄⠄⣾⣇⠷⣢⣿⣿⣿⣿⣿⣿⣿⣭⣀⡈⠙⢿⣿⣿⡇⡧⢁⣾⣿⣿⣿⣿⣿⢏⣾"
+  ;;                    "⣿⡇⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⠇⠄⠄⢿⣿⡇⢡⣾⣿⣿⣿⣿⣿⣏⣼⣿"
+  ;;                    "⣿⣷⢰⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣧⣀⡄⢀⠘⡿⣰⣿⣿⣿⣿⣿⣿⠟⣼⣿⣿"
+  ;;                    "⢹⣿⢸⣿⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣶⣭⣉⣤⣿⢈⣼⣿⣿⣿⣿⣿⣿⠏⣾⣹⣿⣿"
+  ;;                    "⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿"
+  ;;                    "⠄⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋⠄⠄⣾⡌⢠⣿⡿⠃"
+  ;;                    "⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉⠄⠄          "))
+  ;;          (longest-line (apply #'max (mapcar #'length banner))))
+  ;;     (put-text-property
+  ;;      (point)
+  ;;      (dolist (line banner (point))
+  ;;        (insert (+doom-dashboard--center
+  ;;                 +doom-dashboard--width
+  ;;                 (concat line (make-string (max 0 (- longest-line (length line))) 32)))
+  ;;                "\n"))
+  ;;      'face 'doom-dashboard-banner)))
+  ;; (setq +doom-dashboard-ascii-banner-fn #'my-weebery-is-always-greater)
+
+#+end_src
+
+#+RESULTS:
+| Recently opened files | :icon | (nerd-icons-faicon nf-fa-file_text :face 'doom-dashboard-menu-title) | :action | recentf-open-files |
+* dashboard my own
+#+begin_src elisp
+(setq   dashboard-set-heading-icons t
+        dashboard-set-file-icons t
+        ;; dashboard-banner-logo-title "emacs rocks
+        ;; dashboard-startup-banner 'logo
+        ;; dashboard-center-content nil
+        dashboard-items '((recents . 5)
+                          (bookmarks . 5)
+                          ;; (projects . 3)
+                          ;; (registers . 5)
+                          (agenda . 3)))
+(setq dashboard-item-shortcuts '((recents   . "r")
+                                 (bookmarks . "b")
+                                 (projects  . "p")
+                                 (agenda    . "a")
+                                 (registers . "e")))
+
+;; center content
+;; (setq dashboard-center-content t)
+;; (setq dashboard-vertically-center-content t)
+
+
+;; set txt file
+;; (setq dashboard-startup-banner "~/.config/doom/logo.txt")
+;; set png
+;; (setq dashboard-startup-banner "~/.config/doom/empty.png")
+
+(setq dashboard-startup-banner "~/.config/doom/logo1.svg")
+
+(setq dashboard-banner-logo-title nil)
+  (dashboard-setup-startup-hook)
 #+end_src
 
 
