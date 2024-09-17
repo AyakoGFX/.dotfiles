@@ -1,8 +1,8 @@
 # GIMP user context
 
-(tool "gimp-scale-tool")
+(tool "gimp-paintbrush-tool")
 (paint-info "gimp-paintbrush")
-(foreground (color-rgb 0.88627450980392153 0.93333333333333335 0.094117647058823528))
+(foreground (color-rgb 0.93333333333333335 0.094117647058823514 0.34693576175240004))
 (background (color-rgb 1 0.92941176470588238 0.45882352941176469))
 (brush "2. Hardness 050")
 (dynamics "Dynamics Off")

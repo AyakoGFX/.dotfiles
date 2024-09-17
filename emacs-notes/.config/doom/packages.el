@@ -48,6 +48,7 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+(package! colorful-mode)
 (package! dashboard)
 (package! org-modern)
 (package! org-superstar)
@@ -63,3 +64,5 @@
 (package! wks-mode
   :recipe (:host github
            :repo "3L0C/wks-mode"))
+
+(package! codeium :recipe (:host github :repo "Exafunction/codeium.el"))

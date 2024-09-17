@@ -71,7 +71,7 @@
    ))
         ;; Define function to set Doom One colors for Org mode headers
   ;; "Search org-roam directory using consult-ripgrep. With live-preview."
-(defun org-search ()
+(defun my/org-search ()
   "Search org-files directory using consult-ripgrep. With live-preview."
   (interactive)
   (let ((consult-ripgrep-args "rg --null --ignore-case --type org --line-buffered --color=never --max-columns=500 --no-heading --line-number"))
@@ -80,7 +80,7 @@
 (after! org
   (map! :leader
         (:prefix ("n" . "notes")
-          :desc "Org-grep/search" "g " #'org-search)))
+          :desc "Org-grep/search" "g " #'my/org-search)))
 
 (defun org-roam-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
@@ -212,7 +212,7 @@
         org-roam-ui-open-on-start t))
 
 ;; Bind this to SPC n r I
-(defun org-roam-node-insert-immediate (arg &rest args)
+(defun my/org-roam-node-insert-immediate (arg &rest args)
   (interactive "P")
   (let ((args (cons arg args))
         (org-roam-capture-templates (list (append (car org-roam-capture-templates)
@@ -221,7 +221,7 @@
 
 (map! :leader
       :prefix ("n" . "notes")
-      :desc "Insert org-roam node" "r I" #'org-roam-node-insert-immediate)
+      :desc "Insert org-roam node" "r I" #'my/org-roam-node-insert-immediate)
 
 ;; Removing timestamp from filename
 (after! org-roam
@@ -231,8 +231,38 @@
                               "#+title: ${title}\n")
            :unnarrowed t))))
 
+(defun my/org-roam-list-tags ()
+  "List all unique tags from Org Roam notes in a separate buffer."
+  (interactive)
+  (if (not (bound-and-true-p org-roam-directory))
+      (error "Org Roam directory is not set.")
+    (let ((tags '()))
+      ;; Collect tags from Org Roam notes
+      (dolist (file (directory-files-recursively org-roam-directory "\\.org$"))
+        (with-temp-buffer
+          (insert-file-contents file)
+          (org-mode)
+          (org-element-map (org-element-parse-buffer) 'headline
+            (lambda (headline)
+              (let ((headline-tags (org-element-property :tags headline)))
+                (setq tags (append tags headline-tags)))))))
+
+      ;; Remove duplicates and sort tags
+      (setq tags (delete-dups tags))
+      (setq tags (sort tags 'string<))
+
+      ;; Create and populate a new buffer with the tags
+      (let ((buf (get-buffer-create "*Org Roam Tags*")))
+        (with-current-buffer buf
+          (erase-buffer)
+          (insert "Tags:\n")
+          (dolist (tag tags)
+            (insert (format "%s\n" tag)))
+          (goto-char (point-min)))
+        (display-buffer buf)))))
+
 ;; roam-tags
-(defun roam-tags-view (&optional todo-only match)
+(defun my/org-roam-tags-search (&optional todo-only match)
   "Show all headlines for files in `org-roam-directory` matching a TAGS criterion.
 The prefix arg TODO-ONLY limits the search to TODO entries."
   (interactive "P")
@@ -433,13 +463,13 @@ to search again\n")))
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 
-(defun my-dired-view-file ()
+(defun my/dired-view-file ()
   (interactive)
   (dired-view-file)
   (local-set-key (kbd "<f5>") 'View-quit))
 
 (after! dired
-  (define-key dired-mode-map (kbd "<f5>") 'my-dired-view-file))
+  (define-key dired-mode-map (kbd "<f5>") 'my/dired-view-file))
 
 ;; ;; Bind <mouse-9> to `next-buffer`
 ;; (map! :n "<mouse-9>" #'next-buffer)
@@ -609,6 +639,10 @@ to search again\n")))
                      calc-mode
                      Info-mode)))))
 
+;; ~/.doom.d/config.el or ~/.config/doom/config.el
+(use-package! colorful-mode
+  :hook (prog-mode text-mode))
+
 ;; (dolist (item '("Recently opened files"
 ;;                  "Reload last session"
 ;;                  "Open org-agenda"
@@ -667,11 +701,11 @@ to search again\n")))
                           ;; (projects . 3)
                           ;; (registers . 5)
                           (agenda . 3)))
-(setq dashboard-item-shortcuts '((recents   . "r")
-                                 (bookmarks . "b")
-                                 (projects  . "p")
-                                 (agenda    . "a")
-                                 (registers . "e")))
+;; (setq dashboard-item-shortcuts '((recents   . "r")
+;;                                  (bookmarks . "b")
+;;                                  (projects  . "p")
+;;                                  (agenda    . "a")
+;;                                  (registers . "e")))
 
 ;; center content
 ;; (setq dashboard-center-content t)
@@ -688,8 +722,24 @@ to search again\n")))
 (setq dashboard-banner-logo-title nil)
   (dashboard-setup-startup-hook)
 
+;; fix emacsclaint dashbord on startup
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+;; fix icon on emacs emacsclaint
+(setq dashboard-display-icons-p t)
+
+(map! :n "C-h" #'evil-window-left
+      :n "C-j" #'evil-window-down
+      :n "C-k" #'evil-window-up
+      :n "C-l" #'evil-window-right)
+
+;; keybindings for window splitting
+(map!
+ :leader
+ "-" #'evil-window-split
+ "|" #'evil-window-vsplit)
+
 ;; (global-set-key (kbd "M-DEL") #'backward-kill-word)
-(defun my-backward-kill-spaces-or-char-or-word ()
+(defun my/backward-kill-spaces-or-char-or-word ()
   (interactive)
   (cond
    ((looking-back (rx (char word)) 1)
@@ -698,4 +748,4 @@ to search again\n")))
     (delete-horizontal-space t))
    (t
     (backward-delete-char 1))))
-(global-set-key (kbd "<C-backspace>") 'my-backward-kill-spaces-or-char-or-word)
+(global-set-key (kbd "<C-backspace>") 'my/backward-kill-spaces-or-char-or-word)

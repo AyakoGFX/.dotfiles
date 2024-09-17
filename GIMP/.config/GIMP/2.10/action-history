@@ -1,7 +1,8 @@
 # GIMP action-history
 
 (history-item "select-none" 1)
-(history-item "tools-size-increase" 1)
+(history-item "tools-size-increase" 0)
+(history-item "tools-scale" 1)
 (history-item "edit-paste" 0)
 (history-item "layers-delete" 1)
 (history-item "layers-new" 0)
@@ -10,13 +11,14 @@
 (history-item "layers-alpha-selection-replace" 1)
 (history-item "tools-move" 0)
 (history-item "edit-cut" 0)
-(history-item "tools-scale" 1)
-(history-item "tools-zoom" 0)
 (history-item "image-new" 1)
+(history-item "tools-zoom" 0)
+(history-item "file-export-as" 0)
+(history-item "file-quit" 1)
 (history-item "210-script-fu-blur-and-shadow" 0)
 (history-item "210-glow-selection" 0)
 (history-item "select-all" 0)
-(history-item "file-quit" 1)
+(history-item "file-save" 1)
 (history-item "layers-scale" 0)
 (history-item "layers-anchor" 0)
 (history-item "layers-new-group" 0)
@@ -25,7 +27,7 @@
 (history-item "layers-mask-add-last-values" 0)
 (history-item "layers-merge-down" 0)
 (history-item "tools-align" 0)
-(history-item "file-save" 0)
-(history-item "file-export-as" 1)
+(history-item "tools-ellipse-select" 0)
+(history-item "tools-eraser" 1)
 
 # end of action-history
