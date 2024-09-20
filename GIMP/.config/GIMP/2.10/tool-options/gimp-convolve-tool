@@ -5,8 +5,9 @@
 (brush "2. Hardness 050")
 (dynamics "Dynamics Off")
 (palette "Color History")
-(brush-size 13)
+(brush-size 249)
 (brush-spacing 0.01)
+(brush-hardness 0)
 (brush-force 0.47999999999999998)
 
 # end of gimp-convolve-tool options

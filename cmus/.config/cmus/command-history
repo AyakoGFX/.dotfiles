@@ -1,3 +1,5 @@
+add -p ~/Music/x-godpill/
+pl-create godpill
 update-cache 
 w
 add -p ~/Music/lofi/
