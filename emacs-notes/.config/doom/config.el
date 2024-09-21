@@ -727,6 +727,18 @@ to search again\n")))
 ;; fix icon on emacs emacsclaint
 (setq dashboard-display-icons-p t)
 
+(defun my/toggle-maximize-buffer () "Maximize buffer"
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (jump-to-register '_)
+    (progn
+      (window-configuration-to-register '_)
+      (delete-other-windows))))
+
+(map! :n "M-f" #'my/toggle-maximize-buffer
+      :i "M-f" #'my/toggle-maximize-buffer
+      :v "M-f" #'my/toggle-maximize-buffer)
+
 (map! :n "C-h" #'evil-window-left
       :n "C-j" #'evil-window-down
       :n "C-k" #'evil-window-up

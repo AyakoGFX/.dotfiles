@@ -849,6 +849,22 @@ https://github.com/3L0C/wks-mode.git
 ;; fix icon on emacs emacsclaint
 (setq dashboard-display-icons-p t)
 #+end_src
+* toggle-maximize-buffer fullscrean
+https://gist.github.com/mads-hartmann/3402786
+#+begin_src elisp
+(defun my/toggle-maximize-buffer () "Maximize buffer"
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (jump-to-register '_)
+    (progn
+      (window-configuration-to-register '_)
+      (delete-other-windows))))
+
+(map! :n "M-f" #'my/toggle-maximize-buffer
+      :i "M-f" #'my/toggle-maximize-buffer
+      :v "M-f" #'my/toggle-maximize-buffer)
+#+end_src
+
 
 * Custom keybindings for window navigation in Doom Emacs
 #+begin_src elisp

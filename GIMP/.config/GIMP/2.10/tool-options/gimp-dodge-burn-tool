@@ -1,13 +1,11 @@
 # GIMP gimp-dodge-burn-tool options
 
-(foreground (color-rgb 0.93333333333333335 0.094117647058823514 0.34693576175240004))
 (background (color-rgb 1 0.92941176470588238 0.45882352941176469))
-(brush "2. Hardness 050")
+(brush "Sparks")
 (dynamics "Dynamics Off")
 (palette "Color History")
-(brush-size 249)
-(brush-spacing 0.01)
-(brush-hardness 0)
+(brush-size 60)
+(brush-spacing 0.14999999999999999)
 (brush-force 0.47999999999999998)
 
 # end of gimp-dodge-burn-tool options
