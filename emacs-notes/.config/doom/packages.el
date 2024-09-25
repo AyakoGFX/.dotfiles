@@ -61,6 +61,8 @@
 (package! org-preview-html)
 (unpin! org-roam company-org-roam)
 (package! catppuccin-theme)
+(package! ellama)
+(package! page-break-lines)
 (package! wks-mode
   :recipe (:host github
            :repo "3L0C/wks-mode"))

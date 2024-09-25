@@ -726,6 +726,7 @@ to search again\n")))
 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 ;; fix icon on emacs emacsclaint
 (setq dashboard-display-icons-p t)
+(setq page-break-lines-mode 1)
 
 (defun my/toggle-maximize-buffer () "Maximize buffer"
   (interactive)
@@ -738,6 +739,50 @@ to search again\n")))
 (map! :n "M-f" #'my/toggle-maximize-buffer
       :i "M-f" #'my/toggle-maximize-buffer
       :v "M-f" #'my/toggle-maximize-buffer)
+
+(use-package ellama
+  :init
+  (setopt ellama-keymap-prefix "C-c e")  ;; keymap for all ellama functions
+  (setopt ellama-language "English")     ;; language ellama should translate to
+  (require 'llm-ollama)
+  (setopt ellama-provider
+	  (make-llm-ollama
+	   ;; this model should be pulled to use it
+	   ;; value should be the same as you print in terminal during pull
+	   :chat-model "llama3.1"
+	   :embedding-model "nomic-embed-text"
+	   :default-chat-non-standard-params '(("num_ctx" . 8192))))
+  ;; Predefined llm providers for interactive switching.
+  (setopt ellama-providers
+		    '(("zephyr" . (make-llm-ollama
+				   :chat-model "zephyr"
+				   :embedding-model "zephyr"))
+
+		      ("llama3.1" . (make-llm-ollama
+				   :chat-model "llama3.1"
+				   :embedding-model "llama3.1"))
+		      ("mixtral" . (make-llm-ollama
+				    :chat-model "mixtral"
+				    :embedding-model "mixtral"))))
+  (setopt ellama-naming-scheme 'ellama-generate-name-by-llm)
+  ;; Translation llm provider
+  (setopt ellama-translation-provider (make-llm-ollama
+				       :chat-model "mixtral"
+				       :embedding-model "nomic-embed-text"))
+  :config
+  (setq ellama-sessions-directory "~/.config/doom/ellama-sessions/"
+        ellama-sessions-auto-save t))
+
+(map! :leader
+      :desc "A.I." "a"  '(:ignore t)
+      :desc "Ask ellama about region" "a a" #'ellama-ask-about
+      :desc "Ellama enhance" "a e"  '(:ignore t)
+      :desc "Ellama enhance grammar" "a e g" #'ellama-improve-wording
+      :desc "Ellama enhance wording" "a e w" #'ellama-improve-grammar
+      :desc "Ask ellama" "a i" #'ellama-chat
+      :desc "Ellama provider select" "a p" #'ellama-provider-select
+      :desc "Ellama summarize region" "a s" #'ellama-summarize
+      :desc "Ellama translate region" "a t" #'ellama-translate)
 
 (map! :n "C-h" #'evil-window-left
       :n "C-j" #'evil-window-down

@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("linux_index.org"
+(("config.org"
+ (filename . "~/.dotfiles/emacs-notes/.config/doom/config.org")
+ (front-context-string . "* Set Font\n#+beg")
+ (rear-context-string . "-find\n#+end_src\n")
+ (position . 175)
+ (last-modified 26356 13989 993649 435000))
+("linux_index.org"
  (filename . "~/roam/Index's/linux_index.org")
  (front-context-string . "GPU: 1002:1638\nA")
  (rear-context-string . "nd_src\n\nmy ids\n\n")
