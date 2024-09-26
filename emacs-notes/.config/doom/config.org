@@ -942,7 +942,8 @@ https://gist.github.com/mads-hartmann/3402786
 (global-set-key (kbd "<C-backspace>") 'my/backward-kill-spaces-or-char-or-word)
 
 #+end_src
-* TODO go golang
+* lsp
+** go golang
 source: https://nayak.io/posts/golang-development-doom-emacs/
 source: https://github.com/bashbunni/dotfiles/blob/main/doom/.config/doom/config.el
  golang formatting set up
@@ -973,3 +974,19 @@ source: https://github.com/bashbunni/dotfiles/blob/main/doom/.config/doom/config
                            (unusedvariable . t)))
 )
 #+end_src
+
+* prettier-mode
+source : https://www.reddit.com/r/DoomEmacs/comments/mfr0ed/how_can_i_disable_format_onsave_on_specific/
+;; .doom.d/packages.el
+
+(package! prettier)
+
+;; .doom.d/config.el
+
+(use-package prettier
+  :hook ((typescript-mode . prettier-mode)
+         (js-mode . prettier-mode)
+         (json-mode . prettier-mode)
+         (yaml-mode . prettier-mode)
+         (ruby-mode . prettier-mode)))
+* =END=
