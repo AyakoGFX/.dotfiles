@@ -424,6 +424,17 @@ to search again\n")))
         :desc "Peep-dired image previews" "d p" #'peep-dired
         :desc "Dired view file"           "d v" #'dired-view-file)
 
+  (defun my/dired-view-file ()
+    "View the selected file in Dired and bind F9 to quit the viewer."
+    (interactive)
+    (dired-view-file)
+    (local-set-key (kbd "<f9>") 'View-quit))
+
+  (after! dired
+    (map! :map dired-mode-map
+          :n "SPC d v" 'my/dired-view-file))
+
+
   (evil-define-key 'normal dired-mode-map
     (kbd "M-RET") 'dired-display-file
     (kbd "h") 'dired-up-directory
@@ -463,13 +474,10 @@ to search again\n")))
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 
-(defun my/dired-view-file ()
-  (interactive)
-  (dired-view-file)
-  (local-set-key (kbd "<f5>") 'View-quit))
-
-(after! dired
-  (define-key dired-mode-map (kbd "<f5>") 'my/dired-view-file))
+;; (setq grip-preview-use-webkit t)
+;; (setq grip-use-mdopen t)
+;; Or using hooks
+(setq grip-use-mdopen nil) ;; to use `mdopen` instead of `grip`
 
 ;; ;; Bind <mouse-9> to `next-buffer`
 ;; (map! :n "<mouse-9>" #'next-buffer)
@@ -477,10 +485,10 @@ to search again\n")))
 ;; ;; Bind <mouse-8> to `previous-buffer`
 ;; (map! :n "<mouse-8>" #'previous-buffer)
 
-;; Bind <mouse-9> to `next-buffer` globally
+;; Bind `next-buffer` globally
 (global-set-key [mouse-9] #'next-buffer)
 
-;; Bind <mouse-8> to `previous-buffer` globally
+;; Bind `previous-buffer` globally
 (global-set-key [mouse-8] #'previous-buffer)
 
  (setq global-vi-tilde-fringe-mode nil ) ; removes the tildas
@@ -806,6 +814,11 @@ to search again\n")))
    (t
     (backward-delete-char 1))))
 (global-set-key (kbd "<C-backspace>") 'my/backward-kill-spaces-or-char-or-word)
+
+(after!
+(setq evil-snipe-override-evil-repeat-keys nil)
+(setq doom-localleader-key ",")
+(setq doom-localleader-alt-key "M-,"))
 
 (after! lsp-mode
   (setq  lsp-go-use-gofumpt t)

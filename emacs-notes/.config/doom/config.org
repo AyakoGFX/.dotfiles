@@ -460,6 +460,17 @@ to search again\n")))
         :desc "Peep-dired image previews" "d p" #'peep-dired
         :desc "Dired view file"           "d v" #'dired-view-file)
 
+  (defun my/dired-view-file ()
+    "View the selected file in Dired and bind F9 to quit the viewer."
+    (interactive)
+    (dired-view-file)
+    (local-set-key (kbd "<f9>") 'View-quit))
+
+  (after! dired
+    (map! :map dired-mode-map
+          :n "SPC d v" 'my/dired-view-file))
+
+
   (evil-define-key 'normal dired-mode-map
     (kbd "M-RET") 'dired-display-file
     (kbd "h") 'dired-up-directory
@@ -499,14 +510,18 @@ to search again\n")))
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 
-(defun my/dired-view-file ()
-  (interactive)
-  (dired-view-file)
-  (local-set-key (kbd "<f5>") 'View-quit))
-
-(after! dired
-  (define-key dired-mode-map (kbd "<f5>") 'my/dired-view-file))
 #+end_src
+* Org+md preview by grip-mode
+** https://github.com/seagle0128/grip-mode.git
+=yay -S python-grip --noconfirm=
+=cargo install mdopen=
+#+begin_src elisp
+;; (setq grip-preview-use-webkit t)
+;; (setq grip-use-mdopen t)
+;; Or using hooks
+(setq grip-use-mdopen nil) ;; to use `mdopen` instead of `grip`
+#+end_src
+
 * Custom keys mouse
 #+begin_src elisp
 ;; ;; Bind <mouse-9> to `next-buffer`
@@ -515,10 +530,10 @@ to search again\n")))
 ;; ;; Bind <mouse-8> to `previous-buffer`
 ;; (map! :n "<mouse-8>" #'previous-buffer)
 
-;; Bind <mouse-9> to `next-buffer` globally
+;; Bind `next-buffer` globally
 (global-set-key [mouse-9] #'next-buffer)
 
-;; Bind <mouse-8> to `previous-buffer` globally
+;; Bind `previous-buffer` globally
 (global-set-key [mouse-8] #'previous-buffer)
 #+end_src
 
@@ -926,6 +941,7 @@ https://gist.github.com/mads-hartmann/3402786
  :leader
  "-" #'evil-window-split
  "|" #'evil-window-vsplit)
+
 #+end_src
 * fixed backward word del
 #+begin_src elisp
@@ -941,6 +957,13 @@ https://gist.github.com/mads-hartmann/3402786
     (backward-delete-char 1))))
 (global-set-key (kbd "<C-backspace>") 'my/backward-kill-spaces-or-char-or-word)
 
+#+end_src
+* localleder
+#+begin_src elisp
+(after!
+(setq evil-snipe-override-evil-repeat-keys nil)
+(setq doom-localleader-key ",")
+(setq doom-localleader-alt-key "M-,"))
 #+end_src
 * lsp
 ** go golang

@@ -63,6 +63,7 @@
 (package! catppuccin-theme)
 (package! ellama)
 (package! page-break-lines)
+;; (package! grip-mode)
 (package! wks-mode
   :recipe (:host github
            :repo "3L0C/wks-mode"))
