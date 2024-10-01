@@ -229,7 +229,6 @@ alias cleanup='sudo pacman -Rsn $(pacman -Qdtq)'
 alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias smci='sudo make clean install'
 # Path modification
-set -x PATH $HOME/.config/emacs/bin $PATH
 
 
 # Initialize zoxide in Fish shell
@@ -241,7 +240,6 @@ set -x VISUAL nvim
 set -x KITTY_FONT_FAMILY "FiraCode Nerd Font"
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
-set -x PATH $HOME/.config/emacs/bin $PATH
 set -x QT_QPA_PLATFORM xcb
 export QT_QPA_PLATFORM=xcb
 # if test -f ~/.Xmodmap
@@ -319,5 +317,8 @@ if status is-login
     end
 end
 
+set -x PATH $HOME/.config/emacs/bin $PATH
+set -gx PATH $HOME/.zoom $PATH
+set -gx PATH $HOME/.zoom/src/ $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/ayako/.ghcup/bin # ghcup-env
