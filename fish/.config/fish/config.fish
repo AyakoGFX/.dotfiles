@@ -162,6 +162,11 @@ alias freshclam='sudo freshclam'
 alias se='sudoedit'
 alias vis='nvim "+set si"'
 
+# kill 
+alias k='kill $(xprop | grep -i _NET_WM_PID | awk '\''{print $3}'\'')'
+
+# kill $(xprop | grep -i _NET_WM_PID | awk '{print $3}')'
+
 
 # alias chmod commands
 alias mx='chmod a+x'

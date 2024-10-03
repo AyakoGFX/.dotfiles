@@ -2,13 +2,7 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
- (filename . "~/roam/Main-notes/dateiq.org")
- (front-context-string)
- (rear-context-string . "#+title: dateiq\n")
- (position . 84)
- (last-modified 26362 37163 730563 400000))
-("config.org"
+(("config.org"
  (filename . "~/.dotfiles/emacs-notes/.config/doom/config.org")
  (front-context-string . "* Set Font\n#+beg")
  (rear-context-string . "-find\n#+end_src\n")

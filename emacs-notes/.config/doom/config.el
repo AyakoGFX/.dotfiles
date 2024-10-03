@@ -1,8 +1,22 @@
 ;; org-roam-db-location
 ;; org-roam-node-find
 
+ ;; (gnu (user-emacs-directory . "~/test-emacs")))
+
 ;; FiraCode Nerd Font
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
+;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
+
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 22)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font")
+      doom-symbol-font (font-spec :family "JetBrainsMono Nerd Font")
+      doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 19))
+
+;; (setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-henna)
+
+(setq doom-theme 'catppuccin)
+;; (setq catppuccin-flavor latte) ;; or 'latte, 'macchiato, or 'mocha 'frappe
+;; (catppuccin-reload)
 
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
@@ -602,13 +616,6 @@ to search again\n")))
        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
-
-;; (setq doom-theme 'doom-one)
-;; (setq doom-theme 'doom-henna)
-
-(setq doom-theme 'catppuccin)
-;; (setq catppuccin-flavor latte) ;; or 'latte, 'macchiato, or 'mocha 'frappe
-;; (catppuccin-reload)
 
 (use-package! wks-mode)
 

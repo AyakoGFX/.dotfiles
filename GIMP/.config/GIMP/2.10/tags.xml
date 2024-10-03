@@ -1216,7 +1216,7 @@
   <resource identifier="${gimp_data_dir}/gradients/Yellow_Orange.ggr" checksum="428584726006e23e260baa2a7d79f295">
   </resource>
 
-  <resource identifier="gimp-palette-color-history" checksum="693eca5c9017e153a6e63125e1d44508">
+  <resource identifier="gimp-palette-color-history" checksum="084e53d124c71fb4af966a7b60e3afaf">
   </resource>
 
   <resource identifier="${gimp_data_dir}/palettes/Bears.gpl" checksum="e82e818c20ac12bdd21049924ea2d1e7">
@@ -3929,12 +3929,6 @@
   </resource>
 
   <resource identifier="Terminus Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="xos4 Terminus" checksum="(null)">
-  </resource>
-
-  <resource identifier="xos4 Terminus Bold" checksum="(null)">
   </resource>
 
   <resource identifier="${gimp_data_dir}/tool-presets/Crop/16_10.gtp" checksum="(null)">
