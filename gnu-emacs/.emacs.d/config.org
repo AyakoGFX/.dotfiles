@@ -17,20 +17,25 @@
 ** Font
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'default-frame-alist
-	       '(font . "JetBrainsMono Nerd Font-22"))
+	       '(font . "JetBrainsMono Nerd Font-19"))
 #+END_SRC
 ** modeline
 #+BEGIN_SRC emacs-lisp
- ;; (use-package spaceline
- ;; :ensure t
- ;; :config
- ;; (require 'spaceline-config)
- ;; (setq powerline-default-separator (quote arrow))
- ;; (spaceline-spacemacs-theme))
-(use-package doom-modeline
-  :ensure t
-  :init
-  (doom-modeline-mode 1))
+  ;; (use-package spaceline
+  ;; :ensure t
+  ;; :config
+  ;; (require 'spaceline-config)
+  ;; (setq powerline-default-separator (quote arrow))
+  ;; (spaceline-spacemacs-theme))
+  (use-package doom-modeline
+    :ensure t
+    :config
+    (display-battery-mode 1)
+    (setq doom-modeline-time-icon t)
+    (setq doom-modeline-battery t)
+    (setq doom-modeline-time t)
+    :init
+    (doom-modeline-mode 1))
 #+END_SRC
 
 *** Fancy Battery
@@ -89,14 +94,20 @@ I don't use either, you might want to turn those from =nil= to =t= if you do.
 *** TODO org-insert-source-block
 
 ** Cool Icons
+=M-x= nerd-icons-install-fonts 
 #+BEGIN_SRC emacs-lisp
   (use-package all-the-icons
     :ensure t
     :init)
 
-  (use-package all-the-icons-dired
-    :ensure t
-    :init (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+     ;; (use-package all-the-icons-dired
+       ;; :ensure t
+       ;; :init (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+  
+    (use-package treemacs-icons-dired
+      :ensure t
+      :if (display-graphic-p)
+      :config (treemacs-icons-dired-mode))
 
   (use-package all-the-icons-ibuffer
     :ensure t

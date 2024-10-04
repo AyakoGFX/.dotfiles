@@ -11,16 +11,21 @@
       (scroll-bar-mode -1))
 
 (add-to-list 'default-frame-alist
-	     '(font . "JetBrainsMono Nerd Font-22"))
+	     '(font . "JetBrainsMono Nerd Font-19"))
 
 ;; (use-package spaceline
- ;; :ensure t
- ;; :config
- ;; (require 'spaceline-config)
- ;; (setq powerline-default-separator (quote arrow))
- ;; (spaceline-spacemacs-theme))
+;; :ensure t
+;; :config
+;; (require 'spaceline-config)
+;; (setq powerline-default-separator (quote arrow))
+;; (spaceline-spacemacs-theme))
 (use-package doom-modeline
   :ensure t
+  :config
+  (display-battery-mode 1)
+  (setq doom-modeline-time-icon t)
+  (setq doom-modeline-battery t)
+  (setq doom-modeline-time t)
   :init
   (doom-modeline-mode 1))
 
@@ -53,9 +58,14 @@
   :ensure t
   :init)
 
-(use-package all-the-icons-dired
-  :ensure t
-  :init (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+   ;; (use-package all-the-icons-dired
+     ;; :ensure t
+     ;; :init (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+
+  (use-package treemacs-icons-dired
+    :ensure t
+    :if (display-graphic-p)
+    :config (treemacs-icons-dired-mode))
 
 (use-package all-the-icons-ibuffer
   :ensure t
