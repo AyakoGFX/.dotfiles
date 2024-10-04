@@ -46,6 +46,17 @@
  ;; (fancy-battery-mode 1)
  ;; (setq fancy-battery-show-percentage t))
 #+END_SRC
+** dashboard
+#+BEGIN_SRC emacs-lisp
+  (use-package dashboard
+  :ensure t
+  :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-startup-banner "~/.emacs.d/img/logo.svg")
+    (setq dashboard-items '((recents  . 5)
+			      (projects . 5)))
+    (setq dashboard-banner-logo-title "I am just a coder for fun"))
+#+END_SRC
 * Basic Interface Settings
 ** Remove lame startup screen
 We use an actual replacement for it, keep reading or head directly to dashboard
@@ -92,6 +103,20 @@ I don't use either, you might want to turn those from =nil= to =t= if you do.
 #+END_SRC
 
 *** TODO org-insert-source-block
+
+*** recent-files
+#+BEGIN_SRC emacs-lisp
+(use-package recentf
+  :init
+  (setq
+    recentf-save-file "~/.emacs.d/.cache/recentf"
+    recentf-max-saved-items 10000
+    recentf-max-menu-items 5000
+    )
+  (recentf-mode 1)
+  (run-at-time nil (* 5 60) 'recentf-save-list)
+)
+#+END_SRC
 
 ** Cool Icons
 =M-x= nerd-icons-install-fonts 
@@ -222,11 +247,53 @@ do not touch it will mess up vertigo *comp* ex C-x b
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   (setq ibuffer-expert t)
 #+END_SRC
+
+** undo-tree vundo
+#+BEGIN_SRC emacs-lisp
+(use-package vundo
+  :commands (vundo)
+  :ensure t
+  :config
+  ;; Take less on-screen space.
+  (setq vundo-compact-display t)
+
+  ;; Better contrasting highlight.
+  (custom-set-faces
+    '(vundo-node ((t (:foreground "#808080"))))
+    '(vundo-stem ((t (:foreground "#808080"))))
+    '(vundo-highlight ((t (:foreground "#FFFF00")))))
+
+  ;; Use `HJKL` VIM-like motion, also Home/End to jump around.
+  (define-key vundo-mode-map (kbd "l") #'vundo-forward)
+  (define-key vundo-mode-map (kbd "<right>") #'vundo-forward)
+  (define-key vundo-mode-map (kbd "h") #'vundo-backward)
+  (define-key vundo-mode-map (kbd "<left>") #'vundo-backward)
+  (define-key vundo-mode-map (kbd "j") #'vundo-next)
+  (define-key vundo-mode-map (kbd "<down>") #'vundo-next)
+  (define-key vundo-mode-map (kbd "k") #'vundo-previous)
+  (define-key vundo-mode-map (kbd "<up>") #'vundo-previous)
+  (define-key vundo-mode-map (kbd "<home>") #'vundo-stem-root)
+  (define-key vundo-mode-map (kbd "<end>") #'vundo-stem-end)
+  (define-key vundo-mode-map (kbd "q") #'vundo-quit)
+  (define-key vundo-mode-map (kbd "C-g") #'vundo-quit)
+  (define-key vundo-mode-map (kbd "RET") #'vundo-confirm))
+
+(with-eval-after-load 'evil
+  (evil-define-key 'normal 'global (kbd "C-M-u") 'vundo))
+#+END_SRC
+
+
 * key-map
 #+BEGIN_SRC emacs-lisp
     ;; remap redo from C-M-_ to  C-x U 
     (global-set-key (kbd "C-x U") 'undo-redo)
 
+  ;; Visiting the configuration
+    (defun config-visit ()
+      (interactive)
+      (find-file "~/.emacs.d/config.org"))
+    (global-set-key (kbd "C-c e") 'config-visit)
+  
     ;; Toggle maximize buffer
     (defun toggle-maximize-buffer () "Maximize buffer"
 	   (interactive)
@@ -267,11 +334,11 @@ do not touch it will mess up vertigo *comp* ex C-x b
 
     ;; comment and un comment
     ;; Comment and uncomment region with C-c c and C-c u
-  (global-set-key (kbd "C-c c") 'comment-region)
-  (global-set-key (kbd "C-c u") 'uncomment-region)
+    (global-set-key (kbd "C-c c") 'comment-region)
+    (global-set-key (kbd "C-c u") 'uncomment-region)
 
-  ;; Optional: Use C-; to comment/uncomment
-  (global-set-key (kbd "C-;") 'comment-line)
+    ;; Optional: Use C-; to comment/uncomment
+    (global-set-key (kbd "C-;") 'comment-line)
 
 #+END_SRC
 

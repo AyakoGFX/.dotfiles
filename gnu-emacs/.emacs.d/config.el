@@ -35,6 +35,15 @@
 ;; (fancy-battery-mode 1)
 ;; (setq fancy-battery-show-percentage t))
 
+(use-package dashboard
+:ensure t
+:config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner "~/.emacs.d/img/logo.svg")
+  (setq dashboard-items '((recents  . 5)
+			    (projects . 5)))
+  (setq dashboard-banner-logo-title "I am just a coder for fun"))
+
 (setq inhibit-startup-message t)
 
 (tool-bar-mode -1)
@@ -53,6 +62,17 @@
 (setq auto-save-default t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(use-package recentf
+  :init
+  (setq
+    recentf-save-file "~/.emacs.d/.cache/recentf"
+    recentf-max-saved-items 10000
+    recentf-max-menu-items 5000
+    )
+  (recentf-mode 1)
+  (run-at-time nil (* 5 60) 'recentf-save-list)
+)
 
 (use-package all-the-icons
   :ensure t
@@ -156,8 +176,45 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-expert t)
 
+(use-package vundo
+  :commands (vundo)
+  :ensure t
+  :config
+  ;; Take less on-screen space.
+  (setq vundo-compact-display t)
+
+  ;; Better contrasting highlight.
+  (custom-set-faces
+    '(vundo-node ((t (:foreground "#808080"))))
+    '(vundo-stem ((t (:foreground "#808080"))))
+    '(vundo-highlight ((t (:foreground "#FFFF00")))))
+
+  ;; Use `HJKL` VIM-like motion, also Home/End to jump around.
+  (define-key vundo-mode-map (kbd "l") #'vundo-forward)
+  (define-key vundo-mode-map (kbd "<right>") #'vundo-forward)
+  (define-key vundo-mode-map (kbd "h") #'vundo-backward)
+  (define-key vundo-mode-map (kbd "<left>") #'vundo-backward)
+  (define-key vundo-mode-map (kbd "j") #'vundo-next)
+  (define-key vundo-mode-map (kbd "<down>") #'vundo-next)
+  (define-key vundo-mode-map (kbd "k") #'vundo-previous)
+  (define-key vundo-mode-map (kbd "<up>") #'vundo-previous)
+  (define-key vundo-mode-map (kbd "<home>") #'vundo-stem-root)
+  (define-key vundo-mode-map (kbd "<end>") #'vundo-stem-end)
+  (define-key vundo-mode-map (kbd "q") #'vundo-quit)
+  (define-key vundo-mode-map (kbd "C-g") #'vundo-quit)
+  (define-key vundo-mode-map (kbd "RET") #'vundo-confirm))
+
+(with-eval-after-load 'evil
+  (evil-define-key 'normal 'global (kbd "C-M-u") 'vundo))
+
 ;; remap redo from C-M-_ to  C-x U 
   (global-set-key (kbd "C-x U") 'undo-redo)
+
+;; Visiting the configuration
+  (defun config-visit ()
+    (interactive)
+    (find-file "~/.emacs.d/config.org"))
+  (global-set-key (kbd "C-c e") 'config-visit)
 
   ;; Toggle maximize buffer
   (defun toggle-maximize-buffer () "Maximize buffer"
@@ -199,11 +256,11 @@
 
   ;; comment and un comment
   ;; Comment and uncomment region with C-c c and C-c u
-(global-set-key (kbd "C-c c") 'comment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
+  (global-set-key (kbd "C-c c") 'comment-region)
+  (global-set-key (kbd "C-c u") 'uncomment-region)
 
-;; Optional: Use C-; to comment/uncomment
-(global-set-key (kbd "C-;") 'comment-line)
+  ;; Optional: Use C-; to comment/uncomment
+  (global-set-key (kbd "C-;") 'comment-line)
 
 (use-package magit
   :ensure t
