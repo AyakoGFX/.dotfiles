@@ -285,7 +285,7 @@ bind \cf 'fzf_find_dir'
 
 # starship init fish | source
 # colorscript random
-pokemon-colorscripts -r
+# pokemon-colorscripts -r
 # sysinfo-retro
 # cpufetch
 

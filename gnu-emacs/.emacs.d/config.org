@@ -282,7 +282,6 @@ do not touch it will mess up vertigo *comp* ex C-x b
   (evil-define-key 'normal 'global (kbd "C-M-u") 'vundo))
 #+END_SRC
 
-
 * key-map
 #+BEGIN_SRC emacs-lisp
     ;; remap redo from C-M-_ to  C-x U 
