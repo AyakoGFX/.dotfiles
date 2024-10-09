@@ -1,8 +1,10 @@
 # GIMP user context
 
-(tool "gimp-paintbrush-tool")
+(tool "gimp-move-tool")
 (paint-info "gimp-paintbrush")
-(brush "2. Hardness 100")
+(foreground (color-rgb 1 0 0))
+(opacity 0.97400000000000009)
+(brush "2. Hardness 025")
 (dynamics "Dynamics Off")
 (mybrush "100% Opaque")
 (pattern "Pine")
