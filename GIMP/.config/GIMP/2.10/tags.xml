@@ -1216,7 +1216,7 @@
   <resource identifier="${gimp_data_dir}/gradients/Yellow_Orange.ggr" checksum="428584726006e23e260baa2a7d79f295">
   </resource>
 
-  <resource identifier="gimp-palette-color-history" checksum="b524fe8a5f8272db5ba7d03afc68cd6a">
+  <resource identifier="gimp-palette-color-history" checksum="4071b105c195863d07c78c72d55fe8d8">
   </resource>
 
   <resource identifier="${gimp_data_dir}/palettes/Bears.gpl" checksum="e82e818c20ac12bdd21049924ea2d1e7">
@@ -1342,18 +1342,6 @@
   <resource identifier="${gimp_data_dir}/palettes/Web.gpl" checksum="f02e8dfa23d01d6acfbab7f895c2dd16">
   </resource>
 
-  <resource identifier="C059" checksum="(null)">
-  </resource>
-
-  <resource identifier="C059 Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="C059 Bold Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="C059 Italic" checksum="(null)">
-  </resource>
-
   <resource identifier="Cantarell" checksum="(null)">
   </resource>
 
@@ -1370,9 +1358,6 @@
   </resource>
 
   <resource identifier="Cantarell Ultra-Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="D050000L" checksum="(null)">
   </resource>
 
   <resource identifier="FiraCode Nerd Font" checksum="(null)">
@@ -1979,54 +1964,6 @@
   </resource>
 
   <resource identifier="Monospace Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Mono PS" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Mono PS Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Mono PS Bold Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Mono PS Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Roman," checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Roman, Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Roman, Bold Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Roman, Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Sans" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Sans Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Sans Bold Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Sans Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Sans Narrow Bold Oblique Semi-Condensed" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Sans Narrow Bold Semi-Condensed" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Sans Narrow Oblique Semi-Condensed" checksum="(null)">
-  </resource>
-
-  <resource identifier="Nimbus Sans Narrow Semi-Condensed" checksum="(null)">
   </resource>
 
   <resource identifier="Noto Color Emoji" checksum="(null)">
@@ -3868,18 +3805,6 @@
   <resource identifier="Noto Znamenny Musical Notation" checksum="(null)">
   </resource>
 
-  <resource identifier="P052" checksum="(null)">
-  </resource>
-
-  <resource identifier="P052 Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="P052 Bold Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="P052 Italic" checksum="(null)">
-  </resource>
-
   <resource identifier="Sans-serif" checksum="(null)">
   </resource>
 
@@ -3994,9 +3919,6 @@
   <resource identifier="SourceCodeVF Ultra-Light Italic" checksum="(null)">
   </resource>
 
-  <resource identifier="Standard Symbols PS" checksum="(null)">
-  </resource>
-
   <resource identifier="Symbols Nerd Font" checksum="(null)">
   </resource>
 
@@ -4007,33 +3929,6 @@
   </resource>
 
   <resource identifier="Terminus Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="URW Bookman Light" checksum="(null)">
-  </resource>
-
-  <resource identifier="URW Bookman Light Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="URW Bookman Semi-Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="URW Bookman Semi-Bold Italic" checksum="(null)">
-  </resource>
-
-  <resource identifier="URW Gothic" checksum="(null)">
-  </resource>
-
-  <resource identifier="URW Gothic Oblique" checksum="(null)">
-  </resource>
-
-  <resource identifier="URW Gothic Semi-Bold" checksum="(null)">
-  </resource>
-
-  <resource identifier="URW Gothic Semi-Bold Oblique" checksum="(null)">
-  </resource>
-
-  <resource identifier="Z003 Medium Italic" checksum="(null)">
   </resource>
 
   <resource identifier="${gimp_data_dir}/tool-presets/Crop/16_10.gtp" checksum="(null)">

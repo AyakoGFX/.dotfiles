@@ -6,7 +6,7 @@
 ;; org-roam-db-location
 ;; org-roam-node-find
 #+end_src
-* profile emacs
+* profile
 #+begin_src elisp
  ;; (gnu (user-emacs-directory . "~/test-emacs")))
 #+end_src
