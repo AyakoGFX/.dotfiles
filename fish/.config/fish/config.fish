@@ -227,7 +227,7 @@ alias checkcommand="type -t"
 # Alias's for safe and forced reboots
 alias rebootsafe='sudo shutdown -r now'
 alias rebootforce='sudo shutdown -r -n now'
-
+alias deb-update='sudo nala update && sudo nala upgrade'
 # Search command line history
 alias h="history | grep "
 

@@ -1,0 +1,99 @@
+#+begin_src bash
+sudo apt install lightdm lightdm-gtk-greeter
+#+end_src
+
+brightnessctl
+
+
+* to fix no audio
+
+$ pavucontrol
+
+- and open the configure section and change of to pro  
+* install Eza
+
+sudo apt update
+sudo apt install -y gpg
+
+sudo mkdir -p /etc/apt/keyrings
+wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+sudo apt update
+sudo apt install -y eza
+
+
+* sudo nala install xarchiver
+
+https://github.com/notofonts/notofonts.github.io/releases/tag/noto-monthly-release-24.9.1
+
+* C-f Download All Google Fonts
+https://github.com/google/fonts?tab=readme-ov-file
+
+
+
+* enable contrib non-free repo
+(e.g)
+deb http://deb.debian.org/debian/ bullseye main 
+# change to this 
+deb http://deb.debian.org/debian/ bullseye main contrib non-free
+
+
+* fonts
+*** install Microsoft Fonts 
+sudo apt update && sudo apt upgrade
+sudo apt-add-repository contrib non-free -y
+sudo apt install software-properties-common -y
+sudo apt install ttf-mscorefonts-installer
+
+
+* themes
+sudo nala install arc-theme
+sudo nala install papirus-icon-theme
+sudo nala install lxappearance
+sudo nala install qt6ct
+sudo apt install qt5-style-kvantum
+
+=add= to =/etc/environment=
+QT_QPA_PLATFORMTHEME=qt6ct
+
+reboot
+
+* fix error =/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)=
+ls /usr/lib/locale/
+sudo dpkg-reconfigure locales
+or
+sudo locale-gen  --purge --no-archive
+
+to =/usr/lib/locale/=
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+* use nwework-manager insted of debian crappy defaults
+=sudo nano /etc/network/interfaces=
+
+
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# Comment out the following lines to disable ifupdown
+# allow-hotplug wlp4s0
+# iface wlp4s0 inet dhcp
+# 	wpa-ssid AVRK
+# 	wpa-psk ALVARAKI
+
+
+and
+sudo apt update
+sudo apt install network-manager
+
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+
+sudo reboot

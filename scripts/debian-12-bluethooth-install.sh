@@ -71,10 +71,10 @@ func_install() {
 }
 
 # Remove the check for blueberry since it's not available
-func_install pulseaudio-module-bluetooth
+# func_install pulseaudio-module-bluetooth
 func_install bluez
 func_install blueman
-
+func_install libspa-0.2-bluetooth
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 
@@ -92,10 +92,16 @@ if ! grep -q "load-module module-bluetooth-discover" /etc/pulse/default.pa; then
     echo 'load-module module-bluetooth-discover' | sudo tee --append /etc/pulse/default.pa
 fi
 
+
+sudo apt install git dkms
+git clone https://github.com/jeremyb31/bluetooth-6.5.git
+sudo dkms add ./bluetooth-6.5
+sudo dkms install btusb/4.1
+
 echo
 tput setaf 6
 echo "######################################################"
-echo "###################  $(basename $0) done"
+echo "###################  $(basename $0) done reboot now!"
 echo "######################################################"
 tput sgr0
 echo
