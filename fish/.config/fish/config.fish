@@ -263,6 +263,8 @@ set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x QT_QPA_PLATFORM xcb
 export QT_QPA_PLATFORM=xcb
+set -gx XDG_DATA_DIRS "/home/$USER/.nix-profile/share" $XDG_DATA_DIRS
+# export XDG_DATA_DIRS="/home/$USER/.nix-profile/share:$XDG_DATA_DIRS"
 
 set -x NIXPKGS_ALLOW_UNFREE 1
 
