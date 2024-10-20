@@ -97,3 +97,48 @@ sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 
 sudo reboot
+
+
+* fonts-noto-color-emoji
+#+begin_src bash
+sudo nala install fonts-noto-color-emoji
+sudo nala install fonts-noto
+#+end_src
+
+=/etc/fonts/conf.d/02-emoji.conf=
+
+#+begin_src conf
+  <?xml version="1.0"?>
+    <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+    <fontconfig>
+
+     <alias>
+       <family>sans-serif</family>
+       <prefer>
+         <family>Your favorite sans-serif font name</family>
+         <family>Noto Color Emoji</family>
+         <family>Noto Emoji</family>
+       </prefer> 
+     </alias>
+
+     <alias>
+       <family>serif</family>
+       <prefer>
+         <family>Your favorite serif font name</family>
+         <family>Noto Color Emoji</family>
+         <family>Noto Emoji</family>
+       </prefer>
+     </alias>
+
+     <alias>
+      <family>monospace</family>
+      <prefer>
+        <family>Your favorite monospace font name</family>
+        <family>Noto Color Emoji</family>
+        <family>Noto Emoji</family>
+       </prefer>
+     </alias>
+
+    </fontconfig>
+#+end_src
+
