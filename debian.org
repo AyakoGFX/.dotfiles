@@ -69,6 +69,9 @@ to =/usr/lib/locale/=
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 
+sudo systemctl disable networking.service
+sudo systemctl disable wpa_supplicant.service
+
 * use nwework-manager insted of debian crappy defaults
 =sudo nano /etc/network/interfaces=
 
@@ -99,6 +102,16 @@ sudo systemctl start NetworkManager
 sudo reboot
 
 
+* fix errors in NM
+=Error: Connection activation failed: The Wi-Fi network could not be found.=
+
+- sudo nano /etc/NetworkManager/NetworkManager.conf
+" add this line
+  [device]
+  wifi.scan-rand-mac-address=no
+
+"
+sudo systemctl restart NetworkManager.service
 * fonts-noto-color-emoji
 #+begin_src bash
 sudo nala install fonts-noto-color-emoji

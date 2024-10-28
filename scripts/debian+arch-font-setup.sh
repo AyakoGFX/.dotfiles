@@ -17,7 +17,8 @@ if is_debian; then
     sudo nala install fonts-noto
 elif is_arch; then
     echo "Detected Arch-based system. Installing Noto Emoji fonts..."
-    yay -S noto-fonts-emoji
+    sudo pacman -S noto-fonts-emoji
+    sudo pacman -S noto-fonts
 else
     echo "Unsupported operating system."
     exit 1
@@ -58,4 +59,4 @@ cat <<EOL | sudo tee /etc/fonts/conf.d/02-emoji.conf
 </fontconfig>
 EOL
 
-echo "Font configuration created successfully."
+echo "Font configuration created successfully. reboot is required"
