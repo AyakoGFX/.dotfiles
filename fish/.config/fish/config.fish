@@ -264,29 +264,32 @@ set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x QT_QPA_PLATFORM xcb
 export QT_QPA_PLATFORM=xcb
-set -gx XDG_DATA_DIRS "/home/$USER/.nix-profile/share" $XDG_DATA_DIRS
+# set -gx XDG_DATA_DIRS "/home/$USER/.nix-profile/share" $XDG_DATA_DIRS
 # export XDG_DATA_DIRS="/home/$USER/.nix-profile/share:$XDG_DATA_DIRS"
-
+set -x XDG_DATA_DIRS $HOME/.nix-profile/share (string replace -r '^$' /usr/share $XDG_DATA_DIRS)
 set -x NIXPKGS_ALLOW_UNFREE 1
 
-function fzf_find_files
-    set selected (find . | fzf)
-    if test -n "$selected"
-        if test -d "$selected"
-            cd "$selected"
-        else if test -f "$selected"
-            nvim "$selected"
-        end
-    end
-end
 
-bind \cg 'fzf_find_files'
+# function fzf_find_files
+#     set selected (find . | fzf)
+#     if test -n "$selected"
+#         if test -d "$selected"
+#             cd "$selected"
+#         else if test -f "$selected"
+#             nvim "$selected"
+#         end
+#     end
+# end
+#
+# bind \cg 'fzf_find_files'
+#
+# function fzf_find_dir
+#     set selected (find . -type d | fzf)
+#     if test -n "$selected"
+#         cd "$selected"
+#     end
+# end
+#
+# bind \cf 'fzf_find_dir'
+# fenv source ~/.profile
 
-function fzf_find_dir
-    set selected (find . -type d | fzf)
-    if test -n "$selected"
-        cd "$selected"
-    end
-end
-
-bind \cf 'fzf_find_dir'
