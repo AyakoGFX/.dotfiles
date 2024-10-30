@@ -21,6 +21,10 @@ export NIXPKGS_ALLOW_UNFREE=1
 # export XDG_DATA_DIRS="/home/$USER/.nix-profile/share:$XDG_DATA_DIRS"
 # export XDG_DATA_DIRS=$HOME/.nix-profile/share:"${XDG_DATA_DIRS:/usr/share/}"
 # export XDG_DATA_DIRS="/home/$USER/.nix-profile/share:$XDG_DATA_DIRS"
+#
+export XDG_DATA_DIRS="$HOME/.nix-profile/share:/nix/var/nix/profiles/default/share:$XDG_DATA_DIRS"
+
+
 
 alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
 alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
