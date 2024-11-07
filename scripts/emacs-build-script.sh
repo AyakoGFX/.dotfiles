@@ -7,12 +7,12 @@ echo "Starting Emacs build process..."
 
 # Function to check if command succeeded
 check_status() {
-    if [ $? -eq 0 ]; then
-        echo "✓ $1 completed successfully"
-    else
-        echo "✗ $1 failed"
-        exit 1
-    fi
+  if [ $? -eq 0 ]; then
+    echo "✓ $1 completed successfully"
+  else
+    echo "✗ $1 failed"
+    exit 1
+  fi
 }
 
 # Create directory for build
@@ -22,16 +22,16 @@ cd "$BUILD_DIR"
 
 echo "Installing required dependencies..."
 sudo apt install -y \
-    build-essential \
-    libgtk-3-dev \
-    libgnutls28-dev \
-    libtiff5-dev \
-    libgif-dev \
-    libjpeg-dev \
-    libpng-dev \
-    libxpm-dev \
-    libncurses-dev \
-    texinfo
+  build-essential \
+  libgtk-3-dev \
+  libgnutls28-dev \
+  libtiff5-dev \
+  libgif-dev \
+  libjpeg-dev \
+  libpng-dev \
+  libxpm-dev \
+  libncurses-dev \
+  texinfo
 check_status "Base dependencies installation"
 
 # Install JSON support dependencies
@@ -40,12 +40,12 @@ sudo apt install -y libjansson4 libjansson-dev
 check_status "JSON dependencies installation"
 
 # Install JIT compilation dependencies
-echo "Installing JIT compilation dependencies..."
-sudo apt install -y \
-    libgccjit0 \
-    libgccjit-10-dev \
-    gcc-10 \
-    g++-10
+# echo "Installing JIT compilation dependencies..."
+# sudo apt install -y \
+#     libgccjit0 \
+#     libgccjit-10-dev \
+#     gcc-10 \
+#     g++-10
 check_status "JIT compilation dependencies installation"
 
 # Install imagemagick dependencies
@@ -61,9 +61,9 @@ check_status "Tree-sitter dependencies installation"
 # Clone Emacs repository
 echo "Cloning Emacs repository..."
 if [ "$1" = "--shallow" ]; then
-    git clone --depth=1 https://git.savannah.gnu.org/git/emacs.git
+  git clone --depth=1 https://git.savannah.gnu.org/git/emacs.git
 else
-    git clone https://git.savannah.gnu.org/git/emacs.git
+  git clone --depth=1 https://git.savannah.gnu.org/git/emacs.git
 fi
 check_status "Repository cloning"
 
@@ -77,11 +77,11 @@ check_status "Autogen"
 
 echo "Configuring build..."
 ./configure \
-    --with-native-compilation \
-    --with-json \
-    --with-tree-sitter \
-    --with-imagemagick \
-    --with-xwidgets
+  --with-native-compilation \
+  --with-json \
+  --with-tree-sitter \
+  --with-imagemagick \
+  --with-xwidgets
 check_status "Configure"
 
 echo "Building Emacs..."

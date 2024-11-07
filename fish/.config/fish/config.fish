@@ -2,8 +2,8 @@
 # How do I set or clear an environment variable
 # https://fishshell.com/docs/current/faq.html
 
-set fish_greeting                                 # Supresses fish's intro message
-set TERM "xterm-256color"                         # Sets the terminal type
+set fish_greeting # Supresses fish's intro message
+set TERM xterm-256color # Sets the terminal type
 
 function fish_prompt
     set_color red --bold
@@ -14,20 +14,20 @@ function fish_prompt
     echo -n "@"
     set_color blue --bold
     echo -n (hostname)
-    echo -n " " 
+    echo -n " "
     set_color magenta --bold
     echo -n (pwd | string replace -r "^$HOME" "~" | string trim)
     set_color red --bold
     echo -n "]"
     set_color normal
-    echo -n "\$ "  # Correctly escape the dollar sign
+    echo -n "\$ " # Correctly escape the dollar sign
 end
 
 
 # Replace ls with eza
 alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
-alias la 'eza -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll 'eza -l --color=always --group-directories-first --icons'  # long format
+alias la 'eza -a --color=always --group-directories-first --icons' # all files and dirs
+alias ll 'eza -l --color=always --group-directories-first --icons' # long format
 alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listing
 alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 
@@ -37,7 +37,7 @@ alias ... 'cd ../..'
 alias .... 'cd ../../..'
 alias ..... 'cd ../../../..'
 alias ...... 'cd ../../../../..'
-alias big 'expac -H M "%m\t%n" | sort -h | nl'     # Sort installed packages according to size in MB (expac must be installed)
+alias big 'expac -H M "%m\t%n" | sort -h | nl' # Sort installed packages according to size in MB (expac must be installed)
 alias dir 'dir --color=auto'
 alias fixpacman 'sudo rm /var/lib/pacman/db.lck'
 alias gitpkg 'pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
@@ -45,14 +45,14 @@ alias grep 'ugrep --color=auto'
 alias egrep 'ugrep -E --color=auto'
 alias fgrep 'ugrep -F --color=auto'
 alias grubup 'sudo update-grub'
-alias hw 'hwinfo --short'                          # Hardware Info
+alias hw 'hwinfo --short' # Hardware Info
 alias ip 'ip -color'
 alias psmem 'ps auxf | sort -nr -k 4'
 alias psmem10 'ps auxf | sort -nr -k 4 | head -10'
 alias rmpkg 'sudo pacman -Rdd'
 alias tarnow 'tar -acf '
 alias untar 'tar -zxvf '
-alias upd '/usr/bin/garuda-update'
+alias upd /usr/bin/garuda-update
 alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
 
@@ -69,7 +69,7 @@ alias jctl 'journalctl -p 3 -xb'
 alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
 # Aliases
-alias tree='tree -a -I .git'
+# alias tree='tree -a -I .git'
 alias nv='nvim'
 alias pnv='env NVIM_APPNAME=prim-nvim nvim'
 alias knv='env NVIM_APPNAME=kick-nvim nvim'
@@ -166,6 +166,145 @@ set -x XDG_DATA_DIRS $HOME/.nix-profile/share (string replace -r '^$' /usr/share
 set -x NIXPKGS_ALLOW_UNFREE 1
 
 
+# python
+# Based on https://gist.github.com/bastibe/c0950e463ffdfdfada7adf149ae77c6f
+# Changes:
+# * Instead of overriding cd, we detect directory change. This allows the script to work
+#   for other means of cd, such as z.
+# * Update syntax to work with new versions of fish.
+# * Handle virtualenvs that are not located in the root of a git directory.
+
+function __auto_source_venv --on-variable PWD --description "Activate/Deactivate virtualenv on directory change"
+    status --is-command-substitution; and return
+
+    # Check if we are inside a git directory
+    if git rev-parse --show-toplevel &>/dev/null
+        set gitdir (realpath (git rev-parse --show-toplevel))
+        set cwd (pwd -P)
+        # While we are still inside the git directory, find the closest
+        # virtualenv starting from the current directory.
+        while string match "$gitdir*" "$cwd" &>/dev/null
+            if test -e "$cwd/.venv/bin/activate.fish"
+                source "$cwd/.venv/bin/activate.fish" &>/dev/null
+                return
+            else
+                set cwd (path dirname "$cwd")
+            end
+        end
+    end
+    # If virtualenv activated but we are not in a git directory, deactivate.
+    if test -n "$VIRTUAL_ENV"
+        deactivate
+    end
+end
+
+function shortcut-help
+    echo "
+*Move cursor*
+Ctrl + a    Go to the beginning of the line (Home)
+Ctrl + e    Go to the End of the line (End)
+Alt + b     Back (left) one word
+Alt + f     Forward (right) one word
+Ctrl + f    Forward one character
+Ctrl + b    Backward one character
+Ctrl + xx   Toggle between the start of line and current cursor position
+
+*Edit*
+Ctrl + u    Cut the line before the cursor position
+Alt + Del   Delete the Word before the cursor
+Alt + d     Delete the Word after the cursor
+Ctrl + d    Delete character under the cursor
+Ctrl + h    Delete character before the cursor (backspace)
+Ctrl + w    Cut the Word before the cursor to the clipboard
+Ctrl + k    Cut the Line after the cursor to the clipboard
+Alt + t     Swap current word with previous
+Ctrl + t    Swap the last two characters before the cursor (typo)
+Esc + t     Swap the last two words before the cursor.
+Ctrl + y    Paste the last thing to be cut (yank)
+Alt + u     UPPER capitalize every character from the cursor to the end of the current word.
+Alt + l     Lower the case of every character from the cursor to the end of the current word.
+Alt + c     Capitalize the character under the cursor and move to the end of the word.
+Alt + r     Cancel the changes and put back the line as it was in the history (revert)
+Ctrl + _    Undo
+
+*History*
+Ctrl + r    Recall the last command including the specified character(s) (equivalent to : vim ~/.bash_history).
+Ctrl + p    Previous command in history (i.e. walk back through the command history)
+Ctrl + n    Next command in history (i.e. walk forward through the command history)
+Ctrl + s    Go back to the next most recent command.
+Ctrl + o    Execute the command found via Ctrl+r or Ctrl+s
+Ctrl + g    Escape from history searching mode
+Alt + .     Use the last word of the previous command
+"
+end
+# PATH
+set -gx PATH $HOME/.local/bin $PATH
+
+# SPECIAL FUNCTIONS
+# Extracts any archive(s)
+function extract
+    for archive in $argv
+        if test -f $archive
+            switch $archive
+                case *.tar.bz2
+                    tar xvjf $archive
+                case *.tar.gz
+                    tar xvzf $archive
+                case *.bz2
+                    bunzip2 $archive
+                case *.rar
+                    rar x $archive
+                case *.gz
+                    gunzip $archive
+                case *.tar
+                    tar xvf $archive
+                case *.tbz2
+                    tar xvjf $archive
+                case *.tgz
+                    tar xvzf $archive
+                case *.zip
+                    unzip $archive
+                case *.Z
+                    uncompress $archive
+                case *.7z
+                    7z x $archive
+                case '*'
+                    echo "don't know how to extract '$archive'..."
+            end
+        else
+            echo "'$archive' is not a valid file!"
+        end
+    end
+end
+
+# for bash
+# extract() {
+# 	for archive in "$@"; do
+# 		if [ -f "$archive" ]; then
+# 			case $archive in
+# 			*.tar.bz2) tar xvjf $archive ;;
+# 			*.tar.gz) tar xvzf $archive ;;
+# 			*.bz2) bunzip2 $archive ;;
+# 			*.rar) rar x $archive ;;
+# 			*.gz) gunzip $archive ;;
+# 			*.tar) tar xvf $archive ;;
+# 			*.tbz2) tar xvjf $archive ;;
+# 			*.tgz) tar xvzf $archive ;;
+# 			*.zip) unzip $archive ;;
+# 			*.Z) uncompress $archive ;;
+# 			*.7z) 7z x $archive ;;
+# 			*) echo "don't know how to extract '$archive'..." ;;
+# 			esac
+# 		else
+# 			echo "'$archive' is not a valid file!"
+# 		fi
+# 	done
+# }
+#
+
+export MANPAGER="less -r --use-color -Dd+r -Du+b"
+
+
 # function fzf_find_files
 #     set selected (find . | fzf)
 #     if test -n "$selected"
@@ -185,4 +324,3 @@ set -x NIXPKGS_ALLOW_UNFREE 1
 #         cd "$selected"
 #     end
 # end
-
