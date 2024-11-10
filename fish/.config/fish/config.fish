@@ -164,7 +164,7 @@ export QT_QPA_PLATFORM=xcb
 # export XDG_DATA_DIRS="/home/$USER/.nix-profile/share:$XDG_DATA_DIRS"
 set -x XDG_DATA_DIRS $HOME/.nix-profile/share (string replace -r '^$' /usr/share $XDG_DATA_DIRS)
 set -x NIXPKGS_ALLOW_UNFREE 1
-
+export PATH="$HOME/.local/bin:$PATH"
 
 # python
 # Based on https://gist.github.com/bastibe/c0950e463ffdfdfada7adf149ae77c6f
