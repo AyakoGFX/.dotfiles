@@ -96,3 +96,6 @@ alias freshclam='sudo freshclam'
 alias se='sudoedit'
 
 eval "$(zoxide init zsh)"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

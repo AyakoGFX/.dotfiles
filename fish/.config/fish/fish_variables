@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export --path PATH:/home/ayako/\x2enix\x2dprofile/bin\x1e/nix/var/nix/profiles/default/bin\x1e/home/ayako/\x2ecargo/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/local/games\x1e/usr/games\x1e/snap/bin\x1e/home/ayako/\x2elocal/opt/go/bin
 SETUVAR __fish_initialized:3400
 SETUVAR __garuda_garuda_update_ignore:true
 SETUVAR fish_color_autosuggestion:brblack

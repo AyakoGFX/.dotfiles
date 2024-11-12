@@ -160,12 +160,14 @@ set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x QT_QPA_PLATFORM xcb
 export QT_QPA_PLATFORM=xcb
-# set -gx XDG_DATA_DIRS "/home/$USER/.nix-profile/share" $XDG_DATA_DIRS
-# export XDG_DATA_DIRS="/home/$USER/.nix-profile/share:$XDG_DATA_DIRS"
+set -Ux PATH $PATH $HOME/.local/opt/go/bin
 set -x XDG_DATA_DIRS $HOME/.nix-profile/share (string replace -r '^$' /usr/share $XDG_DATA_DIRS)
 set -x NIXPKGS_ALLOW_UNFREE 1
 export PATH="$HOME/.local/bin:$PATH"
 
+# export PATH=$PATH:$HOME/.local/opt/go/bin
+# set -gx XDG_DATA_DIRS "/home/$USER/.nix-profile/share" $XDG_DATA_DIRS
+# export XDG_DATA_DIRS="/home/$USER/.nix-profile/share:$XDG_DATA_DIRS"
 # python
 # Based on https://gist.github.com/bastibe/c0950e463ffdfdfada7adf149ae77c6f
 # Changes:
@@ -324,3 +326,6 @@ export MANPAGER="less -r --use-color -Dd+r -Du+b"
 #         cd "$selected"
 #     end
 # end
+
+# Generated for envman. Do not edit.
+test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
