@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Get the install date by checking the birth date of the root directory
+install_date=$(sudo stat -c %W /)
+
+# Current date in seconds since epoch
+current_date=$(date +%s)
+
+# Calculate the age in days
+if [ "$install_date" -ne 0 ]; then
+    days=$(( (current_date - install_date) / 86400 ))
+    echo "OS Age   $days days"
+else
+    echo "Unable to determine OS installation date."
+fi
