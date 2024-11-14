@@ -56,18 +56,22 @@ gsettings reset org.gnome.shell.keybindings switch-to-application-9
 ##################### WORKING ########################
 # oumba kub
 # https://github.com/basecamp/omakub/blob/master/install/desktop/set-gnome-hotkeys.sh
+
+# close app
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']"
+
+# Super + Right Mouse Click for resizing windows
+gsettings set org.gnome.desktop.wm.preferences resize-with-right-button "true"
 
 # Full-screen with title/navigation bar
 gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super>f']"
 
-# Use 6 fixed workspaces instead of dynamic mode
+# Use 9 fixed workspaces instead of dynamic mode
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 9
 
 # Use alt for pinned apps
 # gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Alt>1']"
-
 gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Alt><Shift>1']"
 gsettings set org.gnome.shell.keybindings switch-to-application-2 "['<Alt><Shift>2']"
 gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Alt><Shift>3']"
