@@ -1,8 +1,19 @@
 #!/usr/bin/env bash
 
+# TODO add open suse installer
+# sudo zypper in nim Mesa libmfx-gen libXext-devel-32bit libXrandr-devel
+
 # Function to install dependencies and build for Arch-based distros
 install_arch() {
     sudo pacman -S --noconfirm --needed nim mesa libfx11 libxext lib32-libxext libxrandr 
+    mkdir -p ~/.zoom
+    cd ~/.zoom
+    git clone https://github.com/tsoding/boomer.git ~/.zoom
+    nimble build -d:developer
+}
+
+install_opensuse() {
+    sudo zypper in nim Mesa libmfx-gen libXext-devel-32bit libXrandr-devel
     mkdir -p ~/.zoom
     cd ~/.zoom
     git clone https://github.com/tsoding/boomer.git ~/.zoom
@@ -33,6 +44,8 @@ EOF
 # Check the package manager and call the appropriate function
 if command -v pacman > /dev/null; then
     install_arch
+elif command -v zypper > /dev/null; then
+    install_opensuse
 elif command -v apt > /dev/null; then
     install_debian
 else
