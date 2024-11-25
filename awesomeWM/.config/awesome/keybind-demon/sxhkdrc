@@ -1,0 +1,10 @@
+super + shift + w
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+
+
+super + shift + s
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-
+
+super + w
+	brightnessctl set 5%+ 
+super + s
+	brightnessctl set 5%-
