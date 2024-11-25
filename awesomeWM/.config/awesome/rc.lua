@@ -112,7 +112,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 -- mytextclock = wibox.widget.textclock()
 local my_textclock = wibox.widget {
-    format = '  %I:%M %p',  -- 12-hour format with AM/PM
+    format = '  %I:%M %p  ',  -- 12-hour format with AM/PM
     widget = wibox.widget.textclock
 }
 
@@ -205,6 +205,31 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
+    local sep = wibox.widget {
+    text = " | ",  -- This is the separator text (you can change it to a symbol or leave it empty)
+    widget = wibox.widget.textbox
+}
+
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+-- Create the memory widget using awful.widget.watch
+local memory_widget = awful.widget.watch(
+    'bash -c "free -h | awk \'/^Mem/ {print $3}\'"', 5,
+    function(widget, stdout)
+        widget:set_text("     " .. stdout)
+    end
+)
+
+-- Create a date widget
+local date_widget = wibox.widget {
+    format = "  %d/%m/%Y  ",  -- Set the format to "DD/MM/YYYY"
+    refresh = 60,         -- Refresh every 60 seconds
+    widget = wibox.widget.textclock
+}
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -218,9 +243,21 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
---            mykeyboardlayout,
+	    --q mykeyboardlayout,
+	    net_speed_widget(),
+	    sep,
+	    cpu_widget(),
+  	    sep,
+	    date_widget,
+	    sep,
 	    my_textclock,
+	    sep,
+	    memory_widget,
+	    sep,
+	    battery_widget(),
             wibox.widget.systray(),
+            volume_widget(),
+	    logout_menu_widget(),
         },
     }
 end)
