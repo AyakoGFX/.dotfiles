@@ -27,6 +27,9 @@ if awesome.startup_errors then
                      text = awesome.startup_errors })
 end
 
+beautiful.useless_gap = 10
+beautiful.gap_single_client = true
+
 -- Handle runtime errors after startup
 do
     local in_error = false
@@ -495,7 +498,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -509,7 +512,7 @@ awful.rules.rules = {
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
-    -- if not awesome.startup then awful.client.setslave(c) end
+     if not awesome.startup then awful.client.setslave(c) end
 
     if awesome.startup
       and not c.size_hints.user_position
