@@ -55,6 +55,7 @@ alias untar 'tar -zxvf '
 alias upd /usr/bin/garuda-update
 alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
+alias net-virt 'sudo virsh net-start default'
 
 # Get fastest mirrors
 alias mirror 'sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
@@ -175,30 +176,6 @@ export PATH="$HOME/.local/bin:$PATH"
 #   for other means of cd, such as z.
 # * Update syntax to work with new versions of fish.
 # * Handle virtualenvs that are not located in the root of a git directory.
-
-function __auto_source_venv --on-variable PWD --description "Activate/Deactivate virtualenv on directory change"
-    status --is-command-substitution; and return
-
-    # Check if we are inside a git directory
-    if git rev-parse --show-toplevel &>/dev/null
-        set gitdir (realpath (git rev-parse --show-toplevel))
-        set cwd (pwd -P)
-        # While we are still inside the git directory, find the closest
-        # virtualenv starting from the current directory.
-        while string match "$gitdir*" "$cwd" &>/dev/null
-            if test -e "$cwd/.venv/bin/activate.fish"
-                source "$cwd/.venv/bin/activate.fish" &>/dev/null
-                return
-            else
-                set cwd (path dirname "$cwd")
-            end
-        end
-    end
-    # If virtualenv activated but we are not in a git directory, deactivate.
-    if test -n "$VIRTUAL_ENV"
-        deactivate
-    end
-end
 
 function shortcut-help
     echo "
@@ -328,4 +305,4 @@ export MANPAGER="less -r --use-color -Dd+r -Du+b"
 # end
 
 # Generated for envman. Do not edit.
-test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
+#test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish

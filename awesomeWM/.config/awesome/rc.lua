@@ -67,16 +67,16 @@ awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.max,
     awful.layout.suit.floating,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+--    awful.layout.suit.tile.left,
+--    awful.layout.suit.tile.bottom,
+--    awful.layout.suit.tile.top,
+--    awful.layout.suit.fair,
+--    awful.layout.suit.fair.horizontal,
+--    awful.layout.suit.spiral,
+--    awful.layout.suit.spiral.dwindle,
+--    awful.layout.suit.max.fullscreen,
+--    awful.layout.suit.magnifier,
+--    awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -209,6 +209,11 @@ awful.screen.connect_for_each_screen(function(s)
     text = " | ",  -- This is the separator text (you can change it to a symbol or leave it empty)
     widget = wibox.widget.textbox
 }
+local nixos_icon_widget = wibox.widget {
+    widget = wibox.widget.textbox,
+    text = " ",  -- Display only the hourglass icon
+    font = "JetBrains Mono Nerd Font 14"
+}
 
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
@@ -223,6 +228,22 @@ local memory_widget = awful.widget.watch(
     end
 )
 
+local memory_widget = awful.widget.watch(
+    'bash -c "free -h | awk \'/^Mem/ {print $3}\'"', 5,
+    function(widget, stdout)
+        widget:set_text("     " .. stdout)
+    end
+)
+
+-- Uptime widget
+local uptime_widget = awful.widget.watch(
+    'bash -c "uptime | sed \'s/.*up \\([^,]*\\), .*/\\1/\'"', 60,
+    function(widget, stdout)
+        widget:set_text("up:" .. stdout)
+    end
+)
+
+
 -- Create a date widget
 local date_widget = wibox.widget {
     format = "  %d/%m/%Y  ",  -- Set the format to "DD/MM/YYYY"
@@ -234,6 +255,7 @@ local date_widget = wibox.widget {
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
+	    nixos_icon_widget,
             layout = wibox.layout.fixed.horizontal,
          --   mylauncher,
             s.mytaglist,
@@ -245,6 +267,8 @@ local date_widget = wibox.widget {
             layout = wibox.layout.fixed.horizontal,
 	    --q mykeyboardlayout,
 	    net_speed_widget(),
+	    sep,
+	    uptime_widget,
 	    sep,
 	    cpu_widget(),
   	    sep,
@@ -342,7 +366,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey, "Control" }, "n",
+    awful.key({ modkey, "Shift" }, "n",
               function ()
                   local c = awful.client.restore()
                   -- Focus restored client
@@ -393,7 +417,11 @@ clientkeys = gears.table.join(
               {description = "move to screen", group = "client"}),
 
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"}),
+       {description = "toggle keep on top", group = "client"}),
+
+    awful.key({ modkey, "Shift"  }, "0",      function (c) c.sticky = not c.sticky            end,
+       {description = "toggle sticky", group = "client"}),
+
 
     awful.key({ modkey,           }, "n",
         function (c)

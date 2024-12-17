@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export --path PATH:/home/ayako/\x2elocal/bin\x1e/home/ayako/\x2elocal/bin\x1e/home/ayako/\x2elocal/bin\x1e/home/ayako/\x2elocal/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/sbin\x1e/usr/bin\x1e/usr/X11R6/bin\x1e/home/ayako/\x2elocal/opt/go/bin
+SETUVAR --export --path PATH:/run/wrappers/bin\x1e/home/ayako/\x2elocal/share/flatpak/exports/bin\x1e/var/lib/flatpak/exports/bin\x1e/home/ayako/\x2enix\x2dprofile/bin\x1e/home/ayako/\x2elocal/state/nix/profile/bin\x1e/home/ayako/\x2elocal/state/nix/profile/bin\x1e/etc/profiles/per\x2duser/ayako/bin\x1e/nix/var/nix/profiles/default/bin\x1e/run/current\x2dsystem/sw/bin\x1e/home/ayako/\x2elocal/opt/go/bin
 SETUVAR __fish_initialized:3400
 SETUVAR __garuda_garuda_update_ignore:true
 SETUVAR fish_color_autosuggestion:brblack

@@ -1,0 +1,78 @@
+# Alacritty 16 Color Scheme Configuration
+
+[colors.primary]
+background = "#1e1e2e"   # Background color
+foreground = "#c0c0c0"   # Default foreground color (text)
+dim_foreground = "#808080"  # Dimmed text color (when inactive or unfocused)
+bright_foreground = "#ffffff"  # Bright foreground text color
+
+[colors.cursor]
+text = "#1e1e2e"    # Cursor text color
+cursor = "#ffffff"  # Cursor color when active
+
+[colors.vi_mode_cursor]
+text = "#1e1e2e"    # Text inside the cursor in vi mode
+cursor = "#0000ff"  # Cursor color in vi mode (blue)
+
+[colors.search.matches]
+foreground = "#1e1e2e"   # Foreground of matches in search
+background = "#ffff00"   # Background of matches in search
+
+[colors.search.focused_match]
+foreground = "#1e1e2e"   # Foreground of focused search match
+background = "#00ffff"   # Background of focused search match
+
+[colors.footer_bar]
+foreground = "#1e1e2e"   # Footer bar text color
+background = "#ffff00"   # Footer bar background color
+
+[colors.hints.start]
+foreground = "#1e1e2e"   # Start hint text color
+background = "#ffff00"   # Start hint background color
+
+[colors.hints.end]
+foreground = "#1e1e2e"   # End hint text color
+background = "#00ffff"   # End hint background color
+
+[colors.selection]
+text = "#1e1e2e"   # Text color when selected
+background = "#ffffff"  # Background color when text is selected
+
+[colors.normal]
+black = "#000000"  # Regular black color
+red = "#800000"    # Regular red color
+green = "#008000"  # Regular green color
+yellow = "#808000" # Regular yellow color
+blue = "#000080"   # Regular blue color
+magenta = "#800080" # Regular magenta color
+cyan = "#008080"   # Regular cyan color
+white = "#c0c0c0"  # Regular white color
+
+[colors.bright]
+black = "#808080"  # Bright black color (gray)
+red = "#ff0000"    # Bright red color
+green = "#00ff00"  # Bright green color
+yellow = "#ffff00" # Bright yellow color
+blue = "#0000ff"   # Bright blue color
+magenta = "#ff00ff" # Bright magenta color
+cyan = "#00ffff"   # Bright cyan color
+white = "#ffffff"  # Bright white color
+
+[colors.dim]
+black = "#000000"  # Dimmed black color
+red = "#800000"    # Dimmed red color
+green = "#008000"  # Dimmed green color
+yellow = "#808000" # Dimmed yellow color
+blue = "#000080"   # Dimmed blue color
+magenta = "#800080" # Dimmed magenta color
+cyan = "#008080"   # Dimmed cyan color
+white = "#c0c0c0"  # Dimmed white color
+
+[[colors.indexed_colors]]
+index = 16
+color = "#fab387"   # Custom color 16
+
+[[colors.indexed_colors]]
+index = 17
+color = "#f5e0dc"   # Custom color 17
+
