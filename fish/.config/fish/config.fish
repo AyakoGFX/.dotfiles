@@ -82,7 +82,6 @@ alias :q='exit'
 alias cr='cargo run'
 alias cb='cargo build'
 alias cn='cargo new'
-alias hx='helix'
 alias tmux='tmux -u'
 alias tr='tmux -u a'
 alias ta='tmux -u attach -t'
@@ -128,6 +127,9 @@ alias rebootforce='sudo shutdown -r -n now'
 alias deb-update='sudo nala update && sudo nala upgrade'
 # Search command line history
 alias h="history | grep "
+
+#Nixos
+alias nix-shell="nix-shell --run fish"
 
 # Search running processes
 alias pp="ps aux | grep "
