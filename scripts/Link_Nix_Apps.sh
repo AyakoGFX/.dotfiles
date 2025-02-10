@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define directories
 NIX_APPS_DIR="$HOME/.nix-profile/share/applications"

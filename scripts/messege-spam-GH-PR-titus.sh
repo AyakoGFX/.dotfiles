@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Ensure GitHub CLI is installed and authenticated
 if ! command -v gh &> /dev/null; then

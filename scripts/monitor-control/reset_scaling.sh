@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 source ./utility_functions.sh
 
 # Function to reset scaling back to 1 (native resolution) for all monitors

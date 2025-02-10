@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Function to install libinput based on the available package manager
 install_libinput() {

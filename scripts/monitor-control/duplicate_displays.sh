@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 source ./utility_functions.sh
 
 # Function to duplicate displays

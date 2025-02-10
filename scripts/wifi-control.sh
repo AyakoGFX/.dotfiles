@@ -1,5 +1,5 @@
 @@ -0,0 +1,168 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Function to display colored text
 colored_echo() {

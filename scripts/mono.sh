@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
  # if [ "* index: 0" == "$(pacmd list-sinks | grep "*" | sed 's/^ *//')" ];
  #    then pacmd set-default-sink 1 && notify-send "Mono";
@@ -12,7 +12,7 @@
  # done;
 
  # pipwire
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the current default sink
 CURRENT_SINK=$(pactl info | grep "Default Sink:" | awk '{print $3}')

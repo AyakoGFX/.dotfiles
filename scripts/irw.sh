@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Prompt the user to input the Instagram reel URL
 read -p "Enter the Instagram reel URL: " REEL_URL

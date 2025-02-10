@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script optimizes Pacman (Arch Linux package manager) configuration:
 # 1. Updates mirror list for faster downloads using reflector

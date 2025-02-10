@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
  # Check if Nix package manager is already installed
 if command -v nix-env &> /dev/null; then

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check if simple-mtpfs is installed, if not, install it
 if ! command -v simple-mtpfs &> /dev/null

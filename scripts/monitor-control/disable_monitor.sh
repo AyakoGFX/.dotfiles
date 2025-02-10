@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 source ./utility_functions.sh
 
 RESET='\033[0m'

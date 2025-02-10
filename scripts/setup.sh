@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 # testing
@@ -51,7 +51,7 @@ else
 fi
 
 
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Prompt user to choose a terminal emulator
 echo "Which terminal emulator do you want to install?"

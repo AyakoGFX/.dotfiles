@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Update package list and install dependencies
 echo "Installing dependencies..."
