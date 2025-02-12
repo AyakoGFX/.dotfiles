@@ -8,3 +8,6 @@ super + w
 	brightnessctl set 5%+ 
 super + s
 	brightnessctl set 5%-
+
+super + e
+      	boomer

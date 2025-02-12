@@ -17,6 +17,7 @@ run emacs --daemon &
 run nm-applet &
 run copyq &
 run slstatus &
+run flameshot &
 
 # Set keyboard repeat rate
 run xset r rate 250 60 &
