@@ -18,12 +18,19 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- scratchpad
+local scratch = require("scratch")
+screen_width = awful.screen.focused().geometry.width
+screen_height = awful.screen.focused().geometry.height
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
+
+
                      text = awesome.startup_errors })
 end
 
@@ -176,7 +183,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "  1  ", "  2  ", "  3  ", "  4  ", "  5  ", "  6  ", "  7  ", "  8  ", "  9  " }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -203,7 +210,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 25 })
 
     local sep = wibox.widget {
     text = " | ",  -- This is the separator text (you can change it to a symbol or leave it empty)
@@ -296,6 +303,8 @@ root.buttons(gears.table.join(
 -- }}}
 
 -- {{{ Key bindings
+
+
 globalkeys = gears.table.join(
 --   awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
 --      {description="show help", group="awesome"}),
@@ -305,6 +314,10 @@ globalkeys = gears.table.join(
       {description = "view next", group = "tag"}),
    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
       {description = "go back", group = "tag"}),
+
+awful.key({ modkey }, "y", function ()
+    scratch.toggle(terminal .. " --class scratch,scratch", { instance = "scratch" })
+end),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -570,6 +583,27 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
+    {
+       rule_any = {
+	  instance = { "scratch" },
+	  class = { "scratch" },  -- Alacritty sets both instance & class with --class
+       },
+       properties = {
+	  skip_taskbar = true,   -- Hide from taskbar for proper scratchpad behavior
+	  floating = true,
+	  ontop = false,
+	  minimized = false,     -- Ensure it's visible when toggled
+	  sticky = false,
+	  width = screen_width * 0.7,
+	  height = screen_height * 0.75
+       },
+       callback = function (c)
+	  awful.placement.centered(c, { honor_padding = true, honor_workarea = true })
+	  gears.timer.delayed_call(function()
+                c.urgent = false
+	  end)
+       end
+    },
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
