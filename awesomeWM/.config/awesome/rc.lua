@@ -551,7 +551,7 @@ awful.rules.rules = {
     { rule_any = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
+          -- "copyq",  -- Includes session name in class.
           "pinentry",
         },
         class = {
