@@ -254,7 +254,7 @@ local memory_widget = awful.widget.watch(
 
 
 local date_month_widget = awful.widget.watch(
-    'bash -c "date | awk \'{print $1, $2}\'"', 21600,
+    'bash -c "date | awk \'{print $1, $2}\'"', 60,
     function(widget, stdout)
         widget:set_text("" .. stdout:gsub("\n", ""))
     end
