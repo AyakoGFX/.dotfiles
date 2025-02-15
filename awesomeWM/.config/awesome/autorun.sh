@@ -12,7 +12,7 @@ function run {
 
 run sxhkd &
 run nitrogen --restore &
-run picom &
+run picom --backend glx &
 run emacs --daemon &
 run nm-applet &
 run copyq &
