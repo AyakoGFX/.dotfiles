@@ -59,8 +59,13 @@ beautiful.init("~/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nano"
+browser = "firefox"
+-- editor = os.getenv("EDITOR") or "emacs -nw"
+editor = "emacsclient -c -a 'emacs'"
 editor_cmd = terminal .. " -e " .. editor
+
+
+
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -100,10 +105,22 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end },
 }
 
+myemacsmenu = {
+   { "Open", "emacs" },
+   { "Client", "emacsclient -c -a 'emacs'" },
+   { "Start Server", "nohup emacs --daemon &" },
+   { "Stop Server", "nohup emacsclient -e '(kill-emacs)' &" }
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+			     { "Emacs", myemacsmenu },
+			     { "Browser", browser },
+			     { "open terminal", terminal }
+			     
+}
+		       })
+
+
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -235,6 +252,15 @@ local memory_widget = awful.widget.watch(
     end
 )
 
+
+local date_month_widget = awful.widget.watch(
+    'bash -c "date | awk \'{print $1, $2}\'"', 21600,
+    function(widget, stdout)
+        widget:set_text("" .. stdout:gsub("\n", ""))
+    end
+)
+
+
 local memory_widget = awful.widget.watch(
     'bash -c "free -h | awk \'/^Mem/ {print $3}\'"', 5,
     function(widget, stdout)
@@ -280,6 +306,8 @@ local date_widget = wibox.widget {
 	    cpu_widget(),
   	    sep,
 	    date_widget,
+	    sep,
+	    date_month_widget,
 	    sep,
 	    my_textclock,
 	    sep,
