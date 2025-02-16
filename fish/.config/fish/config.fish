@@ -23,7 +23,7 @@ function fish_prompt
     echo -n "\$ " # Correctly escape the dollar sign
 end
 
-
+alias remembered 'cat ~/.remembered'
 # Replace ls with eza
 alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
 alias la 'eza -a --color=always --group-directories-first --icons' # all files and dirs
