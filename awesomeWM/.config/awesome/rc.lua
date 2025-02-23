@@ -235,7 +235,7 @@ awful.screen.connect_for_each_screen(function(s)
 }
 local nixos_icon_widget = wibox.widget {
     widget = wibox.widget.textbox,
-    text = " ",  -- Display only the hourglass icon
+    text = " ",  -- Display only the hourglass icon  
     font = "JetBrains Mono Nerd Font 14"
 }
 
