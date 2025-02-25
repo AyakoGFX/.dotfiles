@@ -236,6 +236,15 @@ local nixos_icon_widget = wibox.widget {
     font = "JetBrains Mono Nerd Font 14"
 }
 
+local icon_widget = wibox.widget {
+   widget = wibox.widget.imagebox,
+   image = os.getenv("HOME") .. "/.config/awesome/white.png", -- Full path
+    resize = true,  -- Enable resizing if needed
+    forced_width = 22,  -- Set width
+    forced_height = 22  -- Set height
+}
+
+
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
@@ -285,7 +294,8 @@ local date_widget = wibox.widget {
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
-	    nixos_icon_widget,
+	   -- nixos_icon_widget,
+	   icon_widget,
             layout = wibox.layout.fixed.horizontal,
          --   mylauncher,
             s.mytaglist,
