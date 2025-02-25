@@ -11,6 +11,7 @@ function run {
 /nix/store/$(ls -la /nix/store | grep 'polkit-gnome' | grep -v 'fish-completions' | grep '4096' | awk '{print $9}' | sed -n '$p')/libexec/polkit-gnome-authentication-agent-1 &
 
 run sxhkd &
+run libinput-gestures &
 run nitrogen --restore &
 run picom --backend glx &
 run emacs --daemon &
