@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+CONFIG_FILE="$HOME/.config/alacritty/alacritty.toml"
+CURRENT_OPACITY=$(grep 'opacity' "$CONFIG_FILE" | awk -F'= ' '{print $2}')
+
+# Compare opacity values without using bc
+if [[ "$CURRENT_OPACITY" == "1.0" ]]; then
+    sed -i 's/opacity = 1.0/opacity = 0.9/' "$CONFIG_FILE"
+else
+    sed -i 's/opacity = 0.9/opacity = 1.0/' "$CONFIG_FILE"
+fi
