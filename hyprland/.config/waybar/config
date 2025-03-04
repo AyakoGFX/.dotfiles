@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator",  "clock", "custom/separator", "tray"],
+    "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator",  "clock", "custom/separator", "tray", "custom/wlogout"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -79,9 +79,12 @@
         },
         "on-click": "pavucontrol"
     },
+    "custom/wlogout": {
+	"format": " ",
+	"on-click": "wlogout"
+    },
     "custom/separator": {
 	"format": " | ",
 	"tooltip": false
     },
-
 }
