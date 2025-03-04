@@ -40,7 +40,7 @@ window#waybar {
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
-    padding: 0 6px;
+    padding: 0 3px;
     margin: 0 2px;
 }
 

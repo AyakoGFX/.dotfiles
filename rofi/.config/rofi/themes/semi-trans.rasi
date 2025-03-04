@@ -1,0 +1,94 @@
+/**
+ * Nordic rofi theme (Modified)
+ * Fixed for correct parsing
+ */
+
+* {
+    foreground: #81a1c1; /* nord9 */
+    background-color: transparent;
+    highlight: underline bold #eceff4;
+}
+
+window {
+    location: center;
+    anchor: center;
+    transparency: "real";
+    padding: 10px;
+    border: 0px;
+    border-radius: 6px;
+    background-color: rgba(46, 52, 64, 0.8); /* Semi-transparent */
+    spacing: 0;
+    children: [ mainbox ];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    color: #2e3440; /* nord0 */
+    padding: 5px;
+    border: 0px 2px 2px 2px;
+    border-color: #81a1c1; /* nord9 */
+    background-color: #8fbcbb; /* nord7 */
+}
+
+inputbar {
+    color: #eceff4; /* nord6 */
+    padding: 11px;
+    background-color: rgba(59, 66, 82, 0.85); /* Semi-transparent */
+    border: 1px solid #5e81ac; /* nord10 */
+    border-radius: 6px 6px 0px 0px;
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color: inherit;
+}
+
+prompt {
+    margin: 0px 1em 0em 0em;
+}
+
+listview {
+    padding: 8px;
+    border-radius: 0px 0px 6px 6px;
+    border: 1px solid #5e81ac; /* nord10 */
+    background-color: rgba(46, 52, 64, 0.9); /* Semi-transparent */
+    dynamic: false;
+}
+
+element {
+    padding: 3px;
+    vertical-align: 0.5;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #81a1c1; /* nord9 */
+    text-color: rgb(216, 222, 233);
+}
+
+element selected.normal {
+    background-color: #c9545d; /* Custom selection color */
+    text-color: #2e3440; /* Dark text for contrast */
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+button {
+    padding: 6px;
+    color: #81a1c1; /* nord9 */
+    horizontal-align: 0.5;
+    border: 2px 0px 2px 2px;
+    border-radius: 4px 0px 0px 4px;
+    border-color: #81a1c1; /* nord9 */
+}
+
+button selected normal {
+    border: 2px 0px 2px 2px;
+    border-color: #81a1c1; /* nord9 */
+}
