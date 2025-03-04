@@ -4,9 +4,9 @@
     "height": 24, // Waybar height
     // "width": 1366, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap" ,"tray"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery",  "clock"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -28,12 +28,16 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 21,
         "spacing": 10
     },
+
     "clock": {
-        "format-alt": "{:%Y-%m-%d}"
+    	"format": "{:%I:%M %p}",
+	"format-alt": "{:%d-%m-%Y}",
+	"tooltip": false
     },
+
     "cpu": {
         "format": "{usage}% "
     },
@@ -73,5 +77,10 @@
             "default": ["", ""]
         },
         "on-click": "pavucontrol"
-    }
+    },
+    "custom/separator": {
+	"format": "|",
+	"tooltip": false
+    },
+
 }
