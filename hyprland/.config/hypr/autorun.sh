@@ -10,4 +10,5 @@ run emacs --daemon &
 run nm-applet &
 run waybar &
 run copyq &
+run flameshot &
 run systemctl --user start hyprpolkitagent

@@ -4,9 +4,9 @@
     "height": 24, // Waybar height
     // "width": 1366, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-left": ["custom/wlogout",  "hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator",  "clock", "custom/separator", "tray", "custom/wlogout"],
+    "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator",  "clock", "custom/separator", "tray" ],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -39,7 +39,8 @@
     },
 
     "cpu": {
-        "format": " {usage}%  "
+        "format": " {usage}%  ",
+	"on-click": "alacritty -e btop"
     },
     "memory": {
         "format": "{}% "
@@ -80,7 +81,7 @@
         "on-click": "pavucontrol"
     },
     "custom/wlogout": {
-	"format": " ",
+	"format": "  ", //  󰍃
 	"on-click": "wlogout"
     },
     "custom/separator": {

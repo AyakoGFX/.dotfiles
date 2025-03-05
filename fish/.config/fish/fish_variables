@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export --path PATH:/home/ayako/\x2econfig/alacritty\x1e/home/ayako/\x2elocal/bin\x1e/home/ayako/\x2elocal/bin\x1e/run/wrappers/bin\x1e/home/ayako/\x2elocal/share/flatpak/exports/bin\x1e/var/lib/flatpak/exports/bin\x1e/home/ayako/\x2enix\x2dprofile/bin\x1e/home/ayako/\x2elocal/state/nix/profile/bin\x1e/home/ayako/\x2elocal/state/nix/profile/bin\x1e/etc/profiles/per\x2duser/ayako/bin\x1e/nix/var/nix/profiles/default/bin\x1e/run/current\x2dsystem/sw/bin\x1e/nix/store/qlzvmgr8w9prdlyys7irqf86p7bndf5b\x2dbinutils\x2dwrapper\x2d2\x2e43\x2e1/bin\x1e/nix/store/bzq0cxg50a5jgmiqkkpi5s7shnxd6xb5\x2dpciutils\x2d3\x2e13\x2e0/bin\x1e/nix/store/b7ixmgw7i326h9w6qmvbmayglj8jakdx\x2dpkgconf\x2dwrapper\x2d2\x2e3\x2e0/bin\x1e/home/ayako/\x2elocal/opt/go/bin
+SETUVAR --export --path PATH:/home/ayako/\x2econfig/alacritty\x1e/home/ayako/\x2elocal/bin\x1e/home/ayako/\x2elocal/bin\x1e/run/wrappers/bin\x1e/home/ayako/\x2elocal/share/flatpak/exports/bin\x1e/var/lib/flatpak/exports/bin\x1e/home/ayako/\x2enix\x2dprofile/bin\x1e/home/ayako/\x2elocal/state/nix/profile/bin\x1e/home/ayako/\x2elocal/state/nix/profile/bin\x1e/etc/profiles/per\x2duser/ayako/bin\x1e/nix/var/nix/profiles/default/bin\x1e/run/current\x2dsystem/sw/bin\x1e/home/ayako/\x2elocal/opt/go/bin
 SETUVAR __fish_initialized:3400
 SETUVAR __garuda_garuda_update_ignore:true
 SETUVAR fish_color_autosuggestion:brblack

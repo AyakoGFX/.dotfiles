@@ -87,6 +87,11 @@ window#waybar {
     background: #f53c3c;
 }
 
+#custom-wlogout {
+    font-size: 20px; /* Adjust size as needed */
+}
+
+
 #pulseaudio {
 }
 
