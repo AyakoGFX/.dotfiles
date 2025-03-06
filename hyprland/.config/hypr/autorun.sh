@@ -9,6 +9,7 @@ function run {
 run emacs --daemon &
 run nm-applet &
 run waybar &
+run waypaper --restore &
 run copyq &
-run flameshot &
-run systemctl --user start hyprpolkitagent
+flameshot &
+systemctl --user start hyprpolkitagent
