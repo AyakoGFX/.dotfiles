@@ -1,91 +1,102 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar at the bottom of your screen
-    "height": 24, // Waybar height
-    // "width": 1366, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["custom/wlogout",  "hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator",  "clock", "custom/separator", "tray" ],
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "format": "{name}", // Change format to show names only
-        "format-icons": {}, // Remove icons by providing an empty object
-        "names": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9"
-        }
-    },
-    "hyprland/submap": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "tray": {
-        "icon-size": 21,
-        "spacing": 10
-    },
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar at the bottom of your screen
+  "height": 24, // Waybar height
+  // "width": 1366, // Waybar width
+  // Choose the order of the modules
+  "modules-left": ["custom/wlogout",  "hyprland/workspaces", "hyprland/submap"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray" ],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{name}", // Change format to show names only
+    "format-icons": {}, // Remove icons by providing an empty object
+    "names": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9"
+    }
+  },
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
 
-    "clock": {
-    	"format": "{:%I:%M %p}",
-	"format-alt": "{:%d-%m-%Y}",
-	"tooltip": false
-    },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%d-%m-%Y}",
+    "tooltip": false
+  },
 
-    "cpu": {
-        "format": " {usage}%  ",
-	"on-click": "alacritty -e btop"
+  "cpu": {
+    "format": " {usage}%  ",
+    "on-click": "alacritty -e btop"
+  },
+  "memory": {
+    "format": "{}% "
+  },
+  "battery": {
+    "bat": "BAT1",
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
     },
-    "memory": {
-        "format": "{}% "
+    "format": " {capacity}% {icon} ",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    // "interface": "wlp2s0", // (Optional) To force the use of this interface
+    "format-wifi": "{essid} ({signalStrength}%)   ",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+    "format-disconnected": "Disconnected ⚠ ",
+    "on-click": "alacritty -e nmtui"
+  },
+  "pulseaudio": {
+    //"scroll-step": 1,
+    "format": "{volume}% {icon} ",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
     },
-    "battery": {
-        "bat": "BAT1",
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": " {capacity}% {icon} ",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%)   ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
-        "format-disconnected": "Disconnected ⚠ ",
-	"on-click": "alacritty -e nmtui"
-    },
-    "pulseaudio": {
-        //"scroll-step": 1,
-        "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
-        "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "custom/wlogout": {
-	"format": "  ", //  󰍃
-	"on-click": "wlogout"
-    },
-    "custom/separator": {
-	"format": " | ",
-	"tooltip": false
-    },
+    "on-click": "pavucontrol"
+  },
+  "custom/wlogout": {
+    "format": "  ", //  󰍃
+    "on-click": "wlogout"
+  },
+  "custom/separator": {
+    "format": " | ",
+    "tooltip": false
+  },
+//  "custom/uptime": {
+//    "exec": "bash -c \"uptime | sed 's/.*up \\([^,]*\\), .*/\\1/'\"",
+//    "interval": 60,
+//    "tooltip": false
+//  },
+"custom/uptime": {
+    "exec": "bash -c \"uptime | sed -E 's/.*up *([^,]*),.*/up:\\1/'\"",
+    "interval": 60,
+    "tooltip": false
+},
+
 }
