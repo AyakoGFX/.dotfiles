@@ -40,7 +40,6 @@ window#waybar {
 }
 
 #battery icon {
-    color: @color1;
 }
 
 #battery.charging {
@@ -53,7 +52,7 @@ window#waybar {
 }
 
 #battery.warning:not(.charging) {
-    color: white;
+    color: @color2;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -71,7 +70,7 @@ window#waybar {
 }
 
 #network.disconnected {
-    background: @background;
+    background: @color2;
 }
 
 #custom-wlogout {
