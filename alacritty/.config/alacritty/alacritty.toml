@@ -24,9 +24,9 @@ key = "Back"
 mods = "Control"
 chars = "\u0017"
 
-#[general]
-#live_config_reload = true
-#import = [
-  #"~/.config/alacritty/catppuccin-mocha.toml"
-#]
+[general]
+live_config_reload = true
+import = [
+  "~/.cache/wal/colors-alacritty.toml"
+]
 

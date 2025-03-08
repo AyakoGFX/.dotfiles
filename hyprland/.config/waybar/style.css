@@ -1,3 +1,5 @@
+@import "/home/ayako/.cache/wal/colors-waybar.css";
+
 * {
     border: none;
     border-radius: 0;
@@ -7,9 +9,7 @@
 }
 
 window#waybar {
-    /* background: transparent; */
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
+    background: @background;
 }
 
 #window {
@@ -17,27 +17,14 @@ window#waybar {
     font-family: "Ubuntu";
 }
 
-/*
-#workspaces {
-    padding: 0 5px;
-}
-*/
-
-#workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: white;
-    border-top: 2px solid transparent;
-}
-
 #workspaces button.active {
-    color: #c9545d;
-    border-top: 2px solid #c9545d;
+    background-color: @color1;
+    color: @background;
 }
 
 #mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+    background: @background;
+    border-bottom: 3px solid;
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
@@ -53,7 +40,7 @@ window#waybar {
 }
 
 #battery icon {
-    color: red;
+    color: @color1;
 }
 
 #battery.charging {
@@ -61,8 +48,7 @@ window#waybar {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: black;
+        background-color:@background;
     }
 }
 
@@ -85,7 +71,7 @@ window#waybar {
 }
 
 #network.disconnected {
-    background: #c9545d;
+    background: @background;
 }
 
 #custom-wlogout {
