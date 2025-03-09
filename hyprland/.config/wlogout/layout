@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "loginctl lock-session",
+    "action" : "bash -c '/home/ayako/.config/hypr/sh/hyprlock-launch.sh'",
     "text" : "Lock",
     "keybind" : "l"
 }

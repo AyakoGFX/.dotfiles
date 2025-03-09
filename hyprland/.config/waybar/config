@@ -81,7 +81,7 @@
     "on-click": "pavucontrol"
   },
   "custom/wlogout": {
-    "format": "  ", //  󰍃
+    "format": " ⏻ ", //  󰍃 ⏻
     "on-click": "wlogout"
   },
   "custom/separator": {
