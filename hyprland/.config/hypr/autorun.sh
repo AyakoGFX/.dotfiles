@@ -12,4 +12,5 @@ run waybar &
 run waypaper --restore &
 run copyq &
 flameshot &
+run hypridle &
 systemctl --user start hyprpolkitagent
