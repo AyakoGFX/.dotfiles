@@ -4,8 +4,8 @@
   "height": 24, // Waybar height
   // "width": 1366, // Waybar width
   // Choose the order of the modules
-  "modules-left": [ "hyprland/workspaces", "hyprland/submap"],// "wlr/taskbar"
-  "modules-center": ["hyprland/window"],
+  "modules-left": [ "hyprland/workspaces", "hyprland/submap", "wlr/taskbar"],
+  "modules-center": [], //"hyprland/window"
   "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray", "custom/wlogout"],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -65,7 +65,7 @@
     "on-click": "alacritty -e nmtui"
   },
   "pulseaudio": {
-    "scroll-step": 5,
+    //"scroll-step": 1,
     "format": "{volume}% {icon} ",
     "format-bluetooth": "{volume}% {icon}",
     "format-muted": "",
@@ -86,7 +86,7 @@
   },
   "wlr/taskbar": {
     "format": "{icon} {title:.17}",
-    "icon-size": 18,
+    "icon-size": 26,
     "spacing": 1,
     "on-click-middle": "close",
     "tooltip-format": "{title}",
@@ -97,9 +97,10 @@
     "format": " | ",
     "tooltip": false
   },
-  "custom/uptime": {
+"custom/uptime": {
     "exec": "bash -c \"uptime | sed -E 's/.*up *([^,]*),.*/up:\\1/'\"",
     "interval": 60,
     "tooltip": false
-  }
+},
+
 }

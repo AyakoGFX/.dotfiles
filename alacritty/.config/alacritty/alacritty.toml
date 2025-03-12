@@ -13,7 +13,7 @@ style = "Regular"
 [window]
 decorations = "buttonless"
 dynamic_padding = false
-opacity = 0.3
+opacity = 1.0
 
 # ctrl + backspace to del word
 [[keyboard.bindings]]
