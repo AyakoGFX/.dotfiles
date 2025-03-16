@@ -42,7 +42,7 @@ window#waybar {
 }
 
 #taskbar button {
-    /* min-width: 130px; */
+    min-width: 130px;
     border-bottom: 3px solid rgba(255, 255, 255, 0.3);
     margin-left: 2px;
     margin-right: 2px;

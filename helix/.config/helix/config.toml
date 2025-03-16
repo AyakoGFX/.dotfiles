@@ -1,7 +1,7 @@
 # theme = "base16_transparent"
 # theme = "base16_transparent"
 # theme = "dark_plus"
-theme = "catppuccin_mocha"
+theme = "gruvbox"
 
 
 [editor]
@@ -37,6 +37,9 @@ mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
+# [language-server.harper-ls]
+# command = "harper-ls"
+# args = ["--stdio"]
 
 # my name is "kishore"
 # Key bindings for normal mode to trigger the custom command

@@ -7,7 +7,7 @@
   "height": 24, // Waybar height
   // "width": 1366, // Waybar width
   // Choose the order of the modules
-  "modules-left": [ "hyprland/workspaces", "hyprland/submap", "wlr/taskbar"],// "wlr/taskbar"
+  "modules-left": [ "hyprland/workspaces", "hyprland/submap"],// "wlr/taskbar"
   "modules-center": ["hyprland/window"],
   "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray", "custom/wlogout"],
   "hyprland/workspaces": {
@@ -52,7 +52,7 @@
   "battery": {
     "bat": "BAT1",
     "states": {
-      "good": 95,
+      // "good": 95,
       "warning": 30,
       "critical": 15
     },
@@ -62,14 +62,11 @@
     "format-icons": ["", "", "", "", ""]
   },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%)  ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "on-click-right": "alacritty -e nmtui"
+    // "interface": "wlp2s0", // (Optional) To force the use of this interface
+    "format-wifi": "{essid} ({signalStrength}%)   ",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+    "format-disconnected": "Disconnected ⚠ ",
+    "on-click": "alacritty -e nmtui"
   },
   "pulseaudio": {
     "scroll-step": 5,
@@ -92,22 +89,13 @@
     "on-click": "wlogout"
   },
   "wlr/taskbar": {
-    "format": "{icon}",
+    "format": "{icon} {title:.17}",
     "icon-size": 18,
-    "tooltip-format": "{title}",
-    "on-click": "activate",
+    "spacing": 1,
     "on-click-middle": "close",
-    "ignore-list": [
-      "Alacritty",
-      "emacs"
-    ],
-    "app_ids-mapping": {
-      "firefoxdeveloperedition": "firefox-developer-edition"
-    },
-    "rewrite": {
-      "Firefox Web Browser": "Firefox",
-      "Foot Server": "Terminal"
-    }
+    "tooltip-format": "{title}",
+    "ignore-list": [],
+    "on-click": "activate"
   },
   "custom/separator": {
     "format": " | ",
