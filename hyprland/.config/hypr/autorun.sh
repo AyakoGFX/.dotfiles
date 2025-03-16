@@ -6,11 +6,11 @@ function run {
     fi
 }
 
-run emacs --daemon &
+waybar &
+waypaper --restore &
 run nm-applet &
-run waybar &
-run waypaper --restore &
 run copyq &
+emacs --daemon &
 flameshot &
-run hypridle &
+hypridle &
 systemctl --user start hyprpolkitagent

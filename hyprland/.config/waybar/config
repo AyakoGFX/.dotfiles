@@ -2,6 +2,8 @@
   "layer": "top", // Waybar at top layer
   "margin-top": 6,
   "margin-bottom": 3,
+  "margin-left": 10,
+  "margin-right": 10,
   // "spacing": 4, // Gaps between modules (4px)
   "position": "top", // Waybar at the bottom of your screen
   "height": 24, // Waybar height
