@@ -179,6 +179,20 @@ export PATH="$HOME/.local/bin:$PATH"
 # * Update syntax to work with new versions of fish.
 # * Handle virtualenvs that are not located in the root of a git directory.
 
+function mp3-duration
+    set sum 0
+    for file in *.mp3
+        set duration (ffprobe -i "$file" -show_entries format=duration -of csv=p=0 2>/dev/null)
+        set sum (math "$sum + $duration")
+    end
+    set h (math "floor($sum / 3600)")
+    set m (math "floor(($sum % 3600) / 60)")
+    set s (math "floor($sum % 60)")
+    echo "$h hours, $m minutes, $s seconds"
+end
+
+
+
 function shortcut-help
     echo "
 *Move cursor*
