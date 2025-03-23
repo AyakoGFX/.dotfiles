@@ -82,10 +82,7 @@ alias :q='exit'
 alias cr='cargo run'
 alias cb='cargo build'
 alias cn='cargo new'
-alias tmux='tmux -u'
-alias tr='tmux -u a'
-alias ta='tmux -u attach -t'
-alias tn='tmux new -su'
+
 alias p='sudo pacman '
 alias fix='setxkbmap -option caps:swapescape && xset r rate 250 60'
 alias remap='setxkbmap -option caps:swapescape'
@@ -95,6 +92,15 @@ alias en='emacsclient -c'
 alias e='emacsclient'
 alias lin='curl -fsSL https://christitus.com/linux | sh'
 alias lindev='curl -fsSL https://christitus.com/linux | sh'
+
+alias tmux='tmux -u'
+alias tr='tmux -u a'
+alias tk='tmux kill-server'
+alias ta='tmux -u attach -t'
+alias tn='tmux new -su'
+
+set PATH "$PATH":"$HOME/.local/scripts/"
+bind \cf tmux-sessionizer
 
 # Alias's to modified commands
 alias cp='cp -i'

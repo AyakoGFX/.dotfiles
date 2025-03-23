@@ -1,12 +1,12 @@
 # theme = "base16_transparent"
-# theme = "base16_transparent"
+theme = "base16_transparent"
 # theme = "dark_plus"
-theme = "gruvbox"
+# theme = "gruvbox"
 
 
 [editor]
 line-number = "relative"
-bufferline = "multiple"
+# bufferline = "multiple"
 cursorline = true
 auto-save = true
 
