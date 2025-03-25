@@ -1,12 +1,21 @@
+# my fav theme
 # theme = "base16_transparent"
-theme = "base16_transparent"
+# theme = "base16_default"
+# theme = "base16_terminal"
 # theme = "dark_plus"
 # theme = "gruvbox"
-
+# theme = "curzon"
+# theme = "dark_high_contrast"
+# theme = "emacs"
+theme = "everforest_dark"
+# theme = "material_oceanic"
+# theme = "modus_vivendi"
+# theme = "pop-dark"
+# theme = "zenburn"
 
 [editor]
 line-number = "relative"
-# bufferline = "multiple"
+bufferline = "multiple"
 cursorline = true
 auto-save = true
 
@@ -15,11 +24,19 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.file-picker]
+hidden = false
+
+# To make search fully case sensitive 
+# [editor.search]
+# smart-case = false
+
 [keys.normal]
 C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 esc = ["collapse_selection", "keep_primary_selection"]
-"A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
 "A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+"A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+# y = "yank_to_clipboard"
 
 [keys.select]
 "A-k" = ["yank_main_selection_to_clipboard", "delete_selection", "move_line_up", "paste_clipboard_before", "select_mode"]
@@ -29,17 +46,14 @@ esc = ["collapse_selection", "keep_primary_selection"]
 
 
 [editor.statusline]
-left = ["mode", "spinner"]
-center = ["file-name"]
+left = ["mode", "spinner", "file-name"]
+# center = ["file-name"]
 right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
 separator = "│"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
 
 # [language-server.harper-ls]
 # command = "harper-ls"
 # args = ["--stdio"]
-
-# my name is "kishore"
-# Key bindings for normal mode to trigger the custom command
