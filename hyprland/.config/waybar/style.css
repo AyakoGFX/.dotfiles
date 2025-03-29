@@ -38,6 +38,11 @@ window#waybar {
     font-weight: bold;
 }
 
+#custom-todo {
+    color: red;
+    font-weight: bold;
+}
+
 #taskbar {
 }
 

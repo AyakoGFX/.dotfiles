@@ -1,123 +1,130 @@
 {
-  "layer": "top", // Waybar at top layer
-  "margin-top": 6,
-  "margin-bottom": 3,
-  "margin-left": 10,
-  "margin-right": 10,
-  // "spacing": 4, // Gaps between modules (4px)
-  "position": "top", // Waybar at the bottom of your screen
-  "height": 24, // Waybar height
-  // "width": 1366, // Waybar width
-  // Choose the order of the modules
-  "modules-left": [ "hyprland/workspaces", "hyprland/submap", "wlr/taskbar"],// "wlr/taskbar"
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray", "custom/wlogout"],
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": false,
-    "format": "{name}", // Change format to show names only
-    "format-icons": {}, // Remove icons by providing an empty object
-    "names": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9"
-    }
-  },
-  "hyprland/submap": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
-  "tray": {
-    "icon-size": 21,
-    "spacing": 10
-  },
+    "layer": "top", // Waybar at top layer
+    "margin-top": 6,
+    "margin-bottom": 3,
+    "margin-left": 10,
+    "margin-right": 10,
+    // "spacing": 4, // Gaps between modules (4px)
+    "position": "top", // Waybar at the bottom of your screen
+    "height": 24, // Waybar height
+    // "width": 1366, // Waybar width
+    // Choose the order of the modules
+    "modules-left": [ "hyprland/workspaces", "hyprland/submap", "wlr/taskbar"],// "wlr/taskbar"
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["custom/todo", "custom/separator", "pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray", "custom/wlogout"],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name}", // Change format to show names only
+        "format-icons": {}, // Remove icons by providing an empty object
+        "names": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9"
+        }
+    },
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
 
-  "clock": {
-    "format": "{:%I:%M %p}",
-    "format-alt": "{:%d-%m-%Y}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    // "tooltip": false
-  },
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%d-%m-%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        // "tooltip": false
+    },
 
-  "cpu": {
-    "format": " {usage}%  ",
-    "on-click": "alacritty -e btop"
-  },
-  "memory": {
-    "format": "{}% "
-  },
-  "battery": {
-    "bat": "BAT1",
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 15
+    "cpu": {
+        "format": " {usage}%  ",
+        "on-click": "alacritty -e btop"
     },
-    "format": " {capacity}% {icon} ",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%)  ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "on-click-right": "alacritty -e nmtui"
-  },
-  "pulseaudio": {
-    "scroll-step": 5,
-    "format": "{volume}% {icon} ",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
-    "format-icons": {
-      "headphones": "",
-      "handsfree": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", ""]
+    "memory": {
+        "format": "{}% "
     },
-    "on-click": "pavucontrol"
-  },
-  "custom/wlogout": {
-    "format": " ⏻ ", //  󰍃 ⏻
-    "on-click": "wlogout"
-  },
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 18,
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-right": "close",
-    "ignore-list": [
-      "Alacritty",
-      "emacs"
-    ],
-    "app_ids-mapping": {
-      "firefoxdeveloperedition": "firefox-developer-edition"
+    "battery": {
+        "bat": "BAT1",
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {capacity}% {icon} ",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
     },
-    "rewrite": {
-      "Firefox Web Browser": "Firefox",
-      "Foot Server": "Terminal"
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "alacritty -e nmtui"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/wlogout": {
+        "format": " ⏻ ", //  󰍃 ⏻
+        "on-click": "wlogout"
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 18,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-right": "close",
+        "ignore-list": [
+            "Alacritty",
+            "emacs"
+        ],
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        },
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Foot Server": "Terminal"
+        }
+    },
+    "custom/separator": {
+        "format": " | ",
+        "tooltip": false
+    },
+    "custom/todo": {
+        "exec": "~/.config/waybar/sh/org-todo.sh",
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "emacsclient -c -a emacs ~/.emacs.d/remember.org",
+        "interval": 5
+    },
+    "custom/uptime": {
+        "exec": "bash -c \"uptime | sed -E 's/.*up *([^,]*),.*/up:\\1/'\"",
+        "interval": 60,
+        "tooltip": false
     }
-  },
-  "custom/separator": {
-    "format": " | ",
-    "tooltip": false
-  },
-  "custom/uptime": {
-    "exec": "bash -c \"uptime | sed -E 's/.*up *([^,]*),.*/up:\\1/'\"",
-    "interval": 60,
-    "tooltip": false
-  }
 }
