@@ -29,7 +29,7 @@ window#waybar {
     border-bottom: 3px solid;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
+#custom-todo, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
     padding: 0 3px;
     margin: 0 2px;
 }
@@ -39,7 +39,7 @@ window#waybar {
 }
 
 #custom-todo {
-    color: red;
+    color: @color1;
     font-weight: bold;
 }
 
