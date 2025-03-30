@@ -1,0 +1,17 @@
+# GIMP user context
+
+(tool "gimp-paintbrush-tool")
+(paint-info "gimp-paintbrush")
+(foreground
+    (color "HSVA float" 16 "\0\0\0\0\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+(opacity 0.86999999999999988)
+(brush "Charcoal 03")
+(dynamics "Pressure Size")
+(mybrush "100% Opaque")
+(pattern "Starfield")
+(gradient "Skyline copy")
+(palette "Standard")
+(font "Sans-serif")
+(tool-preset "Core Pointer")
+
+# end of user context

@@ -1,0 +1,12 @@
+# GIMP gimp-eraser-tool options
+
+(foreground
+    (color "HSVA float" 16 "\0\0\0\0\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+(brush "Charcoal 03")
+(dynamics "Pressure Size")
+(palette "Standard")
+(brush-size 128)
+(brush-spacing 0.20000000000000001)
+(fade-length 101)
+
+# end of gimp-eraser-tool options

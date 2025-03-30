@@ -100,7 +100,7 @@ alias ta='tmux -u attach -t'
 alias tn='tmux new -su'
 
 set PATH "$PATH":"$HOME/.local/scripts/"
-bind \cf tmux-sessionizer
+bind \cq tmux-sessionizer
 
 # Alias's to modified commands
 alias cp='cp -i'
@@ -196,7 +196,6 @@ function mp3-duration
     set s (math "floor($sum % 60)")
     echo "$h hours, $m minutes, $s seconds"
 end
-
 
 
 function shortcut-help

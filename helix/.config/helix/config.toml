@@ -7,12 +7,12 @@
 # theme = "curzon"
 # theme = "dark_high_contrast"
 # theme = "emacs"
-theme = "everforest_dark"
+# theme = "everforest_dark"
 # theme = "material_oceanic"
 # theme = "modus_vivendi"
 # theme = "pop-dark"
 # theme = "zenburn"
-
+theme = "ayu_dark"
 [editor]
 line-number = "relative"
 bufferline = "multiple"

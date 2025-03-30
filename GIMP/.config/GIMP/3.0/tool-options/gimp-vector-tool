@@ -1,0 +1,11 @@
+# GIMP gimp-vector-tool options
+
+(foreground
+    (color "HSVA float" 16 "\0\0\0\0\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+(brush "Charcoal 03")
+(dynamics "Pressure Size")
+(pattern "Starfield")
+(gradient "Skyline copy")
+(palette "Standard")
+
+# end of gimp-vector-tool options

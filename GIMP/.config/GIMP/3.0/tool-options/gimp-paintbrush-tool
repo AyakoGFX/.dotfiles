@@ -1,0 +1,19 @@
+# GIMP gimp-paintbrush-tool options
+
+(foreground
+    (color "HSVA float" 16 "\0\0\0\0\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+(opacity 0.86999999999999988)
+(brush "Charcoal 03")
+(dynamics "Pressure Size")
+(pattern "Starfield")
+(gradient "Skyline copy")
+(palette "Standard")
+(brush-size 128)
+(brush-spacing 0.20000000000000001)
+(fade-length 101)
+(gradient-blend-color-space cie-lab)
+(use-smoothing yes)
+(smoothing-quality 2)
+(smoothing-factor 43)
+
+# end of gimp-paintbrush-tool options
