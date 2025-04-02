@@ -1,7 +1,7 @@
 # GIMP gimp-gradient-tool options
 
 (foreground
-    (color "HSVA float" 16 "\0\0\0\0\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (color "R'G'B'A u8" 4 "\365\276\232\377" 0))
 (gradient "Skyline copy")
 (brush-size 51)
 (brush-hardness 0.5)

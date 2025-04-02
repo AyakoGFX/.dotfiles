@@ -1,8 +1,8 @@
 # GIMP gimp-vector-tool options
 
 (foreground
-    (color "HSVA float" 16 "\0\0\0\0\0\0\200\77\0\0\200\77\0\0\200\77" 0))
-(brush "Charcoal 03")
+    (color "R'G'B'A u8" 4 "\365\276\232\377" 0))
+(brush "2. Hardness 100")
 (dynamics "Pressure Size")
 (pattern "Starfield")
 (gradient "Skyline copy")

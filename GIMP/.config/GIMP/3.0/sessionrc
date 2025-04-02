@@ -24,7 +24,7 @@
     (gimp-dock
         (side right)
         (book
-            (current-page 2)
+            (current-page 0)
             (dockable "gimp-tool-options"
                 (locked)
                 (tab-style icon)
