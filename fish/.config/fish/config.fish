@@ -99,6 +99,8 @@ alias tk='tmux kill-server'
 alias ta='tmux -u attach -t'
 alias tn='tmux new -su'
 
+
+alias emacs-restart="pkill emacs && emacs --daemon"
 set PATH "$PATH":"$HOME/.local/scripts/"
 bind \cq tmux-sessionizer
 
@@ -160,6 +162,7 @@ end
 
 # Initialize zoxide in Fish shell
 zoxide init fish | source
+alias cd '__zoxide_z'
 
 set -x EDITOR nvim
 set -x VISUAL nvim
