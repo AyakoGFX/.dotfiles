@@ -1,0 +1,4 @@
+SWWW_TRANSITION_TYPES: List[str] = ["any", "none", "simple", "fade", "wipe",  "left", "right", "top",
+                                "bottom", "wave", "grow", "center", "outer", "random"]
+
+post_command = wal -i $wallpaper

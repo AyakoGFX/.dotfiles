@@ -1,0 +1,114 @@
+@import "/home/ayako/.cache/wal/colors-waybar.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Ubuntu Nerd Font";
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @background;
+    opacity: 0.94;
+    transition-duration: .5s;
+}
+
+#window {
+    font-weight: bold;
+    font-family: "Ubuntu";
+}
+
+#workspaces button.active {
+    background-color: @color1;
+    color: @background;
+}
+
+#mode {
+    background: @background;
+    border-bottom: 3px solid;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode {
+    padding: 0 3px;
+    margin: 0 2px;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#taskbar {
+}
+
+#taskbar button {
+    min-width: 130px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: white;
+    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#taskbar button.active {
+    border-bottom: 3px solid @color1;
+    background: @bg_active;
+}
+
+#taskbar button:hover {
+    border-bottom: 3px solid @color1;
+    background: @bg_hover;
+    /* background: rgba(0, 0, 0, 0.2); */
+    color: @content_main;
+}
+
+
+#battery {
+}
+
+#battery icon {
+}
+
+#battery.charging {
+}
+
+@keyframes blink {
+    to {
+        background-color:@background;
+    }
+}
+
+#battery.warning:not(.charging) {
+    color: @color2;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+}
+
+#memory {
+}
+
+#network {
+}
+
+#network.disconnected {
+    background: @color2;
+}
+
+#custom-wlogout {
+    font-size: 20px; /* Adjust size as needed */
+}
+
+
+#pulseaudio {
+}
+
+#pulseaudio.muted {
+}
