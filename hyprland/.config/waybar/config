@@ -127,7 +127,7 @@
         "exec": "~/.config/waybar/sh/org-todo.sh",
         "return-type": "json",
         "format": "{}",
-        "on-click": "emacsclient -c -a emacs ~/.emacs.d/remember.org",
+        "on-click": "emacsclient -c -a emacs ~/.emacs.d/org-capture/TODO.org",
         "interval": 60
     },
     "custom/uptime": {
