@@ -43,6 +43,10 @@ window#waybar {
     font-weight: bold;
 }
 
+#custom-swaync {
+    font-size: 18px;
+    /* font-weight: bold; */
+}
 #taskbar {
 }
 

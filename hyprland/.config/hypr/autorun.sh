@@ -8,6 +8,7 @@ function run {
 
 waybar &
 waypaper --restore &
+swaync &
 run nm-applet &
 run copyq &
 emacs --daemon &

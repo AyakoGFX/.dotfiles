@@ -11,7 +11,7 @@
     // Choose the order of the modules
     "modules-left": [ "niri/workspaces", "wlr/taskbar"],// "wlr/taskbar"
     "modules-center": ["niri/window"],
-    "modules-right": ["custom/todo", "custom/separator", "pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray", "custom/wlogout"],
+    "modules-right": ["custom/todo", "custom/separator", "pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray","custom/swaync", "custom/wlogout"],
     "niri/workspaces": {
         "disable-scroll": false,
         "all-outputs": false,
@@ -118,6 +118,10 @@
         "format": "{}",
         "on-click": "emacsclient -c -a emacs ~/.emacs.d/org-capture/TODO.org",
         "interval": 60
+    },
+    "custom/swaync": {
+        "format": "  ",
+        "on-click": "swaync-client -op",
     },
     "custom/uptime": {
         "exec": "bash -c \"uptime | sed -E 's/.*up *([^,]*),.*/up:\\1/'\"",

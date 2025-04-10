@@ -276,7 +276,7 @@ animations {
 	// off
 
 	// Slow down all animations by this factor. Values below 1 speed them up instead.
-	// slowdown 3.0
+	slowdown 1.4
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -325,11 +325,12 @@ window-rule {
 
 // https://github.com/YaLTeR/niri/wiki/Xwayland
 environment {
-	DISPLAY ":0"
+	QT_QPA_PLATFORM "wayland"
+	DISPLAY ":1"
 }
 // ~/.config/niri/autorun.sh
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "sh" "-c" "~/.config/niri/autorun.sh"
+spawn-at-startup "sh" "-c" "~/.config/niri/sh/autorun.sh"
 spawn-at-startup "copyq"
 binds {
 	// Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -349,7 +350,8 @@ binds {
 	// Suggested binds for running programs: terminal, app launcher, screen locker.
 	// MY KEYS
 	Mod+D { spawn "fuzzel"; }
-	Mod+shift+B { spawn "bash" "-c" "pkill waybar && waybar"; }
+	// Mod+shift+B { spawn "bash" "-c" "pkill waybar && waybar"; }
+	Mod+shift+B { spawn "bash" "-c" "~/.config/niri/sh/reload.sh"; }
 	Mod+B { spawn "bash" "-c" "firefox"; }
 	Mod+e { spawn "bash" "-c" "emacsclient -c -a emacs"; }
 	Mod+Return { spawn "alacritty"; }  
@@ -358,10 +360,10 @@ binds {
 	// TODO britness
 	Mod+shift+w { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
 	Mod+shift+s { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-	 Print { print; }
-	// Shift+print { spawn "normcap";}
-	// Print { spawn ; }
-	// Alt+Print {spawn   ; }
+
+	Print { screenshot; }
+	Ctrl+Print { screenshot-screen; }
+	Alt+Print { screenshot-window; }
 	// Print { spawn "flameshot" "gui"; }
 	// Shift+print { spawn "normcap";}
 	// Print { spawn ; }
@@ -449,6 +451,7 @@ binds {
 	Mod+Ctrl+U         { move-column-to-workspace-down; }
 	Mod+Ctrl+I         { move-column-to-workspace-up; }
 
+
 	// Alternatively, there are commands to move just a single window:
 	// Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
 	// ...
@@ -521,7 +524,7 @@ binds {
 	// Mod+Ctrl+1 { move-window-to-workspace 1; }
 
 	// Switches focus between the current and the previous workspace.
-	// Mod+Tab { focus-workspace-previous; }
+	Mod+Tab { focus-workspace-previous; }
 
 	// The following binds move the focused window in and out of a column.
 	// If the window is alone, they will consume it into the nearby column to the side.

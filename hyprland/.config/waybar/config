@@ -11,7 +11,7 @@
     // Choose the order of the modules
     "modules-left": [ "hyprland/workspaces", "hyprland/submap", "wlr/taskbar"],// "wlr/taskbar"
     "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/todo", "custom/separator", "pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray", "custom/wlogout"],
+    "modules-right": ["custom/todo", "custom/separator", "pulseaudio", "custom/separator", "network","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "battery", "custom/separator","custom/uptime", "custom/separator",  "clock", "custom/separator", "tray","custom/swaync", "custom/wlogout"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -130,9 +130,14 @@
         "on-click": "emacsclient -c -a emacs ~/.emacs.d/org-capture/TODO.org",
         "interval": 60
     },
+    "custom/swaync": {
+        "format": "  ",
+        "on-click": "swaync-client -op",
+    },
+
     "custom/uptime": {
         "exec": "bash -c \"uptime | sed -E 's/.*up *([^,]*),.*/up:\\1/'\"",
         "interval": 60,
         "tooltip": false
-    }
+    },
 }
