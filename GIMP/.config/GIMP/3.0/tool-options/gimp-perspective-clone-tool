@@ -1,12 +1,14 @@
 # GIMP gimp-perspective-clone-tool options
 
 (foreground
+    (color "R'G'B'A double" 32 "\0\0\0\0\0\0\0\0\0\0\0\100\234\232\352\77\0\0\0\100\30\30\210\77\0\0\0\0\0\0\360\77" 0))
+(background
     (color "R'G'B'A u8" 4 "\365\276\232\377" 0))
 (brush "2. Hardness 100")
 (dynamics "Pressure Size")
 (pattern "Starfield")
 (palette "Standard")
-(brush-size 51)
+(brush-size 24)
 (brush-spacing 0.097000000000000017)
 (fade-length 101)
 

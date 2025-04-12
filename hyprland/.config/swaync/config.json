@@ -50,6 +50,12 @@
         "volume": {
             "label": " 󰕾 "
         },
+      // "scripts": {
+      //   "focus-window": {
+      //     "exec": "hyprctl dispatch focuswindow \"$SWAYNC_APP_NAME\"",
+      //     "run-on": "action"
+      //   }
+      // },
         "buttons-grid": {
             "actions": [
                 {

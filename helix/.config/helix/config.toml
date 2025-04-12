@@ -19,6 +19,9 @@ bufferline = "multiple"
 cursorline = true
 auto-save = true
 
+# [editor.lsp]
+# display-inlay-hints = true
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"

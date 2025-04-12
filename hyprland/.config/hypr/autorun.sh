@@ -9,6 +9,7 @@ function run {
 waybar &
 waypaper --restore &
 swaync &
+swayosd-server &
 run nm-applet &
 run copyq &
 emacs --daemon &
