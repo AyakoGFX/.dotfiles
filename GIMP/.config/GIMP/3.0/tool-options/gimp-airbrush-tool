@@ -1,7 +1,7 @@
 # GIMP gimp-airbrush-tool options
 
 (foreground
-    (color "R'G'B'A double" 32 "\0\0\0\0\0\0\0\0\0\0\0\100\234\232\352\77\0\0\0\100\30\30\210\77\0\0\0\0\0\0\360\77" 0))
+    (color "HSVA float" 16 "\0\0\0\0\0\0\200\77\0\0\200\77\0\0\200\77" 0))
 (background
     (color "R'G'B'A u8" 4 "\365\276\232\377" 0))
 (brush "2. Hardness 100")
@@ -9,8 +9,7 @@
 (pattern "Starfield")
 (gradient "Skyline copy")
 (palette "Standard")
-(brush-size 24)
-(brush-spacing 0.097000000000000017)
+(brush-size 11)
 (fade-length 101)
 (gradient-blend-color-space cie-lab)
 
