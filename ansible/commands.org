@@ -1,0 +1,14 @@
+* list collection
+#+begin_src bash
+ansible-galaxy collection list
+#+end_src>
+
+* Test Run
+#+begin_src bash
+ansible-playbook -i hosts arch.yml --check -K
+#+end_src>
+
+* Run 
+#+begin_src bash
+ansible-playbook -i hosts arch.yml -K
+#+end_src>

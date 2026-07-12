@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+timestamp="$(date +"recording-%Y-%m-%d-%H-%M-%S")"
+
+case "$1" in
+  r)
+    dir="$HOME/Videos/Record/Region"
+    mkdir -p "$dir"
+    filename="${dir}/${timestamp}.mp4"
+    wl-screenrec -g "$(slurp)" -f "$filename" --audio
+    ;;
+  m)
+    dir="$HOME/Videos/Record/Monitor"
+    mkdir -p "$dir"
+    filename="${dir}/${timestamp}.mp4"
+    output="$(hyprctl monitors | grep 'Monitor' | head -n1 | awk '{print $2}')"
+    wl-screenrec -o "$output" -f "$filename" --audio
+    ;;
+  *)
+    echo "Usage: $0 [r|m]"
+    echo "  r: Record a selected region"
+    echo "  m: Record a monitor"
+    exit 1
+    ;;
+esac
+
+
+

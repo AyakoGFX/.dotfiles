@@ -1,0 +1,28 @@
+---
+- name: My Arch Setup
+  hosts: localhost
+  become: true # Runs tasks as sudo
+
+  vars:
+    # Defining a list of packages in a variable
+    my_packages:
+      - fastfetch
+      - helix
+      - bitwarden
+      - drawy
+      - emacs
+      - github-cli
+      - obs
+      - vlc
+      # --- emacs dep
+      - hunspell
+      - hunspell-en_us
+      - ttf-jetbrains-mono-nerd
+
+  tasks:
+    - name: Install system packages
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+        name: "{{ my_packages }}"
+        state: present

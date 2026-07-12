@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+timestamp="$(date +"recording-%Y-%m-%d-%H-%M-%S")"
+
+# Default audio source (desktop audio by default)
+audio_device="default"
+capture_mode=""
+
+# Parse options for audio and capture options
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -rr)
+      capture_mode="region" ;;
+    -rm)
+      capture_mode="monitor" ;;
+    -v)
+      audio_device="alsa_input.pci-0000_00_1f.3.analog-stereo" ;;  # Voice (Microphone)
+    -d)
+      audio_device="alsa_output.pci-0000_00_1f.3.hdmi-stereo.monitor" ;;  # Desktop audio
+    *)
+      echo "Usage: $0 -rr for region capture, -rm for monitor capture, -v for voice, -d for desktop audio"
+      exit 1
+      ;;
+  esac
+  shift
+done
+
+# Set the output directory for recordings
+dir="$HOME/Videos/Record"
+mkdir -p "$dir/Region"
+mkdir -p "$dir/Monitor"
+
+# Ensure capture mode is set
+if [ -z "$capture_mode" ]; then
+  echo "Capture mode not specified. Use -rm for monitor capture or -rr for region capture."
+  exit 1
+fi
+
+# Check action type (region or monitor)
+case "$capture_mode" in
+  monitor)
+    output="$(hyprctl monitors | grep 'Monitor' | head -n1 | awk '{print $2}')"
+    filename="${dir}/Monitor/${timestamp}.mp4"
+    wl-screenrec -o "$output" -f "$filename" --audio --audio-device "$audio_device"
+    ;;
+  region)
+    filename="${dir}/Region/${timestamp}.mp4"
+    wl-screenrec -g "$(slurp)" -f "$filename" --audio --audio-device "$audio_device"
+    ;;
+  *)
+    echo "Invalid capture mode. Use -rm for monitor or -rr for region."
+    exit 1
+    ;;
+esac
