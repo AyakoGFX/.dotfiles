@@ -9,6 +9,7 @@ alias ec="emacsclient -t"
 
 # PATH Setup (prevents duplicates in $PATH)
 fish_add_path "$HOME/.local/scripts"
+fish_add_path "$HOME/.local/bin"
 fish_add_path "$HOME/bin"
 
 # Keybindings

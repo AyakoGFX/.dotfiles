@@ -12,12 +12,12 @@ function run {
 
 run emacs --daemon &
 run nm-applet &
-run spectacle &
+run picom --backend glx &
 
+# run spectacle &
 # run sxhkd &
 # run libinput-gestures &
 # run nitrogen --restore &
-# run picom --backend glx &
 # run copyq &
 # run slstatus &
 # run flameshot &
