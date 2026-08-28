@@ -1,0 +1,65 @@
+config_version = 13
+
+[backdrop]
+enabled        = true
+blur_intensity = 0.2    # 0.0 (no blur) to 1.0 (max blur)
+tint_intensity = 0.4    # 0.0 (no tint) to 1.0 (opaque tint)
+
+[accessibility]
+ui_scale = 0.90000000596046448
+
+[bar.default]
+center = [ "clock", "audio_visualizer" ]
+
+[control_center.calendar]
+show_events_card = false
+
+[shell]
+polkit_agent = true
+telemetry_enabled = true
+
+[shell.panel]
+launcher_placement = "attached"
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Oxocarbon"
+custom_palette = "wonderful-surya-scaled-vib"
+mode = "dark"
+source = "wallpaper"
+
+[theme.templates]
+builtin_ids = [ "alacritty", "emacs", "niri" ]
+
+[wallpaper]
+transition_on_startup = true
+
+[widget.battery]
+enabled = false
+
+[widget.bluetooth]
+enabled = false
+
+[widget.brightness]
+enabled = false
+
+[widget.control-center]
+enabled = false
+
+[widget.launcher]
+enabled = false
+
+[widget.media]
+enabled = false
+
+[widget.network]
+enabled = false
+
+[widget.notifications]
+enabled = false
+
+[widget.volume]
+enabled = false
+
+[widget.wallpaper]
+enabled = false

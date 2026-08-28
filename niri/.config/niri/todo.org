@@ -1,0 +1,20 @@
+
+* TODO[6/9]
+  - [X] figur out what causing blue screen
+    - It Was gromit-mpx so i uninstalled it
+  - [X] scrool repit speed
+  - [X] swap caps lock to esc
+  - [X] remove title bar
+  - [X] focus-follows-mouse
+    so we have suto theam switcher
+  - [X] noctailie
+  - [ ] screanshot
+  - [ ] ocr
+  - [ ] screan anotation
+  - [ ] make obs screan recording working
+
+* Application
+sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gnome xdg-desktop-portal-gtk
+** Aur
+- woomer 
+  zoom tool
