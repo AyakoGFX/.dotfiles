@@ -12,6 +12,9 @@ workspace "2"
 workspace "3"
 workspace "4"
 workspace "5"
+workspace "6"
+workspace "7"
+workspace "8"
 input {
     // focus-follows-mouse
     keyboard {
@@ -136,7 +139,7 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
-        proportion 1.0
+        proportion 0.9
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
@@ -277,13 +280,13 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "noctalia"
-spawn-at-startup "~/Github/niri-zoom/target/release/niri-zoomd"
+spawn-at-startup "flameshot"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -296,7 +299,10 @@ hotkey-overlay {
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// kde screanshot format
+screenshot-path "~/Pictures/Screenshots/Screenshot_%Y%m%d_%H%M%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -310,17 +316,6 @@ animations {
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
-}
-
-window-rule {
-    match app-id="woomer"
-    match title="woomer"
-    // Force focus to Woomer so internal keys (ESC, F, Q, etc.) register
-    open-focused true
-    // Open fullscreen and disable decorations
-    open-fullscreen true
-    geometry-corner-radius 0
-    draw-border-with-background false
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -570,8 +565,19 @@ binds {
     // These binds are also affected by touchpad's natural-scroll, so these
     // example binds are "inverted", since we have natural-scroll enabled for
     // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+
+    Mod+TouchpadScrollDown { spawn-sh "brightnessctl --class=backlight set +5%"; }
+    Mod+TouchpadScrollUp   { spawn-sh "brightnessctl --class=backlight set 5-%"; }
+    Mod+Shift+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+    Mod+Shift+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+
+    // Semicolon (;) bindings
+    Mod+Semicolon       { spawn-sh "brightnessctl --class=backlight set 5-%"; }
+    Mod+Shift+Semicolon { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+
+    // Apostrophe (') bindings
+    Mod+Apostrophe       { spawn-sh "brightnessctl --class=backlight set +5%"; }
+    Mod+Shift+Apostrophe { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
 
     // You can refer to workspaces by index. However, keep in mind that
     // niri is a dynamic workspace system, so these commands are kind of
@@ -601,15 +607,25 @@ binds {
     Mod+Ctrl+Shift+8 { move-column-to-workspace 8; }
     Mod+Ctrl+Shift+9 { move-column-to-workspace 9; }
 
-    Mod+Shift+1 { move-window-to-workspace 1; }
-    Mod+Shift+2 { move-window-to-workspace 2; }
-    Mod+Shift+3 { move-window-to-workspace 3; }
-    Mod+Shift+4 { move-window-to-workspace 4; }
-    Mod+Shift+5 { move-window-to-workspace 5; }
-    Mod+Shift+6 { move-window-to-workspace 6; }
-    Mod+Shift+7 { move-window-to-workspace 7; }
-    Mod+Shift+8 { move-window-to-workspace 8; }
-    Mod+Shift+9 { move-window-to-workspace 9; }
+    // Mod+Shift+1 { move-window-to-workspace 1; }
+    // Mod+Shift+2 { move-window-to-workspace 2; }
+    // Mod+Shift+3 { move-window-to-workspace 3; }
+    // Mod+Shift+4 { move-window-to-workspace 4; }
+    // Mod+Shift+5 { move-window-to-workspace 5; }
+    // Mod+Shift+6 { move-window-to-workspace 6; }
+    // Mod+Shift+7 { move-window-to-workspace 7; }
+    // Mod+Shift+8 { move-window-to-workspace 8; }
+    // Mod+Shift+9 { move-window-to-workspace 9; }
+
+    Mod+Shift+1 { move-window-to-workspace 1 focus=false; }
+    Mod+Shift+2 { move-window-to-workspace 2 focus=false; }
+    Mod+Shift+3 { move-window-to-workspace 3 focus=false; }
+    Mod+Shift+4 { move-window-to-workspace 4 focus=false; }
+    Mod+Shift+5 { move-window-to-workspace 5 focus=false; }
+    Mod+Shift+6 { move-window-to-workspace 6 focus=false; }
+    Mod+Shift+7 { move-window-to-workspace 7 focus=false; }
+    Mod+Shift+8 { move-window-to-workspace 8 focus=false; }
+    Mod+Shift+9 { move-window-to-workspace 9 focus=false; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -687,6 +703,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Print { screenshot; }
+    Mod+Print { spawn-sh "~/.config/niri/scripts/niri-ocr"; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
