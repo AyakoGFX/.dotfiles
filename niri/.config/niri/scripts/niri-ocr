@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Capture region and perform OCR via Tesseract
+text=$(grim -g "$(slurp)" - | tesseract stdin stdout -l eng 2>/dev/null)
+
+if [ -n "$text" ]; then
+    # Copy to clipboard (works natively with Noctalia's clipboard history manager)
+    echo "$text" | wl-copy
+    
+    # Notify through Noctalia's notification daemon
+    notify-send "OCR Success" "Extracted text copied to clipboard." -i edit-paste
+else
+    notify-send "OCR Cancelled" "No text was captured." -u low
+fi
