@@ -1,8 +1,8 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
 [window]
 opacity = 0.95
-
-[colors.primary]
-background = "#000000"
 
 [font]
 size = 13.0
