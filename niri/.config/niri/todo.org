@@ -1,5 +1,4 @@
-
-* TODO[6/9]
+* TODO [10/10]
   - [X] figur out what causing blue screen
     - It Was gromit-mpx so i uninstalled it
   - [X] scrool repit speed
@@ -8,13 +7,38 @@
   - [X] focus-follows-mouse
     so we have suto theam switcher
   - [X] noctailie
-  - [ ] screanshot
-  - [ ] ocr
-  - [ ] screan anotation
-  - [ ] make obs screan recording working
+  - [X] screanshot
+    - with flameshot
+  - [X] screan anotation
+    - with flameshot not really but i am ok with it
+  - [X] ocr
+  - [X] make obs screan recording working 
+    - fixed by installing xdg-portal 
+  - [ ] Themes GTK and Qt apps
+  - [ ] nautilus thumbnail 
 
-* Application
-sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gnome xdg-desktop-portal-gtk
+handy-appinage --toggle-transcription
+
+* TODO polkit
+i am not sure i need this or not
+sudo pacman -S --needed polkit-gnome
+xdg-, keyring, nautilus, polkit
+
+* xdg portal
+#+begin_src bash
+sudo pacman -S --needed xdg-desktop-portal  xdg-desktop-portal-gtk xdg-desktop-portal-gnome
+systemctl --user restart xdg-desktop-portal
+#+end_src
+
+* orc
+#+begin_src bash
+sudo pacman -S --needed  grim slurp tesseract tesseract-data-eng wl-clipboard
+#+end_src
+
 ** Aur
 - woomer 
   zoom tool
+
+
+* Application
+- brightnessctl
