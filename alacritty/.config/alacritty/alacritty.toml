@@ -5,7 +5,7 @@ import = ["~/.config/alacritty/themes/noctalia.toml"]
 opacity = 0.95
 
 [font]
-size = 13.0
+size = 17.0
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "Aporetic Sans Mono"

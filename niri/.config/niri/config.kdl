@@ -571,11 +571,11 @@ binds {
     Mod+Shift+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
     Mod+Shift+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
-    // Semicolon (;) bindings
+    // Semicolon (;) bindings ";"
     Mod+Semicolon       { spawn-sh "brightnessctl --class=backlight set 5-%"; }
     Mod+Shift+Semicolon { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
-    // Apostrophe (') bindings
+    // Apostrophe (') bindings "'"
     Mod+Apostrophe       { spawn-sh "brightnessctl --class=backlight set +5%"; }
     Mod+Shift+Apostrophe { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
 
