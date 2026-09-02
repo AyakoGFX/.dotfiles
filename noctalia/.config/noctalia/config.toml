@@ -6,7 +6,7 @@ blur_intensity = 0.5    # 0.0 (no blur) to 1.0 (max blur)
 tint_intensity = 0.4    # 0.0 (no tint) to 1.0 (opaque tint)
 
 [accessibility]
-ui_scale = 1.0000000074505806
+ui_scale = 1.2000000104308128
 
 [bar.default]
 center = [ "clock", "audio_visualizer" ]
@@ -27,6 +27,7 @@ refresh_minutes = 20
 polkit_agent = true
 telemetry_enabled = true
 app_icon_color = "on_surface"
+font_family = "Aporetic Serif"
 
 [shell.launcher]
 categories = false
