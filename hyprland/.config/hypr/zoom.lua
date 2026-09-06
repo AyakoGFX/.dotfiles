@@ -1,6 +1,6 @@
 local MAX_ZOOM = 3
 local MIN_ZOOM = 1
-local ZOOM_TOGGLE_FACTOR = 1.5
+local ZOOM_TOGGLE_FACTOR = 2
 local ZOOM_STEP = 0.3
 
 ---@param offset number|nil

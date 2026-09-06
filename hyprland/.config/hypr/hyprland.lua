@@ -50,7 +50,30 @@ local fileManager = "nautilus"
 
 hl.on("hyprland.start", function()
   hl.exec_cmd("noctalia")
+  hl.exec_cmd("flameshot")
+  -- hl.exec_cmd("emacs --daemon")
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+  hl.exec_cmd("systemctl --user start xdg-desktop-portal.service xdg-desktop-portal-hyprland.service")
+  hl.exec_cmd("systemctl --user start opentabletdriver")
 end)
+
+-- Environment Variables
+-- For Qt apps (requires: sudo pacman -S qt5ct qt6ct kvantum breeze-icons)
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+
+-- -- Force GTK4 / Libadwaita apps into dark mode
+-- hl.env("GTK_THEME", "Adwaita:dark")
+
+-- -- Autostart Hooks
+-- hl.on("hyprland.start", function()
+--     -- For Libadwaita / GTK4 apps
+--     hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
+--     -- For GTK3 apps (requires: sudo pacman -S adw-gtk-theme)
+--     hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"')
+-- end)
+
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -183,6 +206,15 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 --     rounding    = 0,
 -- })
 
+-- Force veadotube-mini to render even when hidden on another workspace
+hl.window_rule({
+    name = "veadotube-render-unfocused",
+    match = {
+        class = "veadotube-mini",
+    },
+    render_unfocused = true,
+})
+
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
     dwindle = {
@@ -216,6 +248,7 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        render_unfocused_fps = 60,
     },
 })
 
@@ -277,10 +310,14 @@ local ipc = "noctalia msg "
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
+hl.bind(" + PRINT", hl.dsp.exec_cmd("flameshot gui"))
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("sh -c '~/.config/hypr/scripts/hypr-ocr'"))
 
 -- niri
 hl.bind(mainMod .. " + H", hl.dsp.layout("focus l"))
 hl.bind(mainMod .. " + L", hl.dsp.layout("focus r"))
+hl.bind(mainMod .. " + J", hl.dsp.layout("focus b"))
+hl.bind(mainMod .. " + K", hl.dsp.layout("focus t"))
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.layout("focus l"))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.layout("focus r"))
@@ -295,7 +332,6 @@ hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +conf"))
 hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel prev"))
 hl.bind(mainMod .. " + period", hl.dsp.layout("consume_or_expel next"))
 hl.bind(mainMod .. " + C", hl.dsp.layout("center"))
-
 -- hl.bind(mainMod .. " + SHIFT + P", hl.dsp.layout("promote"))
 -- hl.bind(mainMod .. " + W", hl.dsp.layout("fit expand"))
 
@@ -349,8 +385,8 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 -- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 -- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
-hl.bind(mainMod .. " + K", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + J",   hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + SHIFT + J",   hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + SHIFT + mouse_down",   hl.dsp.focus({ workspace = "e+1" }))
 

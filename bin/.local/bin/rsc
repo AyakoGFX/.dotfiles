@@ -1,0 +1,141 @@
+#!/bin/bash
+
+OUTPUT_DIR="davinci-resolve-studio-compatable"
+
+# Function to display help menu
+show_help() {
+  echo "============================================================"
+  echo "  DaVinci Resolve Linux Media Converter CLI"
+  echo "============================================================"
+  echo "Usage:"
+  echo "  $0 <file1|directory1> [file2|directory2 ...]   # Convert media"
+  echo "  $0 -i | --info <file|directory ...>            # Inspect media codecs"
+  echo ""
+  echo "Description:"
+  echo "  Converts video/audio files to Resolve-compatible FLAC audio."
+  echo "  Losslessly copies video streams and saves outputs in:"
+  echo "  '$OUTPUT_DIR/'"
+  echo ""
+  echo "Examples:"
+  echo "  $0 .                        # Convert all files in current directory"
+  echo "  $0 video.mp4 music.opus     # Convert specific video & audio files"
+  echo "  $0 -i video.mp4             # Inspect video/audio codecs of a file"
+  echo "  $0 -i .                     # Inspect all files in current directory"
+  echo "============================================================"
+  exit 0
+}
+
+# If no arguments provided, show help
+if [ "$#" -eq 0 ]; then
+  show_help
+fi
+
+# Function to inspect file codecs using ffprobe
+inspect_file() {
+  local file="$1"
+  [ -f "$file" ] || return
+
+  local filename
+  filename=$(basename -- "$file")
+
+  # Get format name, video codec, and audio codec
+  local format
+  format=$(ffprobe -v error -show_entries format=format_name -of default=noprint_wrappers=1:nokey=1 "$file" 2>/dev/null)
+
+  local vcodec
+  vcodec=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 "$file" 2>/dev/null)
+  [ -z "$vcodec" ] && vcodec="none"
+
+  local acodec
+  acodec=$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 "$file" 2>/dev/null)
+  [ -z "$acodec" ] && acodec="none"
+
+  # Print media details in tabular layout
+  printf "File: %-35s | Container: %-12s | Video: %-10s | Audio: %-10s\n" "$filename" "$format" "$vcodec" "$acodec"
+}
+
+# Function to convert individual files
+process_file() {
+  local file="$1"
+
+  [ -f "$file" ] || return
+
+  # Skip files inside the output directory to prevent re-processing
+  if [[ "$file" == *"$OUTPUT_DIR"* ]]; then
+    return
+  fi
+
+  local filename
+  filename=$(basename -- "$file")
+  local name_only="${filename%.*}"
+  local ext="${filename##*.}"
+  ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+
+  case "$ext" in
+  # Video formats -> Copy video stream, convert audio to FLAC, output MP4
+  mp4 | mkv | mov | avi | webm | flv | m4v | ts)
+    echo "[VIDEO] Converting: '$file' -> '$OUTPUT_DIR/$name_only.mp4'"
+    ffmpeg -y -hide_banner -loglevel error -stats -i "$file" -c:v copy -c:a flac "$OUTPUT_DIR/$name_only.mp4"
+    ;;
+  # Audio formats -> Convert audio stream to FLAC file
+  aac | m4a | mp3 | wav | ogg | flac | wma | opus | mka | alac | aiff)
+    echo "[AUDIO] Converting: '$file' -> '$OUTPUT_DIR/$name_only.flac'"
+    ffmpeg -y -hide_banner -loglevel error -stats -i "$file" -c:a flac "$OUTPUT_DIR/$name_only.flac"
+    ;;
+  *)
+    echo "Warning: Skipped '$file' (unsupported extension: .$ext)"
+    ;;
+  esac
+}
+
+# Check for info mode flag (-i or --info)
+INFO_MODE=0
+if [ "$1" == "-i" ] || [ "$1" == "--info" ]; then
+  INFO_MODE=1
+  shift # Remove the -i argument from list
+  if [ "$#" -eq 0 ]; then
+    echo "Error: No file or directory specified for info mode."
+    echo "Usage: $0 -i <file|directory>"
+    exit 1
+  fi
+fi
+
+# Info Mode execution path
+if [ "$INFO_MODE" -eq 1 ]; then
+  echo "============================================================"
+  echo "  Media Codec Inspector"
+  echo "============================================================"
+  for arg in "$@"; do
+    if [ -d "$arg" ]; then
+      for item in "$arg"/*; do
+        inspect_file "$item"
+      done
+    elif [ -f "$arg" ]; then
+      inspect_file "$arg"
+    else
+      echo "Warning: '$arg' is not a valid file or directory."
+    fi
+  done
+  exit 0
+fi
+
+# Normal Conversion Mode execution path
+mkdir -p "$OUTPUT_DIR"
+
+for arg in "$@"; do
+  if [ "$arg" == "-h" ] || [ "$arg" == "--help" ]; then
+    show_help
+  elif [ -d "$arg" ]; then
+    echo "Scanning directory: $arg"
+    for item in "$arg"/*; do
+      process_file "$item"
+    done
+  elif [ -f "$arg" ]; then
+    process_file "$arg"
+  else
+    echo "Warning: '$arg' is not a valid file or directory. Skipping."
+  fi
+done
+
+echo ""
+echo "Done! Output saved in: '$OUTPUT_DIR/'"
