@@ -278,9 +278,37 @@ hl.config({
     },
 })
 
+
+
 hl.gesture({
     fingers = 3,
-    direction = "horizontal",
+    direction = "l",
+    action = function() hl.dispatch(hl.dsp.focus({ direction = "l" })) end
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "r",
+    action = function() hl.dispatch(hl.dsp.focus({ direction = "r" })) end
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "u",
+    action = function() hl.dispatch(hl.dsp.focus({ direction = "u" })) end
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "d",
+    action = function() hl.dispatch(hl.dsp.focus({ direction = "d" })) end
+})
+
+
+hl.gesture({
+    fingers = 3,
+    mods = "SUPER",
+    direction = "vertical",
     action = "workspace"
 })
 
@@ -314,6 +342,8 @@ local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
 hl.bind(" + PRINT", hl.dsp.exec_cmd("flameshot gui"))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("sh -c '~/.config/hypr/scripts/hypr-ocr'"))
+
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker --autocopy"))
 
 -- niri
 hl.bind(mainMod .. " + H", hl.dsp.layout("focus l"))
@@ -349,7 +379,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 -- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. "+ D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+-- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
@@ -370,6 +400,9 @@ hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+
+
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
