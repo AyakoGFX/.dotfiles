@@ -1,5 +1,9 @@
 config_version = 13
 
+[keybinds]
+down = [ "Down", "Ctrl+n" ]
+up = [ "Up", "Ctrl+p" ]
+
 [backdrop]
 enabled        = true
 blur_intensity = 0.5    # 0.0 (no blur) to 1.0 (max blur)
@@ -44,7 +48,9 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
 [theme.templates]
-builtin_ids = [ "alacritty", "emacs", "niri" ]
+builtin_ids = [ "alacritty", "emacs", "gtk3", "gtk4", "hyprland", "niri", "qt" ]
+community_ids = [ "papirus-icons" ]
+
 
 [widget.battery]
 enabled = false

@@ -259,10 +259,12 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout  = "us",
+        kb_layout  = "us+custom(my_remaps)",
         kb_variant = "",
         kb_model   = "",
-        kb_options = "caps:swapescape",
+        -- Swaps Caps Lock with Escape, and Right Alt with Right Control
+        -- kb_options = "caps:swapescape,ctrl:swap_ralt_rctl",
+        kb_options = "",
         kb_rules   = "",
         follow_mouse = 1,
         repeat_delay = 250,
@@ -271,7 +273,7 @@ hl.config({
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad = {
-            natural_scroll = false,
+            natural_scroll = true,
         },
     },
 })

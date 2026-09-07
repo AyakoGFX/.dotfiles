@@ -1,0 +1,19 @@
+// Swap Left Control and Left Shift
+partial modifier_keys xkb_symbols "swap_lctrl_lshift" {
+    key <LCTL> { [ Shift_L ] };
+    key <LFSH> { [ Control_L ] };
+};
+
+partial modifier_keys xkb_symbols "my_remaps" {
+    // Swap Left Control with Left Shift
+    key <LCTL> { [ Shift_L ] };
+    key <LFSH> { [ Control_L ] };
+
+    // Swap Caps Lock with Escape
+    key <CAPS> { [ Escape ] };
+    key <ESC>  { [ Caps_Lock ] };
+
+    // Swap Right Alt with Right Control
+    key <RALT> { [ Control_R ] };
+    key <RCTL> { [ Alt_R, Meta_R ] };
+};
