@@ -259,12 +259,12 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout  = "us+custom(my_remaps)",
+        -- kb_layout  = "us+custom(my_remaps)",
+        -- kb_layout  = "us",
         kb_variant = "",
         kb_model   = "",
         -- Swaps Caps Lock with Escape, and Right Alt with Right Control
-        -- kb_options = "caps:swapescape,ctrl:swap_ralt_rctl",
-        kb_options = "",
+        kb_options = "caps:swapescape,ctrl:swap_ralt_rctl",
         kb_rules   = "",
         follow_mouse = 1,
         repeat_delay = 250,
@@ -385,15 +385,14 @@ hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 
 -- zooming
-
 -- TODO repeat this
 -- Semicolon (;) bindings "-"
-hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("brightnessctl --class=backlight set 5-%"))
-hl.bind(mainMod .. " + SHIFT + semicolon", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"))
+hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("brightnessctl --class=backlight set 5-%"),{repeating = true})
+hl.bind(mainMod .. " + SHIFT + semicolon", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"),{repeating = true})
 
 -- Apostrophe (') bindings "+"
-hl.bind(mainMod .. " + apostrophe", hl.dsp.exec_cmd("brightnessctl --class=backlight set +5%"))
-hl.bind(mainMod .. " + SHIFT + apostrophe", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"))
+hl.bind(mainMod .. " + apostrophe", hl.dsp.exec_cmd("brightnessctl --class=backlight set +5%"),{repeating = true})
+hl.bind(mainMod .. " + SHIFT + apostrophe", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"),{repeating = true})
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))

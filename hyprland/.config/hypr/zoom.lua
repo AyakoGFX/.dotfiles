@@ -18,12 +18,14 @@ local function zoom(offset)
     hl.config({ cursor = { zoom_factor = current } })
 end
 
+
+
 -- Keybindings
 hl.bind("SUPER + Z", zoom)
 hl.bind("SUPER + KP_Enter", zoom)
-hl.bind("SUPER + KP_ADD", function() zoom(0.5) end)
-hl.bind("SUPER + minus", function() zoom(-0.5) end)
-hl.bind("SUPER + KP_Subtract", function() zoom(-0.5) end)
+hl.bind("SUPER + KP_ADD", function() zoom(0.5) end,{repeating = true})
+hl.bind("SUPER + minus", function() zoom(-0.5) end,{repeating = true})
+hl.bind("SUPER + KP_Subtract", function() zoom(-0.5) end,{repeating = true})
 
 -- Mouse Scroll Bindings (Hold SUPER + CTRL + Scroll)
 hl.bind("SUPER + CTRL + mouse_up", function() zoom(ZOOM_STEP) end)
