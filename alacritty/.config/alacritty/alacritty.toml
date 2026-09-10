@@ -1,11 +1,15 @@
 [general]
 import = ["~/.config/alacritty/themes/noctalia.toml"]
 
+[env]
+TERM = "xterm-256color"
+COLORTERM = "truecolor"
+
 [window]
 opacity = 0.95
 
 [font]
-size = 17.0
+size = 30.0
 
 [font.normal]
-family = "Aporetic Sans Mono"
+family = "Noto Sans Mono"
