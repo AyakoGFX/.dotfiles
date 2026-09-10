@@ -1,5 +1,6 @@
 set fish_greeting # Suppresses fish's intro message
 
+
 # System Aliases & Environment
 alias kill-emacs="pkill emacs"
 alias hx="helix"
@@ -11,6 +12,3 @@ alias ec="emacsclient -t"
 fish_add_path "$HOME/.local/scripts"
 fish_add_path "$HOME/.local/bin"
 fish_add_path "$HOME/bin"
-
-# Keybindings
-bind \cq tmux-sessionizer
