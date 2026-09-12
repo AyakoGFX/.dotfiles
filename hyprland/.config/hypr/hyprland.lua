@@ -28,7 +28,8 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal    = "kitty --single-instance"
+-- local terminal    = "kitty --single-instance"
+local terminal    = "alacritty"
 local fileManager = "nautilus"
 -- local menu        = "panel-toggle launcher"
 
@@ -168,7 +169,7 @@ hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
 
 -- Default springs
-hl.curve("easy",           { type = "spring", mass = 1, stiffness = 238.1191, dampening = 64.21279333 })
+hl.curve("easy",           { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })

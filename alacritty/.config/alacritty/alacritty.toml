@@ -9,7 +9,7 @@ COLORTERM = "truecolor"
 opacity = 0.95
 
 [font]
-size = 30.0
+size = 20.0
 
 [font.normal]
 family = "Noto Sans Mono"
