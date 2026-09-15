@@ -52,7 +52,7 @@ local fileManager = "nautilus"
 hl.on("hyprland.start", function()
   hl.exec_cmd("noctalia")
   hl.exec_cmd("flameshot")
-  -- hl.exec_cmd("emacs --daemon")
+  hl.exec_cmd("emacs --daemon")
   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
   hl.exec_cmd("systemctl --user start xdg-desktop-portal.service xdg-desktop-portal-hyprland.service")
   hl.exec_cmd("systemctl --user start opentabletdriver")
@@ -107,13 +107,14 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 -----------------------
 ---- LOOK AND FEEL ----
+
 -----------------------
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
         gaps_in  = 5,
-        gaps_out = 20,
+        gaps_out = 10,
 
         border_size = 2,
 
@@ -123,7 +124,7 @@ hl.config({
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
+        resize_on_border = true,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
@@ -134,7 +135,7 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 10,
+        rounding       = 20,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
@@ -151,7 +152,7 @@ hl.config({
         blur = {
             enabled   = true,
             size      = 3,
-            passes    = 1,
+            passes    = 2,
             vibrancy  = 0.1696,
         },
     },

@@ -13,7 +13,31 @@ tint_intensity = 0.4    # 0.0 (no tint) to 1.0 (opaque tint)
 ui_scale = 1.2000000104308128
 
 [bar.default]
+background_opacity = 0.7
+position             = "top"
+margin_ends          =  100   
+margin_edge          = 8
+concave_edge_corners = true
 center = [ "clock", "audio_visualizer" ]
+end = [
+    "media",
+    "tray",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "control-center",
+    "battery",
+    "battery-threshold",
+    "session"
+]
+font_weight = 400
+
+[audio]
+enable_overdrive = true
+
 
 [osd.kinds]
 media = false
@@ -31,13 +55,17 @@ refresh_minutes = 20
 polkit_agent = true
 telemetry_enabled = true
 app_icon_color = "on_surface"
-font_family = "Aporetic Serif"
+font_family = "Noto Sans"
+lang = "en"
+screen_time_enabled = true
+
 
 [shell.launcher]
 categories = false
 
 [shell.panel]
 launcher_placement = "floating"
+transparency_mode = "soft"
 
 [theme]
 builtin = "Noctalia"
@@ -62,6 +90,7 @@ enabled = false
 enabled = false
 
 [widget.clock]
+font_weight = 700
 format = "{:%I:%M %p}"
 timezone = "Asia/Kolkata"
 tooltip_format = "{:%A, %d %B %Y - %H:%M}"
@@ -81,5 +110,22 @@ enabled = false
 [widget.volume]
 enabled = false
 
+[widget.weather]
+enabled = false
+
 [widget.wallpaper]
 enabled = false
+
+[widget.battery-threshold]
+enabled = false
+type = "damian-ds7/battery-threshold:battery-threshold"
+
+
+[dock]
+background_opacity = 0.7
+enabled = true
+reserve_space = false
+smart_auto_hide = true
+
+[plugins]
+enabled = [ "damian-ds7/battery-threshold" ]
