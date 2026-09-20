@@ -124,7 +124,7 @@ hl.config({
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = true,
+        resize_on_border = false,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
@@ -356,6 +356,8 @@ hl.bind(mainMod .. " + K", hl.dsp.layout("focus t"))
 hl.bind(mainMod .. " + mouse_down", hl.dsp.layout("focus l"))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.layout("focus r"))
 
+-- handy
+hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("pkill -USR2 -x handy"))
 
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("swapcol l"))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("swapcol r"))
