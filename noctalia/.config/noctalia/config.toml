@@ -13,12 +13,27 @@ tint_intensity = 0.4    # 0.0 (no tint) to 1.0 (opaque tint)
 ui_scale = 1.2000000104308128
 
 [bar.default]
-background_opacity = 0.7
+background_opacity = 0.6
 position             = "top"
 margin_ends          =  100   
 margin_edge          = 8
 concave_edge_corners = true
 center = [ "clock", "audio_visualizer" ]
+# smart_auto_hide    = true
+# reserve_space      = false
+
+# remove rounding
+capsule            =  false
+radius               = 0
+radius_top_left      = 0
+radius_top_right     = 0
+radius_bottom_left   = 0
+radius_bottom_right  = 0
+capsule_radius       = 0      # only matters if capsule = true
+
+
+
+
 end = [
     "media",
     "tray",
@@ -58,6 +73,11 @@ app_icon_color = "on_surface"
 font_family = "Noto Sans"
 lang = "en"
 screen_time_enabled = true
+
+[shell.screenshot]
+annotate = false
+directory = "~/Pictures/Screenshots/"
+freeze_screen = true
 
 
 [shell.launcher]
@@ -126,6 +146,18 @@ background_opacity = 0.7
 enabled = true
 reserve_space = false
 smart_auto_hide = true
+position = "left"
+show_dots = true
+show_instance_count = false
+
+# remove radious
+radius               = 0
+radius_top_left      = 0
+radius_top_right     = 0
+radius_bottom_left   = 0
+radius_bottom_right  = 0
+concave_edge_corners = false
+
 
 [plugins]
 enabled = [ "damian-ds7/battery-threshold" ]

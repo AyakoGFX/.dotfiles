@@ -22,6 +22,7 @@ end
 
 -- Keybindings
 hl.bind("SUPER + Z", zoom)
+hl.bind("SUPER + grave", zoom)
 hl.bind("SUPER + KP_Enter", zoom)
 hl.bind("SUPER + KP_ADD", function() zoom(0.5) end,{repeating = true})
 hl.bind("SUPER + minus", function() zoom(-0.5) end,{repeating = true})

@@ -135,7 +135,7 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 20,
+        rounding       = 0,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
@@ -342,7 +342,13 @@ local ipc = "noctalia msg "
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
-hl.bind(" + PRINT", hl.dsp.exec_cmd("flameshot gui"))
+-- hl.bind(" + PRINT", hl.dsp.exec_cmd("flameshot gui"))
+
+hl.bind("ALT + PRINT ", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("PRINT", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
+hl.bind(mainMod .. " + A ", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
+
+
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("sh -c '~/.config/hypr/scripts/hypr-ocr'"))
 
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker --autocopy"))
@@ -487,6 +493,7 @@ hl.window_rule({
     no_focus = true,
 })
 
+
 -- Noctalia Settings
 hl.window_rule({
     match = { class = "dev.noctalia.Noctalia" },
@@ -524,6 +531,7 @@ hl.window_rule({
 })
 
 require("zoom")
-
+require("shader")
 -- For Noctalia Color templates
+
 require("noctalia").apply_theme()
