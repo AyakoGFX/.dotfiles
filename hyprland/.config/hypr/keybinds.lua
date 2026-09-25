@@ -18,21 +18,6 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker --autocopy"))
 -- handy
 hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("pkill -USR2 -x handy"))
 
--- scrolling layout navigation
-hl.bind(mainMod .. " + H", hl.dsp.layout("focus l"))
-hl.bind(mainMod .. " + L", hl.dsp.layout("focus r"))
-hl.bind(mainMod .. " + J", hl.dsp.layout("focus b"))
-hl.bind(mainMod .. " + K", hl.dsp.layout("focus t"))
-hl.bind(mainMod .. " + mouse_down", hl.dsp.layout("focus l"))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.layout("focus r"))
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("swapcol l"))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("swapcol r"))
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.layout("move -col"))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.layout("move +col"))
-hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -conf"))
-hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +conf"))
-hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel prev"))
-hl.bind(mainMod .. " + period", hl.dsp.layout("consume_or_expel next"))
 
 -- window/workspace focus
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -48,8 +33,6 @@ end
 
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 
