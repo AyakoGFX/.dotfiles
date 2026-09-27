@@ -8,6 +8,7 @@ require("input")
 require("workspaces")
 require("keybinds")
 require("rules")
+require("tabs")
 
 require("zoom")
 require("shader")

@@ -8,6 +8,8 @@ hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + C", hl.dsp.layout("center"))
 
+hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
+hl.bind(mainMod .. " + O", hl.dsp.focus({ workspace = "previous" }))
 -- screenshots
 hl.bind("ALT + PRINT", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
 hl.bind("PRINT", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
@@ -55,3 +57,13 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+hl.bind(mainMod .. " + SHIFT + A", function()
+    local current = hl.get_config("animations.enabled")
+    hl.config({
+        animations = {
+            enabled = not current
+        }
+    })
+end)
+

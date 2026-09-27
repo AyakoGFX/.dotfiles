@@ -24,7 +24,7 @@ hl.bind("SUPER + W", function()
     apply_shader()
 end)
 
-hl.bind("SUPER + I", function()
+hl.bind("SUPER + SHIFT + W", function()
     invert_enabled = not invert_enabled
     if invert_enabled then eink_enabled = false end
     apply_shader()
