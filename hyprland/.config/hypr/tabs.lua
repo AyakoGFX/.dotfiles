@@ -1,9 +1,12 @@
 -- Group (tabbed) keybinds
 
 hl.bind(mainMod .. " + U", hl.dsp.group.toggle())
+hl.bind(mainMod .. " + I", hl.dsp.group.lock_active({ action = "toggle" }))
+
 hl.bind(mainMod .. " + bracketleft", hl.dsp.group.prev())   -- was ALT + H
 hl.bind(mainMod .. " + bracketright", hl.dsp.group.next())  -- was ALT + L
-hl.bind(mainMod .. " + I", hl.dsp.group.lock_active({ action = "toggle" }))
+hl.bind(mainMod .. " + SHIFT + bracketleft",  hl.dsp.group.move_window({ forward = false }))  -- move tab left
+hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.group.move_window({ forward = true }))   -- move tab right
 
 
 hl.bind(mainMod .. " + ALT + U", hl.dsp.window.move({ out_of_group = true }))
