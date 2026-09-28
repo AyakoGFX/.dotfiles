@@ -1,3 +1,4 @@
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -16,6 +17,7 @@ hl.bind("PRINT", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("sh -c '~/.config/hypr/scripts/hypr-ocr'"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker --autocopy"))
+
 
 -- handy
 hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("pkill -USR2 -x handy"))
