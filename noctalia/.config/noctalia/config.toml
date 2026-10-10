@@ -18,7 +18,8 @@ position             = "top"
 margin_ends          =  100   
 margin_edge          = 8
 concave_edge_corners = true
-center = [ "clock", "audio_visualizer" ]
+center = [ "audio_visualizer", "clock", "audio_visualizer" ]
+
 # smart_auto_hide    = true
 # reserve_space      = false
 
@@ -53,6 +54,28 @@ font_weight = 400
 [audio]
 enable_overdrive = true
 
+[shell.launcher.dmenu.entry.emacs]
+command = "printf 'Emacs Start\nEmacs Stop daemon\n'"
+label = "Emacs"
+glyph = "terminal"
+global = true
+exec = "case \"{selection}\" in Start*) emacs --daemon ;; Stop*) emacsclient -e '(kill-emacs)' ;; esac"
+
+[shell.launcher.dmenu.entry.kill]
+command = '''hyprctl clients -j | jq -r '.[] | "\(.class) - \(.title | gsub("[^A-Za-z0-9 ._-]"; ""))\t\(.pid)"' '''
+label = "Kill window"
+prefix = "kill"
+glyph = "x"
+global = false
+exec = '''kill -9 "$(echo "{selection}" | grep -o '[0-9]*$')"'''
+
+[shell.launcher.dmenu.entry.shell]
+label = "run"
+prefix = "run"
+glyph = "run"
+global = true
+freeform = true
+exec = "{query}"
 
 [osd.kinds]
 media = false
@@ -75,7 +98,7 @@ lang = "en"
 screen_time_enabled = true
 
 [shell.screenshot]
-annotate = false
+annotate = true
 directory = "~/Pictures/Screenshots/"
 freeze_screen = true
 
