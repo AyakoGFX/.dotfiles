@@ -6,10 +6,14 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + C", hl.dsp.layout("center"))
+hl.bind(mainMod .. "+ C", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
+-- Lua config
+
+hl.bind("+ ALT + Tab", hl.dsp.exec_cmd("noctalia msg window-switcher"))
 
 hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
-hl.bind(mainMod .. " + O", hl.dsp.focus({ workspace = "previous" }))
+-- hl.bind(mainMod .. " + O", hl.dsp.focus({ workspace = "previous" }))
+
 -- screenshots
 hl.bind("ALT + PRINT", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
 hl.bind("PRINT", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
@@ -42,11 +46,17 @@ hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+
+-- hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("brightnessctl --class=backlight set 5-%"), { repeating = true })
+-- hl.bind(mainMod .. " + SHIFT + semicolon", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"), { repeating = true })
+-- hl.bind(mainMod .. " + apostrophe", hl.dsp.exec_cmd("brightnessctl --class=backlight set +5%"), { repeating = true })
+-- hl.bind(mainMod .. " + SHIFT + apostrophe", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"), { repeating = true })
+
 -- brightness / volume
-hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("brightnessctl --class=backlight set 5-%"), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + semicolon", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"), { repeating = true })
-hl.bind(mainMod .. " + apostrophe", hl.dsp.exec_cmd("brightnessctl --class=backlight set +5%"), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + apostrophe", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"), { repeating = true })
+hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("noctalia msg brightness-down"), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + semicolon", hl.dsp.exec_cmd("noctalia msg volume-down"), { repeating = true })
+hl.bind(mainMod .. " + apostrophe", hl.dsp.exec_cmd("noctalia msg brightness-up"), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + apostrophe", hl.dsp.exec_cmd("noctalia msg volume-up"), { repeating = true })
 
 -- media keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"))

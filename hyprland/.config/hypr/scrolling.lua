@@ -30,4 +30,5 @@ hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel prev"))
 hl.bind(mainMod .. " + period", hl.dsp.layout("consume_or_expel next"))
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + C", hl.dsp.layout("center"))
 

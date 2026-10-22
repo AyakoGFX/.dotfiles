@@ -96,6 +96,7 @@ app_icon_color = "on_surface"
 font_family = "Noto Sans"
 lang = "en"
 screen_time_enabled = true
+clipboard_auto_paste  = "off"          # off | auto | ctrl_v | ctrl_shift_v | shift_insert
 
 [shell.screenshot]
 annotate = true

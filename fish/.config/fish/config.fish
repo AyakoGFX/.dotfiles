@@ -12,3 +12,6 @@ alias ec="emacsclient -t"
 fish_add_path "$HOME/.local/scripts"
 fish_add_path "$HOME/.local/bin"
 fish_add_path "$HOME/bin"
+
+# opencode
+fish_add_path /home/jon/.opencode/bin
