@@ -24,13 +24,13 @@ center = [ "audio_visualizer", "clock", "audio_visualizer" ]
 # reserve_space      = false
 
 # remove rounding
-capsule            =  false
-radius               = 0
-radius_top_left      = 0
-radius_top_right     = 0
-radius_bottom_left   = 0
-radius_bottom_right  = 0
-capsule_radius       = 0      # only matters if capsule = true
+# capsule            =  false
+# radius               = 0
+# radius_top_left      = 0
+# radius_top_right     = 0
+# radius_bottom_left   = 0
+# radius_bottom_right  = 0
+capsule_radius       = 5     # only matters if capsule = true
 
 
 
@@ -105,6 +105,7 @@ freeze_screen = true
 
 
 [shell.launcher]
+layout = "simple"
 categories = false
 
 [shell.panel]
@@ -122,7 +123,6 @@ wallpaper_scheme = "m3-content"
 [theme.templates]
 builtin_ids = [ "alacritty", "emacs", "gtk3", "gtk4", "hyprland", "niri", "qt" ]
 community_ids = [ "papirus-icons" ]
-
 
 [widget.battery]
 enabled = false
@@ -164,23 +164,84 @@ enabled = false
 enabled = false
 type = "damian-ds7/battery-threshold:battery-threshold"
 
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-widget-0000000000000001", "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 540.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.0
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 0.29999999999999999
+        input_radius = 0.0
+        layout = "compact"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = false
+        show_unlock_hint = false
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 475.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background_opacity = 0.0
+        background_radius = 0
+
 
 [dock]
 background_opacity = 0.7
+position = "right"
 enabled = true
 reserve_space = false
 smart_auto_hide = true
-position = "left"
 show_dots = true
 show_instance_count = false
 
 # remove radious
-radius               = 0
-radius_top_left      = 0
-radius_top_right     = 0
-radius_bottom_left   = 0
-radius_bottom_right  = 0
-concave_edge_corners = false
+# radius               = 0
+# radius_top_left      = 0
+# radius_top_right     = 0
+# radius_bottom_left   = 0
+# radius_bottom_right  = 0
+# concave_edge_corners = false
+
+
+[hot_corners]
+enabled = true
+
+[hot_corners.top_left]
+action = "window_switcher"
+
+
 
 
 [plugins]

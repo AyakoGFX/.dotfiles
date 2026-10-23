@@ -1,0 +1,92 @@
+[desktop_widgets]
+schema_version = 2
+widget_order = [
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000003",
+    "desktop-widget-0000000000000004",
+    "desktop-widget-0000000000000005"
+]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 224.0
+    box_width = 576.0
+    cx = 352.0
+    cy = 204.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "label"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = true
+        background_color = "on_secondary"
+        background_opacity = 0.59999999999999998
+        background_padding = 10
+        background_radius = 12
+        color = "on_surface"
+        description = """\"One must elevate, not degrade, oneself by one's own mind. The mind alone is the friend of the soul, and the mind alone is the enemy of the soul.\"
+"""
+        font_family = ""
+        opacity = 1.0
+        shadow = true
+        title = "Bhagavad Gita 6.5"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 224.0
+    box_width = 240.0
+    cx = 184.0
+    cy = 444.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "sticker"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background = true
+        background_color = "on_secondary"
+        background_opacity = 0.59999999999999998
+        background_padding = 14
+        image_path = "/home/jon/.dotfiles/noctalia/.config/noctalia/stickers/1.jpg"
+        opacity = 1.0
+
+    [desktop_widgets.widget.desktop-widget-0000000000000004]
+    box_height = 224.0
+    box_width = 320.0
+    cx = 480.0
+    cy = 444.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "sticker"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        background_color = "on_secondary"
+        background_opacity = 0.59999999999999998
+        background_padding = 14
+        background_radius = 12
+        image_path = "/home/jon/.dotfiles/noctalia/.config/noctalia/stickers/2.jpg"
+        opacity = 1.0
+
+    [desktop_widgets.widget.desktop-widget-0000000000000005]
+    box_height = 128.0
+    box_width = 576.0
+    cx = 352.0
+    cy = 636.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
+        background_color = "on_secondary"
+        background_opacity = 0.59999999999999998
+
