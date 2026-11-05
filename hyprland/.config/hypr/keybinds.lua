@@ -7,6 +7,9 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. "+ C", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
+
+hl.bind(mainMod .. "+ i", hl.dsp.exec_cmd("noctalia msg desktop-widgets-toggle"))
+
 -- Lua config
 
 hl.bind("+ ALT + Tab", hl.dsp.exec_cmd("noctalia msg window-switcher"))
