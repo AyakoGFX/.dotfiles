@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Hz Generator</title>
+    <style>
+      :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+          --bg:#e8ecf0;--panel:#f7f9fb;--ink:#13202c;--muted:#5d6b78;--line:#ccd4dc;--grid:#dde3e9;--trace:#2c43f0;--fill:rgba(44,67,240,.55);--btn:#13202c;--btn-ink:#f7f9fb;--sel:#dfe5ff}
+      @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c121b;--panel:#131b27;--ink:#e6edf5;--muted:#8d9bab;--line:#263243;--grid:#1c2634;--trace:#8aa2ff;--fill:rgba(138,162,255,.6);--btn:#e6edf5;--btn-ink:#0c121b;--sel:#22305e}}
+      :root[data-theme="dark"]{--bg:#0c121b;--panel:#131b27;--ink:#e6edf5;--muted:#8d9bab;--line:#263243;--grid:#1c2634;--trace:#8aa2ff;--fill:rgba(138,162,255,.6);--btn:#e6edf5;--btn-ink:#0c121b;--sel:#22305e}
+      html{scroll-padding-top:env(safe-area-inset-top,0px)}
+      *{box-sizing:border-box}
+      body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+      main{max-width:860px;margin:0 auto;padding:20px 16px 32px;display:grid;gap:14px}
+      .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px}
+      .top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:6px 2px}
+      h1{margin:0;font-size:15px;font-weight:600;color:var(--muted)}
+      .read{font-size:clamp(44px,12vw,84px);font-weight:300;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+      .read small{font-size:.4em;font-weight:400;color:var(--muted);margin-left:.15em}
+      .meta{color:var(--muted);font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+      canvas{display:block;width:100%;border-radius:10px}
+      #scope{height:clamp(200px,38vh,320px)}
+      #spec{height:120px}
+      .cap{padding:8px 12px 0;font-size:13px;color:var(--muted)}
+      .controls{padding:16px;display:grid;gap:18px}
+      .row{display:grid;gap:8px}
+      label,.lbl{font-size:14px;font-weight:600}
+      .waves{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+      .wave{display:grid;justify-items:center;gap:4px;padding:10px 4px 8px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
+      .wave svg{width:44px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+      .wave[aria-pressed="true"]{background:var(--sel);border-color:var(--trace);color:var(--trace);font-weight:600}
+      .freq{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center}
+      input[type=range]{width:100%;accent-color:var(--trace);height:28px}
+      input[type=number]{width:110px;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-variant-numeric:tabular-nums}
+      .step{width:40px;height:40px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:20px;cursor:pointer}
+      .chips{display:flex;flex-wrap:wrap;gap:8px}
+      .chip{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
+      .go{height:52px;border:0;border-radius:10px;background:var(--btn);color:var(--btn-ink);font:inherit;font-size:17px;font-weight:600;cursor:pointer}
+      .note{font-size:13px;color:var(--muted);margin:0}
+      button:focus-visible,input:focus-visible{outline:2px solid var(--trace);outline-offset:2px}
+      .pair{display:grid;grid-template-columns:1fr;gap:18px}
+      @media(min-width:640px){.pair{grid-template-columns:1fr 1fr}}
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <div>
+          <h1>Hz Generator</h1>
+          <div class="read"><span id="hz">440.00</span><small>Hz</small></div>
+        </div>
+        <div class="meta"><div id="note">A4 +0¢</div><div id="per">Period 2.273 ms</div></div>
+      </div>
+
+      <div class="panel">
+        <div class="cap">Waveform</div>
+        <canvas id="scope" aria-label="Live oscilloscope view of the waveform"></canvas>
+      </div>
+      <div class="panel">
+        <div class="cap">Spectrum, 20 Hz to 20 kHz</div>
+        <canvas id="spec" aria-label="Live frequency spectrum"></canvas>
+      </div>
+
+      <div class="panel controls">
+        <div class="row">
+          <span class="lbl" id="wl">Shape</span>
+          <div class="waves" role="group" aria-labelledby="wl" id="waves">
+            <button class="wave" data-t="square" aria-pressed="true"><svg viewBox="0 0 44 22"><path d="M2 17V5h10v12h10V5h10v12h10"/></svg>Square</button>
+            <button class="wave" data-t="sawtooth" aria-pressed="false"><svg viewBox="0 0 44 22"><path d="M2 17L12 5V17L22 5V17L32 5V17L42 5"/></svg>Sawtooth</button>
+            <button class="wave" data-t="triangle" aria-pressed="false"><svg viewBox="0 0 44 22"><path d="M2 17L12 5L22 17L32 5L42 17"/></svg>Triangle</button>
+            <button class="wave" data-t="sine" aria-pressed="false"><svg viewBox="0 0 44 22"><path d="M2 11C7 0 12 0 17 11S27 22 32 11 39 2 42 6"/></svg>Sine</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="fs">Frequency</label>
+          <div class="freq">
+            <button class="step" id="dn" aria-label="Down 1 Hz">−</button>
+            <input type="range" id="fs" min="0" max="1000" step="1">
+            <button class="step" id="up" aria-label="Up 1 Hz">+</button>
+          </div>
+          <div class="chips" id="chips"></div>
+        </div>
+
+        <div class="pair">
+          <div class="row">
+            <label for="fn">Exact value (Hz)</label>
+            <input type="number" id="fn" min="20" max="20000" step="0.01" value="440">
+          </div>
+          <div class="row">
+            <label for="vol">Volume <span id="vv" style="font-weight:400;color:var(--muted)">25%</span></label>
+            <input type="range" id="vol" min="0" max="100" value="25">
+          </div>
+        </div>
+
+        <button class="go" id="go">Start tone</button>
+        <p class="note">Start with the volume low. Very high or very low tones may not play on small speakers. Space starts and stops.</p>
+      </div>
+    </main>
+
+    <script>
+      (function(){
+          var MIN=20, MAX=20000;
+          var ctx=null, osc=null, gain=null, an=null;
+          var running=false, type='square', freq=440, vol=.25;
+          var $=function(id){return document.getElementById(id)};
+          var names=['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+          var buf=new Float32Array(16384), fb=new Uint8Array(8192);
+
+          function s2f(v){return MIN*Math.pow(MAX/MIN,v/1000)}
+          function f2s(f){return Math.round(1000*Math.log(f/MIN)/Math.log(MAX/MIN))}
+          function noteOf(f){
+              var n=12*Math.log2(f/440)+69, r=Math.round(n), c=Math.round((n-r)*100);
+              return names[((r%12)+12)%12]+(Math.floor(r/12)-1)+' '+(c>=0?'+':'')+c+'¢';
+          }
+
+          function setFreq(f,src){
+              f=Math.min(MAX,Math.max(MIN,f)); freq=f;
+              $('hz').textContent=f.toFixed(2);
+              $('note').textContent=noteOf(f);
+              $('per').textContent='Period '+(1000/f).toFixed(3)+' ms';
+              if(src!=='s') $('fs').value=f2s(f);
+              if(src!=='n') $('fn').value=+f.toFixed(2);
+              if(osc) osc.frequency.setTargetAtTime(f,ctx.currentTime,.01);
+          }
+
+          function setType(t){
+              type=t;
+              document.querySelectorAll('.wave').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.t===t))});
+              if(osc) osc.type=t;
+          }
+
+          function start(){
+              if(!ctx){
+                  ctx=new (window.AudioContext||window.webkitAudioContext)();
+                  gain=ctx.createGain(); gain.gain.value=0;
+                  an=ctx.createAnalyser(); an.fftSize=16384; an.smoothingTimeConstant=.7;
+                  an.connect(gain); gain.connect(ctx.destination);
+              }
+              ctx.resume();
+              osc=ctx.createOscillator(); osc.type=type; osc.frequency.value=freq;
+              osc.connect(an); osc.start();
+              gain.gain.cancelScheduledValues(ctx.currentTime);
+              gain.gain.setTargetAtTime(vol,ctx.currentTime,.02);
+              running=true; $('go').textContent='Stop tone';
+          }
+          function stop(){
+              if(!running) return;
+              var o=osc;
+              gain.gain.cancelScheduledValues(ctx.currentTime);
+              gain.gain.setTargetAtTime(0,ctx.currentTime,.02);
+              setTimeout(function(){try{o.stop();o.disconnect()}catch(e){}},150);
+              osc=null; running=false; $('go').textContent='Start tone';
+          }
+          function toggle(){running?stop():start()}
+
+          /* controls */
+          $('go').onclick=toggle;
+          document.querySelectorAll('.wave').forEach(function(b){b.onclick=function(){setType(b.dataset.t)}});
+          $('fs').oninput=function(e){setFreq(s2f(+e.target.value),'s')};
+          $('fn').oninput=function(e){var v=parseFloat(e.target.value); if(v>0) setFreq(v,'n')};
+          $('fn').onchange=function(){setFreq(freq)};
+          $('up').onclick=function(){setFreq(freq+1)};
+          $('dn').onclick=function(){setFreq(freq-1)};
+          $('vol').oninput=function(e){
+              vol=e.target.value/100; $('vv').textContent=e.target.value+'%';
+              if(running) gain.gain.setTargetAtTime(vol,ctx.currentTime,.02);
+          };
+          [55,110,220,440,1000,5000].forEach(function(f){
+              var b=document.createElement('button'); b.className='chip';
+              b.textContent=f>=1000?(f/1000)+' kHz':f+' Hz'; b.onclick=function(){setFreq(f)};
+              $('chips').appendChild(b);
+          });
+          document.addEventListener('keydown',function(e){
+              if(e.code==='Space'&&!/INPUT|BUTTON/.test(document.activeElement.tagName)){e.preventDefault();toggle()}
+          });
+
+          /* drawing */
+          function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+          function fit(c){
+              var r=c.getBoundingClientRect(), d=window.devicePixelRatio||1;
+              var w=Math.round(r.width*d), h=Math.round(r.height*d);
+              if(c.width!==w||c.height!==h){c.width=w;c.height=h}
+              return d;
+          }
+          function grid(g,W,H,d){
+              g.strokeStyle=css('--grid'); g.lineWidth=d; g.beginPath();
+              for(var i=1;i<10;i++){var x=Math.round(W*i/10)+.5; g.moveTo(x,0); g.lineTo(x,H)}
+              for(var j=1;j<6;j++){var y=Math.round(H*j/6)+.5; g.moveTo(0,y); g.lineTo(W,y)}
+              g.stroke();
+          }
+
+          function drawScope(){
+              var c=$('scope'), g=c.getContext('2d'), d=fit(c), W=c.width, H=c.height;
+              g.clearRect(0,0,W,H); grid(g,W,H,d);
+              g.strokeStyle=css('--muted'); g.lineWidth=d; g.beginPath(); g.moveTo(0,H/2); g.lineTo(W,H/2); g.stroke();
+              g.strokeStyle=css('--trace'); g.lineWidth=2.2*d; g.lineJoin='round'; g.beginPath();
+              if(!an||!running){g.moveTo(0,H/2); g.lineTo(W,H/2); g.stroke(); return}
+              an.getFloatTimeDomainData(buf);
+              var per=ctx.sampleRate/freq;
+              var win=Math.floor(Math.min(Math.max(per*3,256),7000));
+              var start=0, lim=buf.length-win-1;
+              for(var i=1;i<lim;i++){ if(buf[i-1]<0&&buf[i]>=0){start=i;break} }
+              var step=Math.max(1,Math.floor(win/W)), amp=H*.4;
+              for(var k=0;k<win;k+=step){
+                  var x=k/win*W, y=H/2-buf[start+k]*amp;
+                  k===0?g.moveTo(x,y):g.lineTo(x,y);
+              }
+              g.stroke();
+          }
+
+          function drawSpec(){
+              var c=$('spec'), g=c.getContext('2d'), d=fit(c), W=c.width, H=c.height;
+              g.clearRect(0,0,W,H); grid(g,W,H,d);
+              var sr=ctx?ctx.sampleRate:48000, nyq=sr/2, bins=fb.length;
+              if(an&&running){
+                  an.getByteFrequencyData(fb);
+                  g.fillStyle=css('--fill');
+                  var bw=Math.max(2,Math.round(2*d));
+                  for(var x=0;x<W;x+=bw){
+                      var f0=MIN*Math.pow(MAX/MIN,x/W), f1=MIN*Math.pow(MAX/MIN,(x+bw)/W);
+                      var b0=Math.floor(f0/nyq*bins), b1=Math.max(b0,Math.ceil(f1/nyq*bins)), m=0;
+                      for(var b=b0;b<=b1&&b<bins;b++) if(fb[b]>m) m=fb[b];
+                      var h=m/255*H; g.fillRect(x,H-h,bw-d*.5,h);
+                  }
+              }
+              g.fillStyle=css('--muted'); g.font=(11*d)+'px system-ui,sans-serif'; g.textBaseline='bottom';
+              [[100,'100'],[1000,'1k'],[10000,'10k']].forEach(function(t){
+                  var x=Math.log(t[0]/MIN)/Math.log(MAX/MIN)*W; g.fillText(t[1],x+4*d,H-4*d);
+              });
+          }
+
+          function frame(){drawScope(); drawSpec(); requestAnimationFrame(frame)}
+          setFreq(440); setType('square'); frame();
+      })();
+    </script>
+  </body>
+</html>
